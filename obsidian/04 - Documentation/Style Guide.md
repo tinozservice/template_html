@@ -113,6 +113,13 @@ Dipakai oleh [[hotel-booking-golden-hour]]; dapat dijadikan acuan untuk template
 - Tinta hangat: `#31241A` (teks), `#5E4B39` (sekunder), `#7E6A54` (muted)
 - Tipografi: Fraunces (display serif), Inter (body), IBM Plex Mono (angka/harga); ikon Font Awesome seperlunya
 
+### Tema Referensi — Slate Cyan (Gray–Cyan)
+Dipakai oleh [[portfolio-slate-cyan]]; dapat dijadikan acuan untuk template bertema dingin/tech.
+- Slate netral: `#16202B` (tinta), `#33404E` (sekunder), `#4C5A6A` (slate), `#6B7887` (muted)
+- Garis & latar: `#DEE5EA` (garis), `#EBF0F3` (garis soft), `#F7F9FA` (page), `#F1F5F7` (panel), `#FFFFFF` (kartu)
+- Cyan: `#0F7387` (aksi), `#12879D` (aksen), `#1FA0B5` (terang), `#BFE5EC`/`#DFF2F6`/`#F0F9FB` (tint)
+- Tipografi: Space Grotesk (display), Inter (body), IBM Plex Mono (label/angka); ikon Font Awesome seperlunya
+
 ### Prinsip Anti AI-Slop (WAJIB)
 - Hindari gradien berlebihan dan warna rainbow; gunakan palet terbatas / ramp satu hue
 - Hindari shadow berlapis, glow neon, dan glassmorphism (`backdrop-filter: blur`)

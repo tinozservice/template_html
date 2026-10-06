@@ -46,6 +46,14 @@
 
 ---
 
+### # 2026-10-06 - Tema warna Slate Cyan (gray–cyan) & pola animasi ringan
+**Konteks**: Pembuatan template portfolio memerlukan identitas warna dingin (gray, cyan, dan turunannya).
+**Keputusan**: Palet Slate Cyan — slate netral `#16202B`/`#4C5A6A`/`#6B7887`, garis `#DEE5EA`/`#EBF0F3`, background `#F7F9FA`, cyan `#0F7387`/`#12879D`/`#1FA0B5` dengan tint `#DFF2F6`/`#F0F9FB`. Tipografi: Space Grotesk (display), Inter (body), IBM Plex Mono (label/angka). Pola interaksi ringan: scrollspy navbar (IntersectionObserver), reveal-on-scroll, progress bar skill yang terisi saat terlihat — semuanya dinonaktifkan dengan `prefers-reduced-motion`.
+**Dampak**: Template portfolio berikutnya memakai variabel CSS yang sama; trik `html.js` dipakai agar konten tetap terlihat bila JavaScript mati.
+**Referensi**: [[portfolio-slate-cyan]], [[Style Guide]]
+
+---
+
 ### # YYYY-MM-DD - Deskripsi keputusan
 **Konteks**: 
 **Keputusan**: 
@@ -70,9 +78,9 @@
 ## 📚 Pembelajaran
 
 ### Pelajaran 1
-- **Masalah**: 
-- **Solusi**: 
-- **Referensi**: 
+- **Masalah**: Blok aksen foto yang diposisikan absolut terhadap seluruh `figure` (termasuk area figcaption) membuat caption tampak "terpleset" keluar dari foto dan mengambang di atas blok aksen.
+- **Solusi**: Batasi elemen dekoratif (offset accent block) di dalam wrapper khusus yang hanya membungkus foto (`photo-wrap`), lalu beri jarak caption dari tepi aksen agar duduk bersih di atas background halaman. Terapkan pada [[portfolio-slate-cyan]].
+- **Referensi**: [[portfolio-slate-cyan]]
 
 ---
 

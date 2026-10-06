@@ -10,7 +10,7 @@
 ### 🎨 Portfolio
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
-| - | - | - | - | - |
+| portfolio-slate-cyan | ✅ Selesai | 2026-10-06 | v1.0.0 | [[portfolio-slate-cyan]] |
 
 ### 💼 Landing Page
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
@@ -150,6 +150,46 @@ Halaman pencarian & booking hotel satu file bertema **Golden Hour** — ramp war
 
 ### Preview
 ![[preview-hotel-booking-golden-hour.png]]
+
+### Link Terkait
+- [[Progress Log]]
+
+---
+
+## 🎨 Portfolio — Slate Cyan
+
+- **File**: `templates/portfolio-slate-cyan.html`
+- **Kategori**: Portfolio
+- **Tanggal**: 2026-10-06
+- **Versi**: v1.0.0
+- **Status**: ✅ Selesai
+
+### Deskripsi
+Portofolio personal satu file bertema **Slate Cyan** — slate netral dingin dipadukan ramp cyan. Gaya flat: garis 1px, radius kecil (3–6px), tanpa gradien/glow, ikon hemat, tipografi Space Grotesk (display) + Inter (body) + IBM Plex Mono (label/angka). Persona sample: "Raka Pratama — Web Designer & Front-end Developer".
+
+### Fitur
+- Header: brand/monogram kiri, navbar section kanan (About, Skills, Projects, Services, Contact) dengan **scrollspy**
+- **Hero**: badge ketersediaan, nama, role, lead, CTA, stats mono (pengalaman/proyek/klien), foto profil dengan aksen blok flat
+- **About**: narasi 2 paragraf + facts grid (lokasi, pengalaman, fokus, mode kerja)
+- **Skills**: 6 progress bar yang terisi saat terlihat di viewport
+- **Projects**: 3 kartu (gambar, jenis, deskripsi, tag, link "Open case study")
+- **Services**: 3 kartu layanan (Web Design, Front-end Development, SEO & Performance) dengan daftar deliverable
+- **Contact**: daftar Email / WhatsApp / Telegram + form demo (membuka mailto dengan pesan terisi) + toast
+- Footer: kiri brand © 2026 | slogan, kanan 5 sosial media (LinkedIn, Fiverr, Facebook, Instagram, GitHub)
+- Reveal-on-scroll halus, responsif mobile-first, mendukung `prefers-reduced-motion`, konten tetap terlihat tanpa JavaScript (`html.js`)
+
+### Catatan Desain
+- Palet: slate `#16202B`/`#4C5A6A`, garis `#DEE5EA`, page `#F7F9FA`, cyan `#0F7387`/`#12879D`, tint `#DFF2F6`/`#F0F9FB`
+- Anti AI-slop: tanpa gradien, tanpa glow/glassmorphism, radius maksimal 6px
+
+### Teknologi
+- HTML5 semantic
+- CSS3 (Custom Properties, Grid, Flexbox, animasi ringan)
+- Vanilla JavaScript (IIFE, IntersectionObserver)
+- Google Fonts (Space Grotesk, Inter, IBM Plex Mono), Font Awesome 6 (hemat), foto profil & projek dari Unsplash
+
+### Preview
+![[preview-portfolio-slate-cyan.png]]
 
 ### Link Terkait
 - [[Progress Log]]
