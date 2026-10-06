@@ -8,6 +8,22 @@ Projek ini bertujuan untuk menghasilkan template dalam bentuk HTML.
 - Beri nama file sesuai dengan nama template atau style tema yang dihasilkan
 - Contoh: `portfolio-modern.html`, `landing-page-corporate.html`, `blog-minimal.html`
 
+## Struktur Direktori Output (Rekomendasi)
+- **WAJIB**: semua file template HTML disimpan di dalam direktori khusus `templates/`
+- **DILARANG** menyimpan file template langsung di root projek, agar root tetap bersih
+- Struktur yang direkomendasikan:
+  ```
+  template-html/
+  ├── AGENTS.md
+  ├── obsidian/            # Vault dokumentasi (HUB, Log, Memory, dsb)
+  └── templates/           # SEMUA output template HTML
+      ├── marketing-report.html
+      └── ...
+  ```
+- Aset pendukung (jika ada) disimpan di subfolder di dalam template masing-masing, contoh: `templates/marketing-report/assets/`
+- Nama direktori lain yang dapat dipakai: `output/` atau `dist/`. Jika memilih nama berbeda, gunakan satu nama secara konsisten di seluruh projek
+- Setiap penambahan/pemindahan template wajib diperbarui di vault Obsidian (khususnya [[Templates Index]])
+
 ## Penggunaan Vault Obsidian
 - **Vault Obsidian** berfungsi sebagai:
   - Log progres pengerjaan template

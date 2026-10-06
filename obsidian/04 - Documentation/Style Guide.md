@@ -5,19 +5,37 @@
 
 ## 📁 Struktur File Template
 
-### Struktur Dasar
+### Struktur Projek (Output)
+Semua output template disimpan di direktori `templates/`, bukan di root projek.
 ```
-template-nama/
-├── nama-template.html       # File utama template
-├── css/
-│   ├── style.css           # CSS utama
-│   └── reset.css           # CSS reset (opsional)
-├── js/
-│   └── script.js           # JavaScript (jika diperlukan)
-└── assets/
-    ├── images/
-    ├── fonts/
-    └── icons/
+template-html/
+├── AGENTS.md
+├── obsidian/                # Vault dokumentasi (HUB, Log, Memory, dsb)
+└── templates/               # SEMUA output template HTML
+    └── nama-template.html
+```
+
+### Struktur Template Tunggal (single-file, direkomendasikan)
+Template dapat berdiri sendiri dalam satu file HTML (HTML + CSS + JS inline), tanpa dependensi eksternal.
+```
+templates/
+└── nama-template.html
+```
+
+### Struktur Template Multi-File (opsional)
+Jika template memerlukan aset terpisah, gunakan subfolder di dalam template.
+```
+templates/
+└── nama-template/
+    ├── nama-template.html   # File utama template
+    ├── css/
+    │   └── style.css        # CSS utama
+    ├── js/
+    │   └── script.js        # JavaScript (jika diperlukan)
+    └── assets/
+        ├── images/
+        ├── fonts/
+        └── icons/
 ```
 
 ## 💻 Konvensi HTML
@@ -80,6 +98,20 @@ template-nama/
 - Success: `#28a745`
 - Background: `#ffffff`
 - Text: `#212529`
+
+### Tema Referensi — Deep Ocean + Light Blue Sky
+Dipakai oleh [[marketing-report]]; dapat dijadikan acuan untuk template bertema serupa.
+- Deep Ocean (tinta): `#0b2b3f`, `#0f4c75`, `#1f6f9e`
+- Light Blue Sky (tint): `#3f8fba`, `#6fb3d6`, `#a8d0e8`, `#eef4f8`
+- Aksen hemat: teal `#2f8f83`, amber `#b9822f`, coral `#b0505f`
+
+### Prinsip Anti AI-Slop (WAJIB)
+- Hindari gradien berlebihan dan warna rainbow; gunakan palet terbatas / ramp satu hue
+- Hindari shadow berlapis, glow neon, dan glassmorphism (`backdrop-filter: blur`)
+- Batasi `border-radius` (mis. 2–4px); hindari `999px` di mana-mana
+- Utamakan flat color, garis tipis (1px), dan whitespace yang lapang
+- Tipografi tegas: hierarki jelas, boleh memakai aksen monospace untuk angka/label
+- Animasi seperlunya dan halus; hormati `prefers-reduced-motion`
 
 ### Typography
 - Font utama: `Inter, system-ui, sans-serif`

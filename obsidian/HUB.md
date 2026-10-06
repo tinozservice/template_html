@@ -28,6 +28,14 @@ obsidian/
 ## 📊 Status Terkini
 | Aspek | Status | Terakhir Diupdate |
 |-------|--------|-------------------|
-| Template aktif | - | - |
-| Total template selesai | 0 | - |
-| Agent bertugas | - | - |
+| Template aktif | `templates/marketing-report.html` | 2026-10-06 |
+| Total template selesai | 1 | 2026-10-06 |
+| Agent bertugas | AI Agent | 2026-10-06 |
+
+## 📄 Template Terbaru
+- **Marketing Report** — `templates/marketing-report.html` (Deep Ocean + Light Blue Sky, gaya editorial report) → detail di [[Templates Index]]
+
+## 📁 Struktur Output (Rekomendasi)
+- Semua template HTML disimpan di direktori `templates/` (bukan root projek)
+- Aset pendukung (jika ada) di subfolder template, mis. `templates/nama-template/assets/`
+- Aturan lengkap: lihat bagian **Struktur Direktori Output** di `AGENTS.md`
