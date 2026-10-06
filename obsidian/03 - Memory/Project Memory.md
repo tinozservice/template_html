@@ -18,7 +18,7 @@
 **Konteks**: Desain awal memakai banyak gradien, glow, glassmorphism, dan radius besar yang tampak generic/AI-generated.
 **Keputusan**: Beralih ke gaya *editorial report*: flat color, palet monokromatik Deep Ocean → Light Blue Sky, garis tipis 1px, radius 2–4px, tipografi tegas dengan aksen monospace, menerima `prefers-reduced-motion`.
 **Dampak**: Template tampak lebih natural, profesional, dan punya karakter; jadi acuan desain template berikutnya.
-**Referensi**: [[marketing-report]], [[Style Guide]]
+**Referensi**: [[marketing-report-deep-ocean]], [[Style Guide]]
 
 ---
 
@@ -26,7 +26,7 @@
 **Konteks**: Pembuatan template dashboard Marketing Report memerlukan identitas warna yang konsisten dan profesional.
 **Keputusan**: Menggunakan palet dua tema — Deep Ocean sebagai tinta (`#0b2b3f`, `#0f4c75`, `#1f6f9e`) dan Light Blue Sky sebagai tint (`#3f8fba`, `#6fb3d6`, `#a8d0e8`, `#eef4f8`), dengan aksen hemat teal/amber/coral.
 **Dampak**: Semua template bertema serupa memakai variabel CSS yang sama agar konsisten; mudah diubah via `:root`.
-**Referensi**: [[marketing-report]]
+**Referensi**: [[marketing-report-deep-ocean]]
 
 ---
 
@@ -34,13 +34,13 @@
 **Konteks**: Template harus portabel dan bisa dibuka langsung tanpa internet.
 **Keputusan**: Semua chart (line, area, bar, horizontal bar, donut, funnel, gauge, sparkline) dibangun dengan SVG + vanilla JS, bukan library eksternal seperti Chart.js.
 **Dampak**: File tunggal, ringan, tanpa CDN; animasi & tooltip dikontrol sendiri.
-**Referensi**: [[marketing-report]]
+**Referensi**: [[marketing-report-deep-ocean]]
 
 ---
 
 ### # 2026-10-06 - Tema warna Golden Hour (oranye–kuning) & dependensi eksternal
 **Konteks**: Pembuatan template hotel booking memerlukan identitas warna hangat (orange, yellow, dan turunannya).
-**Keputusan**: Palet Golden Hour — oranye `#A84A0F`/`#C25A14`/`#7C350B`, kuning-amber `#E2A23C`/`#F0C87E`/`#F5E3C2`, netral krem `#FAF6EE`/`#FDF4E3`/`#FFFDF8`, tinta hangat `#31241A`. Tipografi: Fraunces (display), Inter (body), IBM Plex Mono (angka/harga). Template ini memakai dependensi eksternal (Google Fonts, Font Awesome 6 seperlunya, foto kamar Unsplash) — berbeda dari marketing-report yang sepenuhnya offline.
+**Keputusan**: Palet Golden Hour — oranye `#A84A0F`/`#C25A14`/`#7C350B`, kuning-amber `#E2A23C`/`#F0C87E`/`#F5E3C2`, netral krem `#FAF6EE`/`#FDF4E3`/`#FFFDF8`, tinta hangat `#31241A`. Tipografi: Fraunces (display), Inter (body), IBM Plex Mono (angka/harga). Template ini memakai dependensi eksternal (Google Fonts, Font Awesome 6 seperlunya, foto kamar Unsplash) — berbeda dari marketing-report-deep-ocean yang sepenuhnya offline.
 **Dampak**: Template bertema hangat berikutnya memakai variabel CSS yang sama; prinsip anti AI-slop tetap dipertahankan (tanpa gradien, tanpa glow, radius ≤ 6px).
 **Referensi**: [[hotel-booking-golden-hour]], [[Style Guide]]
 
@@ -51,6 +51,14 @@
 **Keputusan**: Palet Slate Cyan — slate netral `#16202B`/`#4C5A6A`/`#6B7887`, garis `#DEE5EA`/`#EBF0F3`, background `#F7F9FA`, cyan `#0F7387`/`#12879D`/`#1FA0B5` dengan tint `#DFF2F6`/`#F0F9FB`. Tipografi: Space Grotesk (display), Inter (body), IBM Plex Mono (label/angka). Pola interaksi ringan: scrollspy navbar (IntersectionObserver), reveal-on-scroll, progress bar skill yang terisi saat terlihat — semuanya dinonaktifkan dengan `prefers-reduced-motion`.
 **Dampak**: Template portfolio berikutnya memakai variabel CSS yang sama; trik `html.js` dipakai agar konten tetap terlihat bila JavaScript mati.
 **Referensi**: [[portfolio-slate-cyan]], [[Style Guide]]
+
+---
+
+### # 2026-10-06 - Konvensi penamaan template: akhiri dengan tema warna
+**Konteks**: User ingin nama file template mencantumkan tema warna di kata akhir agar konsisten, seperti `hotel-booking-golden-hour` dan `portfolio-slate-cyan`.
+**Keputusan**: Format nama template: `purpose-theme.html` (tema di kata akhir). `marketing-report.html` di-rename menjadi `marketing-report-deep-ocean.html` (tema Deep Ocean + Light Blue Sky) dengan `git mv` agar riwayat terjaga.
+**Dampak**: Semua template baru wajib mengikuti format ini; referensi lama di vault (AGENTS.md, HUB, Log, Templates Index, Style Guide) diperbarui.
+**Referensi**: [[marketing-report-deep-ocean]], [[Templates Index]]
 
 ---
 

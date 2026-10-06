@@ -28,7 +28,7 @@
   - [x] Menambahkan tabel detail performa kampanye
   - [x] Verifikasi console browser (0 error) & tampilan responsif
   - [x] Update vault Obsidian (Log, Templates Index, Memory, HUB)
-- **Template yang dikerjakan**: [[marketing-report]]
+- **Template yang dikerjakan**: [[marketing-report-deep-ocean]]
 - **Catatan**: Template dashboard analitik pemasaran satu file (HTML + CSS + JS inline, tanpa dependensi eksternal). Semua chart dibangun dengan SVG + vanilla JS.
 
 ---
@@ -43,7 +43,7 @@
   - [x] Beralih ke gaya *editorial report*: flat, garis tipis, palet monokromatik, aksen monospace
   - [x] Verifikasi console browser (0 error)
   - [x] Update vault Obsidian (Log, Templates Index, Style Guide, Memory, HUB)
-- **Template yang dikerjakan**: [[marketing-report]]
+- **Template yang dikerjakan**: [[marketing-report-deep-ocean]]
 - **Catatan**: Versi template naik ke v1.1.0.
 
 ---
@@ -82,6 +82,17 @@
 
 ---
 
+### # 2026-10-06 - Rename Marketing Report → marketing-report-deep-ocean
+- **Tanggal**: 06 Oktober 2026
+- **Aktivitas**:
+  - [x] Rename file `templates/marketing-report.html` → `templates/marketing-report-deep-ocean.html` via `git mv` (riwayat terjaga)
+  - [x] Konvensi nama template: diakhiri tema warna — golden-hour, slate-cyan, deep-ocean
+  - [x] Update referensi: AGENTS.md, HUB, Templates Index, Memory, Style Guide
+- **Template yang dikerjakan**: [[marketing-report-deep-ocean]]
+- **Catatan**: Isi template tidak berubah (tetap v1.1.0); hanya penamaan file dan referensi dokumentasi.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -99,7 +110,8 @@
 | Tanggal | Template | Aktivitas | Status |
 |---------|----------|-----------|--------|
 | 2026-10-06 | - | Inisialisasi | ✅ Selesai |
-| 2026-10-06 | marketing-report | Pembuatan template dashboard | ✅ Selesai |
-| 2026-10-06 | marketing-report | Redesain anti AI-slop + pindah ke `templates/` | ✅ Selesai |
+| 2026-10-06 | marketing-report-deep-ocean | Pembuatan template dashboard | ✅ Selesai |
+| 2026-10-06 | marketing-report-deep-ocean | Redesain anti AI-slop + pindah ke `templates/` | ✅ Selesai |
+| 2026-10-06 | marketing-report-deep-ocean | Rename dari marketing-report | ✅ Selesai |
 | 2026-10-06 | hotel-booking-golden-hour | Pembuatan template hotel booking | ✅ Selesai |
 | 2026-10-06 | portfolio-slate-cyan | Pembuatan template portfolio | ✅ Selesai |

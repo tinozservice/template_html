@@ -100,7 +100,7 @@ templates/
 - Text: `#212529`
 
 ### Tema Referensi — Deep Ocean + Light Blue Sky
-Dipakai oleh [[marketing-report]]; dapat dijadikan acuan untuk template bertema serupa.
+Dipakai oleh [[marketing-report-deep-ocean]]; dapat dijadikan acuan untuk template bertema serupa.
 - Deep Ocean (tinta): `#0b2b3f`, `#0f4c75`, `#1f6f9e`
 - Light Blue Sky (tint): `#3f8fba`, `#6fb3d6`, `#a8d0e8`, `#eef4f8`
 - Aksen hemat: teal `#2f8f83`, amber `#b9822f`, coral `#b0505f`

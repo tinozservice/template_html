@@ -35,7 +35,7 @@
 ### 📊 Marketing Report
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
-| marketing-report | ✅ Selesai | 2026-10-06 | v1.1.0 | [[marketing-report]] |
+| marketing-report-deep-ocean | ✅ Selesai | 2026-10-06 | v1.1.0 | [[marketing-report-deep-ocean]] |
 
 ## ➕ Cara Menambahkan Template Baru
 
@@ -75,9 +75,9 @@ Deskripsi singkat template ini
 
 ---
 
-## 📊 Marketing Report
+## 📊 Marketing Report — Deep Ocean
 
-- **File**: `templates/marketing-report.html`
+- **File**: `templates/marketing-report-deep-ocean.html`
 - **Kategori**: Marketing Report / Dashboard
 - **Tanggal**: 2026-10-06
 - **Versi**: v1.1.0
@@ -110,7 +110,7 @@ Laporan pemasaran satu halaman bergaya **editorial report** dengan tema warna **
 - Chart digambar dengan SVG murni
 
 ### Preview
-![[preview-marketing-report.png]]
+![[preview-marketing-report-deep-ocean.png]]
 
 ### Link Terkait
 - [[Progress Log]]
