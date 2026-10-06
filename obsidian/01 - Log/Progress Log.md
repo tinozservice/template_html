@@ -93,6 +93,38 @@
 
 ---
 
+### # 2026-10-06 - Template E-Novel Maroon Gray
+- **Tanggal**: 06 Oktober 2026
+- **Aktivitas**:
+  - [x] Membuat template `templates/e-novel-maroon-gray.html` berdasarkan screenshot referensi (tema Maroon + Gray)
+  - [x] Sidebar (Home, Discover, Bookmark, Settings, Help) + topbar (search, dark mode, notifikasi, avatar)
+  - [x] Tab Popular/Top Selling/Following/New + grid 10 buku + daftar reading progress
+  - [x] Rail kanan: Trending Author (Follow/Unfollow fungsional) + "Newest Novel" (rename dari "Popular Blogs" sesuai permintaan)
+  - [x] Dark mode fungsional (ikon bulan/matahari), search filter buku, responsif (sidebar drawer + backdrop)
+  - [x] Seleksi gambar: 20 kandidat Unsplash diinspeksi visual via unduhan kecil; 22 URL final diverifikasi HTTP 200
+  - [x] Verifikasi statis: tag balance, duplikasi id, syntax JS
+  - [x] Revisi review: cover terlalu vertikal — root cause atribut height menang atas aspect-ratio; fix `height: auto` + rasio 2/3 → 3/4, terverifikasi di browser (174×232)
+  - [x] Update vault Obsidian (Log, Templates Index, Memory + Pelajaran 2, HUB, Style Guide)
+  - [x] Direview & disetujui user — commit dan push
+- **Template yang dikerjakan**: [[e-novel-maroon-gray]]
+- **Catatan**: Direview dan disetujui user; di-commit dan dipush ke `origin`.
+
+---
+
+### # 2026-10-06 - Perbaikan Rasio Gambar (Atribut height vs aspect-ratio)
+- **Tanggal**: 06 Oktober 2026
+- **Aktivitas**:
+  - [x] Audit semua template: hanya portfolio & e-novel yang terpapar; hotel aman (tinggi eksplisit), marketing-report tanpa gambar
+  - [x] Portfolio v1.0.1: tambah `height: auto` pada `.photo-frame img` & `.project-media img`
+  - [x] E-Novel: `height: auto` + rasio cover 2/3 → 3/4 (bagian dari revisi review)
+  - [x] Verifikasi langsung di browser user: hero 398×498 (4/5), projek 357×238 (3/2), cover e-novel 174×232 (3/4)
+  - [x] Catat Pelajaran 3 di [[Project Memory]]
+  - [x] Direview & disetujui user — commit dan push
+- **Template yang dikerjakan**: [[portfolio-slate-cyan]], [[e-novel-maroon-gray]]
+- **Catatan**: Root cause: atribut `height` pada `<img>` berlaku sebagai tinggi tetap bila CSS tidak menetapkan `height`, sehingga `aspect-ratio` terabaikan. Fix disetujui user; di-commit dan dipush.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -115,3 +147,5 @@
 | 2026-10-06 | marketing-report-deep-ocean | Rename dari marketing-report | ✅ Selesai |
 | 2026-10-06 | hotel-booking-golden-hour | Pembuatan template hotel booking | ✅ Selesai |
 | 2026-10-06 | portfolio-slate-cyan | Pembuatan template portfolio | ✅ Selesai |
+| 2026-10-06 | e-novel-maroon-gray | Pembuatan template E-Novel (maroon–gray) | ✅ Selesai |
+| 2026-10-06 | portfolio-slate-cyan | Fix rasio gambar (height:auto) v1.0.1 | ✅ Selesai |

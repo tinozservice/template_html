@@ -120,6 +120,13 @@ Dipakai oleh [[portfolio-slate-cyan]]; dapat dijadikan acuan untuk template bert
 - Cyan: `#0F7387` (aksi), `#12879D` (aksen), `#1FA0B5` (terang), `#BFE5EC`/`#DFF2F6`/`#F0F9FB` (tint)
 - Tipografi: Space Grotesk (display), Inter (body), IBM Plex Mono (label/angka); ikon Font Awesome seperlunya
 
+### Tema Referensi — Maroon Gray
+Dipakai oleh [[e-novel-maroon-gray]]; mendukung dark mode.
+- Maroon: `#4C1119` (aksi utama/pill aktif), `#6B1620` (tombol), `#8A1F2D` (aksen/link), `#A62B3C` (hover), tint `#F3DDE1`/`#FBF0F2`
+- Netral: `#2A272E` (tinta), `#46424B` (sekunder), `#6B6770` (gray), `#8A8691` (muted), garis `#E4E1E6`/`#EFEDF1`, background `#F5F4F6`
+- Dark mode: background `#17151A`, kartu `#201D24`, panel `#26232B`, garis `#3A3540`, tinta `#F1EEF4`, aksen teks `#DE96A3`
+- Tipografi: Outfit (display), Inter (body), IBM Plex Mono (angka); pill (radius 999) hanya untuk tab & tombol follow
+
 ### Prinsip Anti AI-Slop (WAJIB)
 - Hindari gradien berlebihan dan warna rainbow; gunakan palet terbatas / ramp satu hue
 - Hindari shadow berlapis, glow neon, dan glassmorphism (`backdrop-filter: blur`)

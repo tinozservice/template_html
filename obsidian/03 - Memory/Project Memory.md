@@ -62,6 +62,14 @@
 
 ---
 
+### # 2026-10-06 - Tema warna Maroon Gray (maroon–gray) + dark mode
+**Konteks**: Pembuatan template E-Novel memerlukan identitas warna maroon + gray dan dukungan tampilan gelap seperti pada referensi screenshot.
+**Keputusan**: Palet Maroon Gray — maroon `#4C1119`/`#6B1620`/`#8A1F2D`/`#A62B3C` dengan tint `#F3DDE1`/`#FBF0F2`; netral `#2A272E`/`#6B6770`/`#8A8691`, garis `#E4E1E6`/`#EFEDF1`, background `#F5F4F6`. Tipografi: Outfit (display), Inter (body), IBM Plex Mono (angka). Dark mode via override CSS variables pada `body.dark` + tombol toggle (tanpa localStorage).
+**Dampak**: Pola dark mode ini bisa dipakai ulang untuk template app-like berikutnya; pill radius hanya untuk tab & tombol follow, sisanya radius kecil (anti AI-slop).
+**Referensi**: [[e-novel-maroon-gray]], [[Style Guide]]
+
+---
+
 ### # YYYY-MM-DD - Deskripsi keputusan
 **Konteks**: 
 **Keputusan**: 
@@ -89,6 +97,16 @@
 - **Masalah**: Blok aksen foto yang diposisikan absolut terhadap seluruh `figure` (termasuk area figcaption) membuat caption tampak "terpleset" keluar dari foto dan mengambang di atas blok aksen.
 - **Solusi**: Batasi elemen dekoratif (offset accent block) di dalam wrapper khusus yang hanya membungkus foto (`photo-wrap`), lalu beri jarak caption dari tepi aksen agar duduk bersih di atas background halaman. Terapkan pada [[portfolio-slate-cyan]].
 - **Referensi**: [[portfolio-slate-cyan]]
+
+### Pelajaran 2
+- **Masalah**: (1) Saat mengunduh gambar stok via loop PowerShell, URL `"photo-$id?auto=..."` rusak — PowerShell membaca `$id?auto` sebagai satu nama variabel sehingga hasilnya 404. (2) ID foto Unsplash yang dipilih dari ingatan bisa salah konten (mis. foto uang atau orang di depan komputer, bukan buku).
+- **Solusi**: (1) Selalu bungkus nama variabel dengan `${}` sebelum karakter `?` pada URL: `photo-${id}?auto=...`. (2) Verifikasi visual gambar sebelum dipakai: unduh versi kecil (`w=160&q=40`), inspeksi satu per satu, baru tulis URL ke template. (3) Cek massal semua URL gambar template dengan curl (`-sL`, harus 200) sebelum review.
+- **Referensi**: [[e-novel-maroon-gray]]
+
+### Pelajaran 3
+- **Masalah**: Gambar dengan atribut `width`/`height` dirender sangat vertikal (mis. cover buku 174×600) karena atribut `height` berlaku sebagai tinggi tetap dan mengalahkan `aspect-ratio` CSS bila CSS tidak menetapkan `height`. Terbukti di browser user: `aspect-ratio: 2/3` terabaikan, tinggi mengikuti atribut (600px).
+- **Solusi**: Selalu tulis `height: auto` pada selector gambar yang rasionya dikontrol CSS (`width: 100%; height: auto; aspect-ratio: ...; object-fit: cover;`). Hasil audit: hotel aman (tinggi eksplisit), marketing-report tanpa gambar, portfolio & e-novel diperbaiki dan diverifikasi via browser (hero 398×498, projek 357×238, cover 174×232).
+- **Referensi**: [[portfolio-slate-cyan]], [[e-novel-maroon-gray]]
 
 ---
 

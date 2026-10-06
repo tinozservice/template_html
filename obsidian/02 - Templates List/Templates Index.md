@@ -10,7 +10,7 @@
 ### 🎨 Portfolio
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
-| portfolio-slate-cyan | ✅ Selesai | 2026-10-06 | v1.0.0 | [[portfolio-slate-cyan]] |
+| portfolio-slate-cyan | ✅ Selesai | 2026-10-06 | v1.0.1 | [[portfolio-slate-cyan]] |
 
 ### 💼 Landing Page
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
@@ -26,6 +26,11 @@
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
 | - | - | - | - | - |
+
+### 📚 E-Novel
+| Nama Template | Status | Tanggal Dibuat | Versi | Link |
+|---------------|--------|----------------|-------|------|
+| e-novel-maroon-gray | ✅ Selesai | 2026-10-06 | v1.0.0 | [[e-novel-maroon-gray]] |
 
 ### 🏨 Hotel / Booking
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
@@ -161,7 +166,7 @@ Halaman pencarian & booking hotel satu file bertema **Golden Hour** — ramp war
 - **File**: `templates/portfolio-slate-cyan.html`
 - **Kategori**: Portfolio
 - **Tanggal**: 2026-10-06
-- **Versi**: v1.0.0
+- **Versi**: v1.0.1
 - **Status**: ✅ Selesai
 
 ### Deskripsi
@@ -181,6 +186,7 @@ Portofolio personal satu file bertema **Slate Cyan** — slate netral dingin dip
 ### Catatan Desain
 - Palet: slate `#16202B`/`#4C5A6A`, garis `#DEE5EA`, page `#F7F9FA`, cyan `#0F7387`/`#12879D`, tint `#DFF2F6`/`#F0F9FB`
 - Anti AI-slop: tanpa gradien, tanpa glow/glassmorphism, radius maksimal 6px
+- Semua gambar memakai `height: auto` bersama `aspect-ratio` agar rasio CSS konsisten (fix v1.0.1, hero 4/5 & projek 3/2)
 
 ### Teknologi
 - HTML5 semantic
@@ -190,6 +196,45 @@ Portofolio personal satu file bertema **Slate Cyan** — slate netral dingin dip
 
 ### Preview
 ![[preview-portfolio-slate-cyan.png]]
+
+### Link Terkait
+- [[Progress Log]]
+
+---
+
+## 📚 E-Novel — Maroon Gray
+
+- **File**: `templates/e-novel-maroon-gray.html`
+- **Kategori**: E-Novel / Reading App
+- **Tanggal**: 2026-10-06
+- **Versi**: v1.0.0
+- **Status**: ✅ Selesai
+
+### Deskripsi
+Halaman aplikasi baca novel satu file berdasarkan screenshot referensi, bertema **Maroon Gray** — ramp maroon dipadukan netral abu dingin. Layout app-like: sidebar navigasi, topbar dengan search, grid buku, daftar reading progress, dan rail kanan berisi penulis trending + daftar novel terbaru. Gaya flat: garis 1px, radius kecil (4–9px; pill hanya untuk tab & tombol follow), ikon hemat.
+
+### Fitur
+- Sidebar: brand "E-Novel", nav Home (aktif) / Discover / Bookmark / Settings / Help
+- Topbar: search **fungsional** (filter buku per judul/penulis), toggle **dark mode**, notifikasi + dot, avatar
+- Tab kategori: Popular (aktif) / Top Selling / Following / New + link "Next"
+- Grid 10 buku dengan cover rasio 3/4 (judul, penulis) responsif (auto-fill)
+- Daftar reading progress: thumbnail, judul, jumlah halaman, progress bar, % (mono)
+- Rail kanan: **Trending Author** (5 penulis, tombol Follow/Unfollow berfungsi) dan **Newest Novel** — menggantikan "Popular Blogs" sesuai permintaan, berisi judul, "Published by", jumlah likes/komentar, badge "New"
+- Dark mode penuh via `body.dark` (override CSS variables), ikon bulan/matahari
+- Responsif mobile-first: sidebar jadi drawer + backdrop, layout rail menurun ke bawah
+
+### Catatan Desain
+- Palet: maroon `#4C1119`/`#6B1620`/`#8A1F2D`, gray `#2A272E`/`#6B6770`, background `#F5F4F6`; dark mode `#17151A`
+- Anti AI-slop: tanpa gradien/glow, radius maks 9px kecuali pill kontekstual
+
+### Teknologi
+- HTML5 semantic
+- CSS3 (Custom Properties, Grid, Flexbox, dark mode)
+- Vanilla JavaScript (IIFE)
+- Google Fonts (Outfit, Inter, IBM Plex Mono), Font Awesome 6 (hemat), gambar dari Unsplash — 22 URL diverifikasi HTTP 200 dan diinspeksi visual sebelum dipakai
+
+### Preview
+![[preview-e-novel-maroon-gray.png]]
 
 ### Link Terkait
 - [[Progress Log]]

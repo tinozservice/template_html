@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Novel Maroon Gray — a single-file novel reading app template with sidebar navigation, book grid, reading progress, trending authors, and newest novel list. Includes dark mode.">
+    <title>E-Novel Maroon Gray - VibeCode Template</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        /* ==========================================================================
+           E-Novel Maroon Gray
+           Palette : maroon ramp + cool grays, with a soft dark mode
+           Style   : flat surfaces, 1px lines, app-like layout, restrained icons
+           ========================================================================== */
+
+        :root {
+            color-scheme: light;
+
+            /* Maroon ramp */
+            --maroon-950: #3E0E15;
+            --maroon-900: #4C1119;
+            --maroon-800: #6B1620;
+            --maroon-700: #8A1F2D;
+            --maroon-600: #A62B3C;
+            --maroon-200: #E7C3C9;
+            --maroon-100: #F3DDE1;
+            --maroon-50: #FBF0F2;
+
+            /* Grays */
+            --ink: #2A272E;
+            --ink-soft: #46424B;
+            --gray: #6B6770;
+            --muted: #8A8691;
+            --line: #E4E1E6;
+            --line-soft: #EFEDF1;
+            --bg: #F5F4F6;
+            --card: #FFFFFF;
+            --panel: #FAF9FB;
+            --chip-active: #4C1119;
+            --btn: #6B1620;
+            --btn-hover: #4C1119;
+            --accent-text: #8A1F2D;
+            --progress: #6B1620;
+
+            /* Type */
+            --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+        }
+
+        body.dark {
+            color-scheme: dark;
+            --ink: #F1EEF4;
+            --ink-soft: #CFC9D6;
+            --gray: #A9A2B2;
+            --muted: #8E8799;
+            --line: #3A3540;
+            --line-soft: #2C2833;
+            --bg: #17151A;
+            --card: #201D24;
+            --panel: #26232B;
+            --chip-active: #8A1F2D;
+            --btn: #8A1F2D;
+            --btn-hover: #A62B3C;
+            --accent-text: #DE96A3;
+            --progress: #A62B3C;
+            --maroon-50: #2A1F24;
+            --maroon-100: #3B2A31;
+            --maroon-200: #5A3A44;
+        }
+
+        /* ---------- Base ---------- */
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            transition: background-color .2s ease, color .2s ease;
+        }
+        h1, h2, h3, p { margin: 0; }
+        img { max-width: 100%; }
+        [hidden] { display: none !important; }
+        button { font-family: inherit; }
+
+        /* ---------- App shell ---------- */
+        .app {
+            display: grid;
+            grid-template-columns: 236px minmax(0, 1fr);
+            min-height: 100vh;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            padding: 22px 16px;
+            background: var(--card);
+            border-right: 1px solid var(--line);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 0 6px;
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: -.01em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            background: var(--maroon-900);
+            border-radius: 9px;
+            color: #FBEBEE;
+            font-size: 15px;
+        }
+        .side-nav { display: flex; flex-direction: column; gap: 4px; }
+        .side-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 12px;
+            border-radius: 8px;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: var(--gray);
+            text-decoration: none;
+        }
+        .side-link i { width: 18px; text-align: center; font-size: 15px; color: var(--muted); }
+        .side-link:hover { background: var(--panel); color: var(--ink); }
+        .side-link:hover i { color: var(--ink-soft); }
+        .side-link.is-active { background: var(--maroon-50); color: var(--accent-text); font-weight: 600; }
+        .side-link.is-active i { color: var(--maroon-600); }
+
+        /* ---------- Topbar ---------- */
+        .main { min-width: 0; display: flex; flex-direction: column; }
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 26px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--line);
+        }
+        .topbar-brand { display: none; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 700; font-size: 16.5px; color: var(--ink); }
+        .topbar-brand .brand-mark { width: 32px; height: 32px; border-radius: 8px; font-size: 13px; }
+        .icon-btn {
+            position: relative;
+            display: grid;
+            place-items: center;
+            flex: none;
+            width: 38px;
+            height: 38px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            color: var(--ink-soft);
+            font-size: 14.5px;
+            cursor: pointer;
+        }
+        .icon-btn:hover { border-color: var(--maroon-200); color: var(--accent-text); }
+        .icon-btn .dot {
+            position: absolute;
+            top: 8px;
+            right: 9px;
+            width: 8px;
+            height: 8px;
+            background: var(--maroon-600);
+            border: 2px solid var(--card);
+            border-radius: 50%;
+        }
+        .menu-toggle { display: none; }
+        .search { position: relative; flex: 1; max-width: 540px; }
+        .search i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 13px;
+            color: var(--muted);
+            pointer-events: none;
+        }
+        .search input {
+            width: 100%;
+            padding: 10px 14px 10px 40px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--ink);
+        }
+        .search input::placeholder { color: var(--muted); }
+        .search input:focus { outline: 2px solid var(--maroon-200); outline-offset: 1px; border-color: var(--maroon-600); }
+        .topbar-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+        .topbar-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            object-fit: cover;
+        }
+        #theme-toggle .fa-sun { display: none; }
+        body.dark #theme-toggle .fa-sun { display: inline; }
+        body.dark #theme-toggle .fa-moon { display: none; }
+
+        /* ---------- Content ---------- */
+        .content {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 20px;
+            align-items: start;
+            padding: 22px 26px 40px;
+        }
+        .books-area { min-width: 0; }
+
+        .tabs-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .tabs { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tab {
+            padding: 8px 18px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+        }
+        .tab:hover { border-color: var(--maroon-200); color: var(--accent-text); }
+        .tab.is-active { background: var(--chip-active); border-color: var(--chip-active); color: #F7E9EC; }
+        .next-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--accent-text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .next-link i { font-size: 11px; }
+        .next-link:hover { color: var(--maroon-600); }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+            gap: 22px 18px;
+            margin-bottom: 26px;
+        }
+        .book-card { min-width: 0; }
+        .book-cover {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            transition: border-color .15s ease;
+        }
+        .book-card:hover .book-cover { border-color: var(--maroon-200); }
+        .book-title {
+            margin-top: 10px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--ink);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .book-author { margin-top: 2px; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        .empty-note {
+            padding: 28px 16px;
+            background: var(--card);
+            border: 1px dashed var(--line);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ---------- Reading progress ---------- */
+        .reading-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .reading-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 13px 16px;
+        }
+        .reading-row + .reading-row { border-top: 1px solid var(--line-soft); }
+        .reading-thumb {
+            flex: none;
+            width: 38px;
+            height: 52px;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+        }
+        .reading-title {
+            flex: 0 1 190px;
+            min-width: 120px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .reading-pages { flex: none; font-family: var(--font-mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+        .progress {
+            flex: 1;
+            min-width: 60px;
+            height: 5px;
+            background: var(--line-soft);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress span {
+            display: block;
+            height: 100%;
+            width: var(--w);
+            background: var(--progress);
+            border-radius: 3px;
+        }
+        .reading-pct { flex: none; font-family: var(--font-mono); font-size: 12.5px; color: var(--gray); white-space: nowrap; }
+
+        /* ---------- Right rail ---------- */
+        .rail { display: flex; flex-direction: column; gap: 20px; }
+        .rail-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 18px;
+        }
+        .rail-title {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        .author-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
+        .author-avatar {
+            flex: none;
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+        }
+        .author-name {
+            flex: 1;
+            min-width: 0;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .btn-follow {
+            flex: none;
+            padding: 7px 16px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink-soft);
+            cursor: pointer;
+            transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+        }
+        .btn-follow:hover { border-color: var(--maroon-200); color: var(--accent-text); }
+        .btn-follow.is-following { background: var(--chip-active); border-color: var(--chip-active); color: #F7E9EC; }
+        .btn-follow.is-following:hover { background: var(--btn-hover); border-color: var(--btn-hover); }
+
+        .novel-row { display: flex; gap: 13px; padding: 12px 0; }
+        .novel-row + .novel-row { border-top: 1px solid var(--line-soft); }
+        .novel-thumb-wrap { position: relative; flex: none; }
+        .novel-thumb {
+            display: block;
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+        }
+        .novel-badge {
+            position: absolute;
+            top: -7px;
+            left: -7px;
+            padding: 2px 7px;
+            background: var(--maroon-700);
+            border-radius: 999px;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #FBEBEE;
+        }
+        .novel-info { min-width: 0; }
+        .novel-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--ink);
+        }
+        .novel-by { margin-top: 3px; font-size: 12px; color: var(--muted); }
+        .novel-meta { display: flex; gap: 16px; margin-top: 7px; font-size: 12px; color: var(--gray); }
+        .novel-meta i { margin-right: 5px; font-size: 11.5px; color: var(--muted); }
+
+        /* ---------- Mobile backdrop ---------- */
+        .backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 55;
+            background: rgba(23, 21, 26, .45);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease;
+        }
+        body.sidebar-open .backdrop { opacity: 1; pointer-events: auto; }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1150px) {
+            .content { grid-template-columns: 1fr; }
+            .rail { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        }
+
+        @media (max-width: 959px) {
+            .app { grid-template-columns: 1fr; }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 60;
+                width: 252px;
+                transform: translateX(-100%);
+                transition: transform .2s ease;
+                border-right: 1px solid var(--line);
+            }
+            .sidebar.is-open { transform: none; }
+            .menu-toggle { display: grid; }
+            .topbar-brand { display: flex; }
+            .topbar { padding: 12px 18px; }
+            .content { padding: 18px 18px 32px; }
+        }
+
+        @media (max-width: 640px) {
+            .search { max-width: none; }
+            .topbar-brand span { display: none; }
+            .reading-pages { display: none; }
+            .reading-title { flex-basis: auto; flex: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ============================= Sidebar ============================= -->
+        <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+            <a class="brand" href="#">
+                <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
+                E-Novel
+            </a>
+            <nav class="side-nav">
+                <a class="side-link is-active" href="#"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
+                <a class="side-link" href="#"><i class="fa-solid fa-compass" aria-hidden="true"></i> Discover</a>
+                <a class="side-link" href="#"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Bookmark</a>
+                <a class="side-link" href="#"><i class="fa-solid fa-gear" aria-hidden="true"></i> Settings</a>
+                <a class="side-link" href="#"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Help</a>
+            </nav>
+        </aside>
+
+        <!-- ============================= Main ============================= -->
+        <div class="main">
+
+            <!-- Topbar -->
+            <header class="topbar">
+                <button type="button" class="icon-btn menu-toggle" id="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Open menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-brand" href="#">
+                    <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
+                    <span>E-Novel</span>
+                </a>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="search" id="search-input" placeholder="Search books, authors…" aria-label="Search books and authors">
+                </div>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-btn" id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-btn" aria-label="Notifications">
+                        <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                        <span class="dot" aria-hidden="true"></span>
+                    </button>
+                    <img class="topbar-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=128&q=60" alt="Your profile photo">
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content">
+
+                <div class="books-area">
+                    <div class="tabs-row">
+                        <div class="tabs" role="tablist" aria-label="Book categories">
+                            <button type="button" class="tab is-active" aria-pressed="true">Popular</button>
+                            <button type="button" class="tab" aria-pressed="false">Top Selling</button>
+                            <button type="button" class="tab" aria-pressed="false">Following</button>
+                            <button type="button" class="tab" aria-pressed="false">New</button>
+                        </div>
+                        <a class="next-link" href="#">Next <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+                    </div>
+
+                    <div class="book-grid" id="book-grid">
+                        <article class="book-card" data-title="Letters to Elara" data-author="Norah Wells">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=60" alt="Cover of Letters to Elara" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">Letters to Elara</h3>
+                            <p class="book-author">Norah Wells</p>
+                        </article>
+                        <article class="book-card" data-title="The Velvet Hour" data-author="A. J. Cross">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1633477189729-9290b3261d0a?auto=format&fit=crop&w=400&q=60" alt="Cover of The Velvet Hour" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">The Velvet Hour</h3>
+                            <p class="book-author">A. J. Cross</p>
+                        </article>
+                        <article class="book-card" data-title="The Second Citadel" data-author="M. R. Hale">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?auto=format&fit=crop&w=400&q=60" alt="Cover of The Second Citadel" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">The Second Citadel</h3>
+                            <p class="book-author">M. R. Hale</p>
+                        </article>
+                        <article class="book-card" data-title="The Quiet Ledger" data-author="Henry Marlowe">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?auto=format&fit=crop&w=400&q=60" alt="Cover of The Quiet Ledger" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">The Quiet Ledger</h3>
+                            <p class="book-author">Henry Marlowe</p>
+                        </article>
+                        <article class="book-card" data-title="The Paper Garden" data-author="Yuki Tanabe">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1510172951991-856a654063f9?auto=format&fit=crop&w=400&q=60" alt="Cover of The Paper Garden" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">The Paper Garden</h3>
+                            <p class="book-author">Yuki Tanabe</p>
+                        </article>
+                        <article class="book-card" data-title="Field Notes" data-author="Clara Voss">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=400&q=60" alt="Cover of Field Notes" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">Field Notes</h3>
+                            <p class="book-author">Clara Voss</p>
+                        </article>
+                        <article class="book-card" data-title="The Antique Shelf" data-author="P. R. Whitmore">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&w=400&q=60" alt="Cover of The Antique Shelf" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">The Antique Shelf</h3>
+                            <p class="book-author">P. R. Whitmore</p>
+                        </article>
+                        <article class="book-card" data-title="Interlude" data-author="Silas Ward">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&q=60" alt="Cover of Interlude" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">Interlude</h3>
+                            <p class="book-author">Silas Ward</p>
+                        </article>
+                        <article class="book-card" data-title="Northbound" data-author="Sam Iversen">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=400&q=60" alt="Cover of Northbound" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">Northbound</h3>
+                            <p class="book-author">Sam Iversen</p>
+                        </article>
+                        <article class="book-card" data-title="Autumn Archives" data-author="T. Okafor">
+                            <img class="book-cover" src="https://images.unsplash.com/photo-1490633874781-1c63cc424610?auto=format&fit=crop&w=400&q=60" alt="Cover of Autumn Archives" loading="lazy" width="400" height="600">
+                            <h3 class="book-title">Autumn Archives</h3>
+                            <p class="book-author">T. Okafor</p>
+                        </article>
+                    </div>
+
+                    <p class="empty-note" id="empty-note" hidden>No books match your search.</p>
+
+                    <!-- Reading progress -->
+                    <section class="reading-card" aria-label="Continue reading">
+                        <div class="reading-row">
+                            <img class="reading-thumb" src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" width="200" height="270">
+                            <p class="reading-title">The Second Citadel</p>
+                            <p class="reading-pages">121 pages</p>
+                            <div class="progress" role="progressbar" aria-label="Reading progress of The Second Citadel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="64"><span style="--w:64%"></span></div>
+                            <p class="reading-pct">64% complete</p>
+                        </div>
+                        <div class="reading-row">
+                            <img class="reading-thumb" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" width="200" height="270">
+                            <p class="reading-title">Northbound</p>
+                            <p class="reading-pages">86 pages</p>
+                            <div class="progress" role="progressbar" aria-label="Reading progress of Northbound" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45"><span style="--w:45%"></span></div>
+                            <p class="reading-pct">45% complete</p>
+                        </div>
+                        <div class="reading-row">
+                            <img class="reading-thumb" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" width="200" height="270">
+                            <p class="reading-title">The Quiet Ledger</p>
+                            <p class="reading-pages">143 pages</p>
+                            <div class="progress" role="progressbar" aria-label="Reading progress of The Quiet Ledger" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52"><span style="--w:52%"></span></div>
+                            <p class="reading-pct">52% complete</p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right rail -->
+                <aside class="rail" aria-label="Authors and newest novels">
+
+                    <section class="rail-card" aria-labelledby="authors-title">
+                        <h2 class="rail-title" id="authors-title">Trending Author</h2>
+                        <div class="author-row">
+                            <img class="author-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=128&q=60" alt="Portrait of James Ellory" loading="lazy" width="128" height="128">
+                            <span class="author-name">James Ellory</span>
+                            <button type="button" class="btn-follow" aria-pressed="false">Follow</button>
+                        </div>
+                        <div class="author-row">
+                            <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=128&q=60" alt="Portrait of William Hart" loading="lazy" width="128" height="128">
+                            <span class="author-name">William Hart</span>
+                            <button type="button" class="btn-follow" aria-pressed="false">Follow</button>
+                        </div>
+                        <div class="author-row">
+                            <img class="author-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=128&q=60" alt="Portrait of Aria Abbot" loading="lazy" width="128" height="128">
+                            <span class="author-name">Aria Abbot</span>
+                            <button type="button" class="btn-follow" aria-pressed="false">Follow</button>
+                        </div>
+                        <div class="author-row">
+                            <img class="author-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=128&q=60" alt="Portrait of Mia Everly" loading="lazy" width="128" height="128">
+                            <span class="author-name">Mia Everly</span>
+                            <button type="button" class="btn-follow" aria-pressed="false">Follow</button>
+                        </div>
+                        <div class="author-row">
+                            <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=128&q=60" alt="Portrait of Mateo Levine" loading="lazy" width="128" height="128">
+                            <span class="author-name">Mateo Levine</span>
+                            <button type="button" class="btn-follow is-following" aria-pressed="true">Unfollow</button>
+                        </div>
+                    </section>
+
+                    <section class="rail-card" aria-labelledby="newest-title">
+                        <h2 class="rail-title" id="newest-title">Newest Novel</h2>
+                        <div class="novel-row">
+                            <span class="novel-thumb-wrap">
+                                <img class="novel-thumb" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" width="200" height="200">
+                            </span>
+                            <div class="novel-info">
+                                <p class="novel-title">The Velvet Hour</p>
+                                <p class="novel-by">Published by A. J. Cross</p>
+                                <p class="novel-meta">
+                                    <span><i class="fa-regular fa-heart" aria-hidden="true"></i>122</span>
+                                    <span><i class="fa-regular fa-comment" aria-hidden="true"></i>44</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="novel-row">
+                            <span class="novel-thumb-wrap">
+                                <img class="novel-thumb" src="https://images.unsplash.com/photo-1521056787327-165dc2a32836?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" width="200" height="200">
+                            </span>
+                            <div class="novel-info">
+                                <p class="novel-title">Letters to Elara</p>
+                                <p class="novel-by">Published by Norah Wells</p>
+                                <p class="novel-meta">
+                                    <span><i class="fa-regular fa-heart" aria-hidden="true"></i>88</span>
+                                    <span><i class="fa-regular fa-comment" aria-hidden="true"></i>22</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="novel-row">
+                            <span class="novel-thumb-wrap">
+                                <span class="novel-badge">New</span>
+                                <img class="novel-thumb" src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=200&q=60" alt="" loading="lazy" width="200" height="200">
+                            </span>
+                            <div class="novel-info">
+                                <p class="novel-title">Autumn Archives</p>
+                                <p class="novel-by">Published by T. Okafor</p>
+                                <p class="novel-meta">
+                                    <span><i class="fa-regular fa-heart" aria-hidden="true"></i>12</span>
+                                    <span><i class="fa-regular fa-comment" aria-hidden="true"></i>4</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <div class="backdrop" id="backdrop"></div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var $ = function (selector, ctx) { return (ctx || document).querySelector(selector); };
+            var $$ = function (selector, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(selector)); };
+
+            var body = document.body;
+            var sidebar = $('#sidebar');
+            var menuToggle = $('#menu-toggle');
+            var backdrop = $('#backdrop');
+            var themeToggle = $('#theme-toggle');
+            var searchInput = $('#search-input');
+            var emptyNote = $('#empty-note');
+            var bookCards = $$('.book-card');
+
+            /* ---------- Mobile sidebar ---------- */
+            function setSidebar(open) {
+                sidebar.classList.toggle('is-open', open);
+                body.classList.toggle('sidebar-open', open);
+                menuToggle.setAttribute('aria-expanded', String(open));
+            }
+            menuToggle.addEventListener('click', function () {
+                setSidebar(!sidebar.classList.contains('is-open'));
+            });
+            backdrop.addEventListener('click', function () { setSidebar(false); });
+            $$('.side-link').forEach(function (link) {
+                link.addEventListener('click', function () { setSidebar(false); });
+            });
+
+            /* ---------- Dark mode ---------- */
+            themeToggle.addEventListener('click', function () {
+                var dark = body.classList.toggle('dark');
+                themeToggle.setAttribute('aria-pressed', String(dark));
+            });
+
+            /* ---------- Search filter ---------- */
+            searchInput.addEventListener('input', function () {
+                var query = searchInput.value.trim().toLowerCase();
+                var visible = 0;
+                bookCards.forEach(function (card) {
+                    var haystack = (card.getAttribute('data-title') + ' ' + card.getAttribute('data-author')).toLowerCase();
+                    var show = !query || haystack.indexOf(query) !== -1;
+                    card.hidden = !show;
+                    if (show) visible += 1;
+                });
+                emptyNote.hidden = visible !== 0;
+            });
+
+            /* ---------- Tabs ---------- */
+            $$('.tab').forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    $$('.tab').forEach(function (other) {
+                        other.classList.remove('is-active');
+                        other.setAttribute('aria-pressed', 'false');
+                    });
+                    tab.classList.add('is-active');
+                    tab.setAttribute('aria-pressed', 'true');
+                });
+            });
+
+            /* ---------- Follow buttons ---------- */
+            $$('.btn-follow').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var following = button.classList.toggle('is-following');
+                    button.textContent = following ? 'Unfollow' : 'Follow';
+                    button.setAttribute('aria-pressed', String(following));
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
