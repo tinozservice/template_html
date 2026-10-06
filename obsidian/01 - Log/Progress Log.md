@@ -125,6 +125,20 @@
 
 ---
 
+### # 2026-10-06 - Fix Ikon Fiverr Portfolio (fa-fiverr tidak ada di FA free)
+- **Tanggal**: 06 Oktober 2026
+- **Aktivitas**:
+  - [x] Audit seluruh kelas `fa-*` di semua template terhadap CSS FA 6.5.2 — hanya `fa-fiverr` yang MISSING
+  - [x] Konfirmasi tidak tersedia juga di FA 6.7.2 free (hanya Pro)
+  - [x] Ganti dengan inline SVG resmi Fiverr (Simple Icons, CC0) memakai `currentColor` agar ikut warna tema
+  - [x] Verifikasi di browser: SVG 24×24, fill slate, path bbox 24×7.18 (glyph tergambar)
+  - [x] Catat Pelajaran 4 di [[Project Memory]]
+  - [x] Direview & disetujui user — commit dan push
+- **Template yang dikerjakan**: [[portfolio-slate-cyan]]
+- **Catatan**: Direview dan disetujui user; di-commit dan dipush ke `origin`.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -149,3 +163,4 @@
 | 2026-10-06 | portfolio-slate-cyan | Pembuatan template portfolio | ✅ Selesai |
 | 2026-10-06 | e-novel-maroon-gray | Pembuatan template E-Novel (maroon–gray) | ✅ Selesai |
 | 2026-10-06 | portfolio-slate-cyan | Fix rasio gambar (height:auto) v1.0.1 | ✅ Selesai |
+| 2026-10-06 | portfolio-slate-cyan | Fix ikon Fiverr (inline SVG) v1.0.2 | ✅ Selesai |

@@ -10,7 +10,7 @@
 ### 🎨 Portfolio
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
-| portfolio-slate-cyan | ✅ Selesai | 2026-10-06 | v1.0.1 | [[portfolio-slate-cyan]] |
+| portfolio-slate-cyan | ✅ Selesai | 2026-10-06 | v1.0.2 | [[portfolio-slate-cyan]] |
 
 ### 💼 Landing Page
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
@@ -166,7 +166,7 @@ Halaman pencarian & booking hotel satu file bertema **Golden Hour** — ramp war
 - **File**: `templates/portfolio-slate-cyan.html`
 - **Kategori**: Portfolio
 - **Tanggal**: 2026-10-06
-- **Versi**: v1.0.1
+- **Versi**: v1.0.2
 - **Status**: ✅ Selesai
 
 ### Deskripsi
@@ -187,12 +187,13 @@ Portofolio personal satu file bertema **Slate Cyan** — slate netral dingin dip
 - Palet: slate `#16202B`/`#4C5A6A`, garis `#DEE5EA`, page `#F7F9FA`, cyan `#0F7387`/`#12879D`, tint `#DFF2F6`/`#F0F9FB`
 - Anti AI-slop: tanpa gradien, tanpa glow/glassmorphism, radius maksimal 6px
 - Semua gambar memakai `height: auto` bersama `aspect-ratio` agar rasio CSS konsisten (fix v1.0.1, hero 4/5 & projek 3/2)
+- Ikon Fiverr memakai inline SVG dari Simple Icons (CC0) karena `fa-fiverr` tidak tersedia di Font Awesome free (fix v1.0.2)
 
 ### Teknologi
 - HTML5 semantic
 - CSS3 (Custom Properties, Grid, Flexbox, animasi ringan)
 - Vanilla JavaScript (IIFE, IntersectionObserver)
-- Google Fonts (Space Grotesk, Inter, IBM Plex Mono), Font Awesome 6 (hemat), foto profil & projek dari Unsplash
+- Google Fonts (Space Grotesk, Inter, IBM Plex Mono), Font Awesome 6 (hemat; ikon Fiverr via inline SVG Simple Icons), foto profil & projek dari Unsplash
 
 ### Preview
 ![[preview-portfolio-slate-cyan.png]]

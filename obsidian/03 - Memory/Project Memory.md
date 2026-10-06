@@ -108,6 +108,11 @@
 - **Solusi**: Selalu tulis `height: auto` pada selector gambar yang rasionya dikontrol CSS (`width: 100%; height: auto; aspect-ratio: ...; object-fit: cover;`). Hasil audit: hotel aman (tinggi eksplisit), marketing-report tanpa gambar, portfolio & e-novel diperbaiki dan diverifikasi via browser (hero 398×498, projek 357×238, cover 174×232).
 - **Referensi**: [[portfolio-slate-cyan]], [[e-novel-maroon-gray]]
 
+### Pelajaran 4
+- **Masalah**: Ikon `fa-fiverr` tidak dirender (kotak kosong) karena brand Fiverr tidak tersedia di Font Awesome 6 free — dikonfirmasi tidak ada di 6.5.2 maupun 6.7.2.
+- **Solusi**: Untuk brand yang tidak ada di FA free, gunakan inline SVG resmi dari Simple Icons (CC0) dengan `fill="currentColor"` agar mengikuti warna tema. Biasakan audit kelas `fa-*` template terhadap file CSS FA (cek keberadaan `.<kelas>:before`) untuk mendeteksi ikon hilang sebelum review.
+- **Referensi**: [[portfolio-slate-cyan]]
+
 ---
 
 ## ⚠️ Hal yang Perlu Dihindari
