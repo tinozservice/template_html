@@ -27,6 +27,11 @@
 |---------------|--------|----------------|-------|------|
 | - | - | - | - | - |
 
+### 🏨 Hotel / Booking
+| Nama Template | Status | Tanggal Dibuat | Versi | Link |
+|---------------|--------|----------------|-------|------|
+| hotel-booking-golden-hour | ✅ Selesai | 2026-10-06 | v1.0.0 | [[hotel-booking-golden-hour]] |
+
 ### 📊 Marketing Report
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
@@ -106,6 +111,45 @@ Laporan pemasaran satu halaman bergaya **editorial report** dengan tema warna **
 
 ### Preview
 ![[preview-marketing-report.png]]
+
+### Link Terkait
+- [[Progress Log]]
+
+---
+
+## 🏨 Hotel Booking — Golden Hour
+
+- **File**: `templates/hotel-booking-golden-hour.html`
+- **Kategori**: Hotel / Booking
+- **Tanggal**: 2026-10-06
+- **Versi**: v1.0.0
+- **Status**: ✅ Selesai
+
+### Deskripsi
+Halaman pencarian & booking hotel satu file bertema **Golden Hour** — ramp warna oranye → kuning di atas netral krem. Gaya flat: garis 1px, radius kecil (3–6px), tanpa gradien, penggunaan ikon hemat, tipografi Fraunces (display) + Inter (body) + IBM Plex Mono (angka/harga).
+
+### Fitur
+- Header: brand "Senja Stays", navigasi Popular / Near Me / Surprise Me, Sign up, Log in
+- Sidebar: form Search (Location, Check in, Check out, Guests), Popular Filters, Room Type, Price Range (input min/max + dual slider), Star Rating, Reset
+- Kartu hotel: nama, rating (bintang + skor), total review, jarak dari posisi user, chip fasilitas, tipe kamar, kelas kamar, harga per malam, estimasi total dinamis (malam × tamu)
+- Filter berfungsi: fasilitas (AND), tipe kamar, bintang, rentang harga + empty state
+- Estimasi harga & meta hasil dihitung ulang dari tanggal check-in/check-out dan jumlah tamu
+- Sort: Recommended / harga / rating / jarak
+- Tombol "Booking Now" hanya sample (menampilkan toast, tidak terhubung ke mana pun)
+- Responsif mobile-first, mendukung `prefers-reduced-motion`
+
+### Catatan Desain
+- Palet: oranye `#A84A0F`/`#C25A14`, kuning-amber `#E2A23C`/`#F0C87E`, krem `#FAF6EE`/`#FDF4E3`, tinta `#31241A`
+- Anti AI-slop: tanpa gradien, tanpa glow/glassmorphism, radius maksimal 6px
+
+### Teknologi
+- HTML5 semantic
+- CSS3 (Custom Properties, Grid, Flexbox)
+- Vanilla JavaScript (IIFE)
+- Google Fonts (Fraunces, Inter, IBM Plex Mono), Font Awesome 6 (hemat), foto kamar dari Unsplash
+
+### Preview
+![[preview-hotel-booking-golden-hour.png]]
 
 ### Link Terkait
 - [[Progress Log]]

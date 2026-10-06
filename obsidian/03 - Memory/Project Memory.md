@@ -38,6 +38,14 @@
 
 ---
 
+### # 2026-10-06 - Tema warna Golden Hour (oranye–kuning) & dependensi eksternal
+**Konteks**: Pembuatan template hotel booking memerlukan identitas warna hangat (orange, yellow, dan turunannya).
+**Keputusan**: Palet Golden Hour — oranye `#A84A0F`/`#C25A14`/`#7C350B`, kuning-amber `#E2A23C`/`#F0C87E`/`#F5E3C2`, netral krem `#FAF6EE`/`#FDF4E3`/`#FFFDF8`, tinta hangat `#31241A`. Tipografi: Fraunces (display), Inter (body), IBM Plex Mono (angka/harga). Template ini memakai dependensi eksternal (Google Fonts, Font Awesome 6 seperlunya, foto kamar Unsplash) — berbeda dari marketing-report yang sepenuhnya offline.
+**Dampak**: Template bertema hangat berikutnya memakai variabel CSS yang sama; prinsip anti AI-slop tetap dipertahankan (tanpa gradien, tanpa glow, radius ≤ 6px).
+**Referensi**: [[hotel-booking-golden-hour]], [[Style Guide]]
+
+---
+
 ### # YYYY-MM-DD - Deskripsi keputusan
 **Konteks**: 
 **Keputusan**: 

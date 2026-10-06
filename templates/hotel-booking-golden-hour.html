@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Golden Hour — a single-file hotel search & booking page template with functional filters, dual price range slider, and live price estimates. Orange and yellow warm theme.">
+    <title>Golden Hour Hotel Booking - VibeCode Template</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        /* ==========================================================================
+           Golden Hour Hotel Booking
+           Palette : warm orange -> amber ramp on cream neutrals (Golden Hour)
+           Style   : flat, 1px lines, small radii, restrained icons
+           ========================================================================== */
+
+        :root {
+            color-scheme: light;
+
+            /* Neutrals (warm) */
+            --ink: #31241A;
+            --ink-soft: #5E4B39;
+            --muted: #7E6A54;
+            --line: #E9DCC5;
+            --line-soft: #F1E7D6;
+            --bg: #FAF6EE;
+            --card: #FFFFFF;
+
+            /* Orange -> yellow ramp */
+            --cream: #FDF4E3;
+            --cream-deep: #F5E3C2;
+            --orange: #C25A14;
+            --orange-strong: #A84A0F;
+            --orange-deep: #7C350B;
+            --amber: #E2A23C;
+            --amber-soft: #F0C87E;
+            --amber-off: #DCC7A4;
+            --chip-text: #8A3E0C;
+            --price-bg: #FFFDF8;
+
+            /* Type */
+            --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+        }
+
+        /* ---------- Base ---------- */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, p { margin: 0; }
+        ul { margin: 0; padding: 0; list-style: none; }
+        img { max-width: 100%; }
+        [hidden] { display: none !important; }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 16px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+        }
+        .btn-primary { background: var(--orange-strong); color: #FDF6EC; }
+        .btn-primary:hover { background: var(--orange-deep); }
+        .btn-ghost { background: var(--card); border-color: var(--line); color: var(--ink); }
+        .btn-ghost:hover { border-color: var(--orange); color: var(--orange-strong); }
+        .btn-block { width: 100%; }
+
+        /* ---------- Header ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bg);
+            border-bottom: 1px solid var(--line);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            max-width: 1280px;
+            height: 64px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .brand em { font-style: normal; color: var(--orange-strong); }
+        .brand-mark { display: block; flex: none; }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            gap: 24px;
+        }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a {
+            padding: 6px 1px;
+            border-bottom: 2px solid transparent;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            text-decoration: none;
+        }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-links a.is-active {
+            color: var(--orange-strong);
+            border-bottom-color: var(--orange-strong);
+            font-weight: 600;
+        }
+        .auth { display: flex; align-items: center; gap: 18px; }
+        .auth-signup {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .auth-signup:hover { color: var(--orange-strong); }
+        .auth .btn { padding: 9px 16px; }
+
+        .menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin-left: auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            color: var(--ink);
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .menu-toggle .fa-xmark { display: none; }
+        body.nav-open .menu-toggle .fa-bars { display: none; }
+        body.nav-open .menu-toggle .fa-xmark { display: inline; }
+
+        /* ---------- Layout ---------- */
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            display: none;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .sidebar.is-open { display: flex; }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 18px;
+        }
+        .panel-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin: 0 0 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+        .field:last-of-type { margin-bottom: 14px; }
+        .field-label { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+        .field input,
+        .field select {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--ink);
+        }
+        .field input:focus,
+        .field select:focus,
+        .field-mini input:focus {
+            outline: 2px solid var(--amber-soft);
+            outline-offset: 1px;
+            border-color: var(--orange);
+        }
+        .input-wrap { position: relative; }
+        .input-wrap i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 13px;
+            color: var(--muted);
+            pointer-events: none;
+        }
+        .input-wrap input { padding-left: 34px; }
+
+        /* Check / radio lists */
+        .check-list { display: flex; flex-direction: column; gap: 2px; }
+        .check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--ink);
+            cursor: pointer;
+        }
+        .check:hover { background: var(--cream); }
+        .check input {
+            flex: none;
+            width: 15px;
+            height: 15px;
+            margin: 0;
+            accent-color: var(--orange-strong);
+            cursor: pointer;
+        }
+
+        /* Price range */
+        .price-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .field-mini { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+        .field-mini input {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 13.5px;
+            color: var(--ink);
+        }
+        .slider { position: relative; height: 26px; margin-top: 16px; }
+        .slider-track,
+        .slider-fill {
+            position: absolute;
+            top: 50%;
+            height: 4px;
+            margin-top: -2px;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+        .slider-track { left: 0; right: 0; background: var(--line); }
+        .slider-fill { left: 0; width: 100%; background: var(--orange); }
+        .slider input[type="range"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 26px;
+            margin: 0;
+            background: transparent;
+            -webkit-appearance: none;
+            appearance: none;
+            pointer-events: none;
+        }
+        .slider input[type="range"]:focus-visible { outline: none; }
+        .slider input[type="range"]::-webkit-slider-runnable-track { height: 26px; background: transparent; }
+        .slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            margin-top: 5px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 2px solid var(--orange-strong);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        .slider input[type="range"]::-moz-range-track { height: 26px; background: transparent; }
+        .slider input[type="range"]::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 2px solid var(--orange-strong);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        .slider input[type="range"]:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--amber-soft); outline-offset: 2px; }
+        .slider input[type="range"]:focus-visible::-moz-range-thumb { outline: 2px solid var(--amber-soft); outline-offset: 2px; }
+        .price-caption {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .price-caption strong { font-family: var(--font-mono); font-weight: 600; color: var(--ink-soft); }
+
+        /* ---------- Results ---------- */
+        .results { min-width: 0; }
+        .results-bar {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+        .results-title {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: -.01em;
+            line-height: 1.25;
+            margin-bottom: 4px;
+        }
+        .results-meta { font-size: 13.5px; color: var(--muted); }
+        .results-tools { display: flex; align-items: center; gap: 12px; }
+        .sort-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink-soft);
+        }
+        .sort-label select {
+            padding: 8px 10px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        /* ---------- Hotel cards ---------- */
+        .hotel-list { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .hotel-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: border-color .15s ease;
+        }
+        .hotel-card:hover { border-color: #DCC29B; }
+        .hotel-media { position: relative; background: var(--cream); }
+        .hotel-media img {
+            display: block;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 5px 8px;
+            background: var(--ink);
+            color: var(--cream);
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .hotel-body { padding: 18px 20px; }
+        .hotel-head {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .hotel-id { min-width: 0; }
+        .hotel-name {
+            font-family: var(--font-display);
+            font-size: 21px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 3px;
+        }
+        .hotel-sub {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+        .hotel-sub .fa-location-dot { font-size: 12px; color: var(--orange); }
+        .score { display: flex; align-items: center; gap: 10px; }
+        .score-badge {
+            padding: 7px 8px;
+            background: var(--ink);
+            color: var(--cream);
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1;
+        }
+        .score-meta { display: flex; flex-direction: column; gap: 2px; }
+        .stars { font-size: 11px; letter-spacing: 1px; line-height: 1.2; }
+        .stars i { color: var(--amber); }
+        .stars i.off { color: var(--amber-off); }
+        .score-label { font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; }
+
+        .room-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 14px 0 12px;
+            font-size: 13.5px;
+            color: var(--ink-soft);
+        }
+        .room-line .fa-bed { font-size: 13px; color: var(--orange); }
+        .room-line strong { font-weight: 600; color: var(--ink); }
+
+        .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .chips li {
+            padding: 4px 8px;
+            background: var(--cream);
+            border: 1px solid var(--cream-deep);
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--chip-text);
+        }
+
+        .hotel-price {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--price-bg);
+            border-top: 1px solid var(--line-soft);
+        }
+        .price-info { display: flex; flex-direction: column; gap: 2px; }
+        .per-night { font-size: 13px; color: var(--muted); }
+        .per-night .amount {
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .est { font-size: 12.5px; color: var(--muted); }
+        .est-total { font-family: var(--font-mono); font-weight: 600; color: var(--ink); }
+        .hotel-price .btn { flex: none; }
+
+        /* ---------- Empty state ---------- */
+        .empty {
+            padding: 48px 24px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            text-align: center;
+        }
+        .empty i { font-size: 22px; color: var(--amber); }
+        .empty-title { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin: 12px 0 4px; }
+        .empty-text { font-size: 13.5px; color: var(--muted); margin-bottom: 18px; }
+
+        /* ---------- Footer ---------- */
+        .site-footer { margin-top: 36px; border-top: 1px solid var(--line); }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 22px 24px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ---------- Toast ---------- */
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 26px;
+            z-index: 100;
+            max-width: min(92vw, 480px);
+            padding: 12px 18px;
+            background: var(--ink);
+            color: var(--cream);
+            border-radius: 4px;
+            font-size: 13.5px;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0;
+            transform: translate(-50%, 12px);
+            pointer-events: none;
+            transition: opacity .2s ease, transform .2s ease;
+        }
+        .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+        /* ---------- Responsive ---------- */
+        @media (min-width: 720px) {
+            .results-title { font-size: 30px; }
+
+            .hotel-card { grid-template-columns: 220px minmax(0, 1fr); }
+            .hotel-media { grid-row: 1 / span 2; }
+            .hotel-media img { height: 100%; min-height: 240px; }
+            .hotel-body { grid-column: 2; }
+            .hotel-price {
+                grid-column: 2;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .layout { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start; }
+            .sidebar {
+                display: flex;
+                position: sticky;
+                top: 88px;
+                max-height: calc(100vh - 112px);
+                overflow-y: auto;
+                padding-right: 4px;
+                scrollbar-width: thin;
+            }
+            #filters-toggle { display: none; }
+        }
+
+        @media (min-width: 1080px) {
+            .hotel-card { grid-template-columns: 230px minmax(0, 1fr) 220px; }
+            .hotel-media { grid-row: auto; }
+            .hotel-body { grid-column: auto; }
+            .hotel-price {
+                grid-column: auto;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: center;
+                border-top: 0;
+                border-left: 1px solid var(--line-soft);
+            }
+        }
+
+        @media (max-width: 859px) {
+            .menu-toggle { display: inline-flex; }
+            .site-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 16px;
+                padding: 16px 24px 20px;
+                background: var(--card);
+                border-bottom: 1px solid var(--line);
+            }
+            body.nav-open .site-nav { display: flex; }
+            .nav-links { flex-direction: column; gap: 2px; }
+            .nav-links a {
+                display: block;
+                padding: 10px 4px;
+                border-bottom: 1px solid var(--line-soft);
+            }
+            .nav-links a:hover { background: var(--cream); }
+            .nav-links a.is-active { border-bottom: 1px solid var(--orange); }
+            .auth { flex-direction: column; align-items: stretch; gap: 10px; }
+            .auth .btn { width: 100%; }
+            .auth-signup { padding: 4px; text-align: center; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================= Header ============================= -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#">
+                <svg class="brand-mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+                    <circle cx="13" cy="10.5" r="6" fill="#E2A23C"/>
+                    <path d="M1 19h24" stroke="#A84A0F" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M6.5 23h13" stroke="#E2A23C" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>
+                </svg>
+                Senja&nbsp;<em>Stays</em>
+            </a>
+
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#" class="is-active">Popular</a></li>
+                    <li><a href="#">Near Me</a></li>
+                    <li><a href="#">Surprise Me</a></li>
+                </ul>
+                <div class="auth">
+                    <a href="#" class="auth-signup">Sign up</a>
+                    <a href="#" class="btn btn-primary">Log in</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================= Layout ============================= -->
+    <div class="layout">
+
+        <!-- ---------- Sidebar ---------- -->
+        <aside class="sidebar" id="sidebar" aria-label="Search and filters">
+
+            <!-- Search -->
+            <section class="panel">
+                <h2 class="panel-title">Search</h2>
+                <form id="search-form" novalidate>
+                    <div class="field">
+                        <label class="field-label" for="location">Location</label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <input type="text" id="location" name="location" value="Jakarta, Indonesia" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="checkin">Check in</label>
+                        <input type="date" id="checkin" name="checkin" required>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="checkout">Check out</label>
+                        <input type="date" id="checkout" name="checkout" required>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="guests">Guests</label>
+                        <select id="guests" name="guests">
+                            <option value="1">1 guest</option>
+                            <option value="2" selected>2 guests</option>
+                            <option value="3">3 guests</option>
+                            <option value="4">4 guests</option>
+                            <option value="5">5 guests</option>
+                            <option value="6">6 guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        Search
+                    </button>
+                </form>
+            </section>
+
+            <!-- Popular filters -->
+            <section class="panel" role="group" aria-labelledby="pf-title">
+                <h2 class="panel-title" id="pf-title">Popular Filters</h2>
+                <ul class="check-list">
+                    <li><label class="check"><input type="checkbox" class="filter-feature" value="breakfast"><span>Breakfast Included</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-feature" value="wifi"><span>Free WiFi</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-feature" value="pool"><span>Swimming Pool</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-feature" value="parking"><span>Free Parking</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-feature" value="spa"><span>Spa &amp; Sauna</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-feature" value="pet"><span>Pet Friendly</span></label></li>
+                </ul>
+            </section>
+
+            <!-- Room type -->
+            <section class="panel" role="group" aria-labelledby="rt-title">
+                <h2 class="panel-title" id="rt-title">Room Type</h2>
+                <ul class="check-list">
+                    <li><label class="check"><input type="checkbox" class="filter-room" value="single"><span>Single Room</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-room" value="double"><span>Double Room</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-room" value="twin"><span>Twin Room</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-room" value="king"><span>King Room</span></label></li>
+                    <li><label class="check"><input type="checkbox" class="filter-room" value="suite"><span>Suite</span></label></li>
+                </ul>
+            </section>
+
+            <!-- Price range -->
+            <section class="panel" aria-labelledby="pr-title">
+                <h2 class="panel-title" id="pr-title">Price Range</h2>
+                <div class="price-inputs">
+                    <label class="field-mini" for="price-min">Min ($)
+                        <input type="number" id="price-min" min="20" max="400" step="5" value="20" inputmode="numeric">
+                    </label>
+                    <label class="field-mini" for="price-max">Max ($)
+                        <input type="number" id="price-max" min="20" max="400" step="5" value="400" inputmode="numeric">
+                    </label>
+                </div>
+                <div class="slider" id="price-slider">
+                    <span class="slider-track" aria-hidden="true"></span>
+                    <span class="slider-fill" id="range-fill" aria-hidden="true"></span>
+                    <input type="range" id="range-min" min="20" max="400" step="5" value="20" aria-label="Minimum price per night">
+                    <input type="range" id="range-max" min="20" max="400" step="5" value="400" aria-label="Maximum price per night">
+                </div>
+                <p class="price-caption">
+                    <strong id="price-caption">$20 – $400</strong>
+                    <span>per night</span>
+                </p>
+            </section>
+
+            <!-- Star rating -->
+            <section class="panel" role="radiogroup" aria-labelledby="sr-title">
+                <h2 class="panel-title" id="sr-title">Star Rating</h2>
+                <ul class="check-list">
+                    <li><label class="check"><input type="radio" name="stars" value="0" checked><span>Any rating</span></label></li>
+                    <li><label class="check"><input type="radio" name="stars" value="3"><span>3 stars &amp; up</span></label></li>
+                    <li><label class="check"><input type="radio" name="stars" value="4"><span>4 stars &amp; up</span></label></li>
+                    <li><label class="check"><input type="radio" name="stars" value="5"><span>5 stars only</span></label></li>
+                </ul>
+            </section>
+
+            <button type="button" class="btn btn-ghost btn-block" id="reset-filters">Reset all filters</button>
+        </aside>
+
+        <!-- ---------- Results ---------- -->
+        <main class="results" aria-label="Hotel search results">
+            <div class="results-bar">
+                <div>
+                    <h1 class="results-title" id="results-title">Stays in Jakarta</h1>
+                    <p class="results-meta" id="results-meta">4 stays · 2 nights · 2 guests</p>
+                </div>
+                <div class="results-tools">
+                    <button type="button" class="btn btn-ghost" id="filters-toggle" aria-controls="sidebar" aria-expanded="false">
+                        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                        Filters
+                    </button>
+                    <label class="sort-label" for="sort-select">Sort
+                        <select id="sort-select">
+                            <option value="recommended">Recommended</option>
+                            <option value="price-asc">Price: low to high</option>
+                            <option value="price-desc">Price: high to low</option>
+                            <option value="rating">Rating: high to low</option>
+                            <option value="distance">Distance: nearest</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="hotel-list" id="hotel-list">
+
+                <!-- Card 1 -->
+                <article class="hotel-card" data-price="128" data-tags="breakfast wifi pool parking" data-roomtype="king" data-stars="5" data-rating="9.2" data-dist="1.4">
+                    <div class="hotel-media">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=60" alt="King room at The Aster House" loading="lazy" width="900" height="600">
+                        <span class="badge">Top rated</span>
+                    </div>
+                    <div class="hotel-body">
+                        <div class="hotel-head">
+                            <div class="hotel-id">
+                                <h3 class="hotel-name">The Aster House</h3>
+                                <p class="hotel-sub"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>1.4 km from you · Menteng, Central Jakarta</p>
+                            </div>
+                            <div class="score">
+                                <span class="score-badge">9.2</span>
+                                <span class="score-meta">
+                                    <span class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+                                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="score-label">Exceptional · 1,284 reviews</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="room-line">
+                            <i class="fa-solid fa-bed" aria-hidden="true"></i>
+                            <span><strong>King Room</strong> · Premium Class · 32 m²</span>
+                        </p>
+                        <ul class="chips" aria-label="Amenities">
+                            <li>Breakfast Included</li>
+                            <li>Free WiFi</li>
+                            <li>Pool</li>
+                            <li>Free Parking</li>
+                        </ul>
+                    </div>
+                    <div class="hotel-price">
+                        <div class="price-info">
+                            <p class="per-night"><span class="amount">$128</span> / night</p>
+                            <p class="est"><span class="est-total">$256</span> · <span class="est-meta">2 nights · 2 guests</span></p>
+                        </div>
+                        <button type="button" class="btn btn-primary booking-btn">Booking Now</button>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="hotel-card" data-price="74" data-tags="breakfast wifi spa" data-roomtype="twin" data-stars="4" data-rating="8.7" data-dist="2.1">
+                    <div class="hotel-media">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=60" alt="Twin room at Lumina Suites Sudirman" loading="lazy" width="900" height="600">
+                        <span class="badge">Great value</span>
+                    </div>
+                    <div class="hotel-body">
+                        <div class="hotel-head">
+                            <div class="hotel-id">
+                                <h3 class="hotel-name">Lumina Suites Sudirman</h3>
+                                <p class="hotel-sub"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>2.1 km from you · Sudirman, Central Jakarta</p>
+                            </div>
+                            <div class="score">
+                                <span class="score-badge">8.7</span>
+                                <span class="score-meta">
+                                    <span class="stars" role="img" aria-label="Rated 4 out of 5 stars">
+                                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-regular fa-star off" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="score-label">Fabulous · 892 reviews</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="room-line">
+                            <i class="fa-solid fa-bed" aria-hidden="true"></i>
+                            <span><strong>Twin Room</strong> · Comfort Class · 26 m²</span>
+                        </p>
+                        <ul class="chips" aria-label="Amenities">
+                            <li>Breakfast Included</li>
+                            <li>Free WiFi</li>
+                            <li>Spa</li>
+                        </ul>
+                    </div>
+                    <div class="hotel-price">
+                        <div class="price-info">
+                            <p class="per-night"><span class="amount">$74</span> / night</p>
+                            <p class="est"><span class="est-total">$148</span> · <span class="est-meta">2 nights · 2 guests</span></p>
+                        </div>
+                        <button type="button" class="btn btn-primary booking-btn">Booking Now</button>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="hotel-card" data-price="216" data-tags="breakfast pool spa parking" data-roomtype="suite" data-stars="5" data-rating="9.5" data-dist="3.7">
+                    <div class="hotel-media">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=60" alt="Garden suite at Bamboo Court Hotel" loading="lazy" width="900" height="600">
+                        <span class="badge">Guest favorite</span>
+                    </div>
+                    <div class="hotel-body">
+                        <div class="hotel-head">
+                            <div class="hotel-id">
+                                <h3 class="hotel-name">Bamboo Court Hotel</h3>
+                                <p class="hotel-sub"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>3.7 km from you · Kemang, South Jakarta</p>
+                            </div>
+                            <div class="score">
+                                <span class="score-badge">9.5</span>
+                                <span class="score-meta">
+                                    <span class="stars" role="img" aria-label="Rated 5 out of 5 stars">
+                                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="score-label">Exceptional · 2,046 reviews</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="room-line">
+                            <i class="fa-solid fa-bed" aria-hidden="true"></i>
+                            <span><strong>Garden Suite</strong> · Deluxe Class · 48 m²</span>
+                        </p>
+                        <ul class="chips" aria-label="Amenities">
+                            <li>Breakfast Included</li>
+                            <li>Pool</li>
+                            <li>Spa</li>
+                            <li>Free Parking</li>
+                        </ul>
+                    </div>
+                    <div class="hotel-price">
+                        <div class="price-info">
+                            <p class="per-night"><span class="amount">$216</span> / night</p>
+                            <p class="est"><span class="est-total">$432</span> · <span class="est-meta">2 nights · 2 guests</span></p>
+                        </div>
+                        <button type="button" class="btn btn-primary booking-btn">Booking Now</button>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="hotel-card" data-price="52" data-tags="wifi parking pet" data-roomtype="double" data-stars="3" data-rating="8.4" data-dist="5.2">
+                    <div class="hotel-media">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=60" alt="Double room at Pasar Baru Residence" loading="lazy" width="900" height="600">
+                        <span class="badge">Budget pick</span>
+                    </div>
+                    <div class="hotel-body">
+                        <div class="hotel-head">
+                            <div class="hotel-id">
+                                <h3 class="hotel-name">Pasar Baru Residence</h3>
+                                <p class="hotel-sub"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>5.2 km from you · Pasar Baru, Central Jakarta</p>
+                            </div>
+                            <div class="score">
+                                <span class="score-badge">8.4</span>
+                                <span class="score-meta">
+                                    <span class="stars" role="img" aria-label="Rated 3 out of 5 stars">
+                                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-regular fa-star off" aria-hidden="true"></i><i class="fa-regular fa-star off" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="score-label">Very Good · 1,027 reviews</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="room-line">
+                            <i class="fa-solid fa-bed" aria-hidden="true"></i>
+                            <span><strong>Double Room</strong> · Standard Class · 22 m²</span>
+                        </p>
+                        <ul class="chips" aria-label="Amenities">
+                            <li>Free WiFi</li>
+                            <li>Free Parking</li>
+                            <li>Pet Friendly</li>
+                        </ul>
+                    </div>
+                    <div class="hotel-price">
+                        <div class="price-info">
+                            <p class="per-night"><span class="amount">$52</span> / night</p>
+                            <p class="est"><span class="est-total">$104</span> · <span class="est-meta">2 nights · 2 guests</span></p>
+                        </div>
+                        <button type="button" class="btn btn-primary booking-btn">Booking Now</button>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty" id="empty-state" hidden>
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <p class="empty-title">No stays match your filters</p>
+                <p class="empty-text">Try widening the price range or removing a few filters.</p>
+                <button type="button" class="btn btn-ghost" id="empty-reset">Reset filters</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- ============================= Footer ============================= -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span>© 2026 Senja Stays — sample hotel booking template.</span>
+            <span>All prices, ratings, and availability are fictional.</span>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            /* ---------- Helpers ---------- */
+            var $ = function (selector, ctx) { return (ctx || document).querySelector(selector); };
+            var $$ = function (selector, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(selector)); };
+            var PRICE_FLOOR = 20;
+            var PRICE_CEIL = 400;
+            var PRICE_STEP = 5;
+
+            /* ---------- Elements ---------- */
+            var body = document.body;
+            var menuToggle = $('#menu-toggle');
+            var filtersToggle = $('#filters-toggle');
+            var sidebar = $('#sidebar');
+
+            var searchForm = $('#search-form');
+            var locationInput = $('#location');
+            var checkinInput = $('#checkin');
+            var checkoutInput = $('#checkout');
+            var guestsSelect = $('#guests');
+
+            var resultsTitle = $('#results-title');
+            var resultsMeta = $('#results-meta');
+            var list = $('#hotel-list');
+            var cards = $$('.hotel-card', list);
+            var originalOrder = cards.slice();
+            var emptyState = $('#empty-state');
+            var sortSelect = $('#sort-select');
+
+            var rangeMin = $('#range-min');
+            var rangeMax = $('#range-max');
+            var rangeFill = $('#range-fill');
+            var priceMin = $('#price-min');
+            var priceMax = $('#price-max');
+            var priceCaption = $('#price-caption');
+            var resetButtons = [$('#reset-filters'), $('#empty-reset')];
+
+            var toast = $('#toast');
+            var toastTimer = null;
+
+            /* ---------- Utilities ---------- */
+            function isoLocal(date) {
+                var month = String(date.getMonth() + 1).padStart(2, '0');
+                var day = String(date.getDate()).padStart(2, '0');
+                return date.getFullYear() + '-' + month + '-' + day;
+            }
+
+            function addDays(date, days) {
+                var next = new Date(date);
+                next.setDate(next.getDate() + days);
+                return next;
+            }
+
+            function plural(count, word) {
+                return count + ' ' + word + (count === 1 ? '' : 's');
+            }
+
+            function formatUSD(amount) {
+                return '$' + amount.toLocaleString('en-US');
+            }
+
+            function getNights() {
+                if (!checkinInput.value || !checkoutInput.value) return 1;
+                var nights = Math.round((new Date(checkoutInput.value) - new Date(checkinInput.value)) / 86400000);
+                return nights > 0 ? nights : 1;
+            }
+
+            function getGuests() {
+                return parseInt(guestsSelect.value, 10) || 1;
+            }
+
+            /* ---------- Toast ---------- */
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('is-visible');
+                window.clearTimeout(toastTimer);
+                toastTimer = window.setTimeout(function () {
+                    toast.classList.remove('is-visible');
+                }, 2800);
+            }
+
+            /* ---------- Dates ---------- */
+            var today = new Date();
+            checkinInput.min = isoLocal(today);
+            checkinInput.value = isoLocal(addDays(today, 7));
+            checkoutInput.min = isoLocal(addDays(today, 8));
+            checkoutInput.value = isoLocal(addDays(today, 9));
+
+            checkinInput.addEventListener('change', function () {
+                if (!checkinInput.value) return;
+                var nextDay = addDays(new Date(checkinInput.value), 1);
+                checkoutInput.min = isoLocal(nextDay);
+                if (!checkoutInput.value || new Date(checkoutInput.value) <= new Date(checkinInput.value)) {
+                    checkoutInput.value = isoLocal(nextDay);
+                }
+                refresh();
+            });
+
+            checkoutInput.addEventListener('change', function () {
+                if (checkinInput.value && new Date(checkoutInput.value) <= new Date(checkinInput.value)) {
+                    checkoutInput.value = isoLocal(addDays(new Date(checkinInput.value), 1));
+                }
+                refresh();
+            });
+
+            /* ---------- Price estimates ---------- */
+            function updateEstimates() {
+                var nights = getNights();
+                var guests = getGuests();
+                cards.forEach(function (card) {
+                    var price = parseFloat(card.getAttribute('data-price'));
+                    var totalEl = $('.est-total', card);
+                    var metaEl = $('.est-meta', card);
+                    if (totalEl) totalEl.textContent = formatUSD(price * nights);
+                    if (metaEl) metaEl.textContent = plural(nights, 'night') + ' · ' + plural(guests, 'guest');
+                });
+            }
+
+            /* ---------- Filters ---------- */
+            function updateMeta(visible) {
+                resultsMeta.textContent = plural(visible, 'stay') + ' · ' + plural(getNights(), 'night') + ' · ' + plural(getGuests(), 'guest');
+            }
+
+            function applyFilters() {
+                var features = $$('.filter-feature:checked').map(function (input) { return input.value; });
+                var roomTypes = $$('.filter-room:checked').map(function (input) { return input.value; });
+                var starInput = $('input[name="stars"]:checked');
+                var minStars = starInput ? parseInt(starInput.value, 10) : 0;
+                var minPrice = parseFloat(rangeMin.value);
+                var maxPrice = parseFloat(rangeMax.value);
+                var visible = 0;
+
+                cards.forEach(function (card) {
+                    var cardTags = (card.getAttribute('data-tags') || '').split(' ');
+                    var matches = features.every(function (tag) { return cardTags.indexOf(tag) !== -1; });
+
+                    if (roomTypes.length && roomTypes.indexOf(card.getAttribute('data-roomtype')) === -1) matches = false;
+                    if (minStars && parseFloat(card.getAttribute('data-stars')) < minStars) matches = false;
+
+                    var price = parseFloat(card.getAttribute('data-price'));
+                    if (price < minPrice || price > maxPrice) matches = false;
+
+                    card.hidden = !matches;
+                    if (matches) visible += 1;
+                });
+
+                emptyState.hidden = visible !== 0;
+                updateMeta(visible);
+            }
+
+            function refresh() {
+                updateEstimates();
+                applyFilters();
+            }
+
+            /* ---------- Price slider ---------- */
+            function updateSliderUI() {
+                var lo = parseFloat(rangeMin.value);
+                var hi = parseFloat(rangeMax.value);
+                var left = ((lo - PRICE_FLOOR) / (PRICE_CEIL - PRICE_FLOOR)) * 100;
+                var right = ((hi - PRICE_FLOOR) / (PRICE_CEIL - PRICE_FLOOR)) * 100;
+
+                rangeFill.style.left = left + '%';
+                rangeFill.style.width = Math.max(0, right - left) + '%';
+                priceMin.value = lo;
+                priceMax.value = hi;
+                priceCaption.textContent = formatUSD(lo) + ' – ' + formatUSD(hi);
+            }
+
+            rangeMin.addEventListener('input', function () {
+                var hi = parseFloat(rangeMax.value);
+                if (parseFloat(rangeMin.value) > hi - PRICE_STEP) rangeMin.value = hi - PRICE_STEP;
+                updateSliderUI();
+                applyFilters();
+            });
+
+            rangeMax.addEventListener('input', function () {
+                var lo = parseFloat(rangeMin.value);
+                if (parseFloat(rangeMax.value) < lo + PRICE_STEP) rangeMax.value = lo + PRICE_STEP;
+                updateSliderUI();
+                applyFilters();
+            });
+
+            [rangeMin, rangeMax].forEach(function (input, index) {
+                input.addEventListener('pointerdown', function () {
+                    this.style.zIndex = '5';
+                    (index === 0 ? rangeMax : rangeMin).style.zIndex = '4';
+                });
+            });
+
+            function commitNumberInputs() {
+                var lo = Math.min(Math.max(PRICE_FLOOR, parseFloat(priceMin.value) || PRICE_FLOOR), PRICE_CEIL);
+                var hi = Math.min(Math.max(PRICE_FLOOR, parseFloat(priceMax.value) || PRICE_CEIL), PRICE_CEIL);
+                if (lo > hi) { var tmp = lo; lo = hi; hi = tmp; }
+                rangeMin.value = lo;
+                rangeMax.value = hi;
+                updateSliderUI();
+                applyFilters();
+            }
+            priceMin.addEventListener('change', commitNumberInputs);
+            priceMax.addEventListener('change', commitNumberInputs);
+
+            /* ---------- Reset ---------- */
+            function resetFilters() {
+                $$('.filter-feature, .filter-room').forEach(function (input) { input.checked = false; });
+                $$('input[name="stars"]').forEach(function (radio) { radio.checked = radio.value === '0'; });
+                rangeMin.value = PRICE_FLOOR;
+                rangeMax.value = PRICE_CEIL;
+                updateSliderUI();
+                applyFilters();
+            }
+            resetButtons.forEach(function (button) {
+                if (button) button.addEventListener('click', resetFilters);
+            });
+
+            /* ---------- Sort ---------- */
+            sortSelect.addEventListener('change', function () {
+                var sorted = cards.slice();
+                switch (sortSelect.value) {
+                    case 'price-asc':
+                        sorted.sort(function (a, b) { return parseFloat(a.dataset.price) - parseFloat(b.dataset.price); });
+                        break;
+                    case 'price-desc':
+                        sorted.sort(function (a, b) { return parseFloat(b.dataset.price) - parseFloat(a.dataset.price); });
+                        break;
+                    case 'rating':
+                        sorted.sort(function (a, b) { return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating); });
+                        break;
+                    case 'distance':
+                        sorted.sort(function (a, b) { return parseFloat(a.dataset.dist) - parseFloat(b.dataset.dist); });
+                        break;
+                    default:
+                        sorted.sort(function (a, b) { return originalOrder.indexOf(a) - originalOrder.indexOf(b); });
+                }
+                sorted.forEach(function (card) { list.appendChild(card); });
+            });
+
+            /* ---------- Search form ---------- */
+            searchForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                var place = locationInput.value.trim() || 'your area';
+                resultsTitle.textContent = 'Stays in ' + place;
+                refresh();
+                showToast('Search updated — ' + plural(getNights(), 'night') + ' · ' + plural(getGuests(), 'guest'));
+            });
+
+            guestsSelect.addEventListener('change', refresh);
+
+            /* ---------- Booking buttons (sample) ---------- */
+            list.addEventListener('click', function (event) {
+                var button = event.target.closest('.booking-btn');
+                if (!button) return;
+                var card = button.closest('.hotel-card');
+                var name = $('.hotel-name', card).textContent;
+                showToast('Sample action — "' + name + '" is not connected to a booking engine.');
+            });
+
+            /* ---------- Mobile header menu ---------- */
+            menuToggle.addEventListener('click', function () {
+                var open = body.classList.toggle('nav-open');
+                menuToggle.setAttribute('aria-expanded', String(open));
+            });
+
+            /* ---------- Mobile sidebar ---------- */
+            filtersToggle.addEventListener('click', function () {
+                var open = sidebar.classList.toggle('is-open');
+                filtersToggle.setAttribute('aria-expanded', String(open));
+            });
+
+            /* ---------- Init ---------- */
+            updateSliderUI();
+            refresh();
+        })();
+    </script>
+</body>
+</html>

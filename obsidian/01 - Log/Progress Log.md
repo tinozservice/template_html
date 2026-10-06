@@ -48,6 +48,23 @@
 
 ---
 
+### # 2026-10-06 - Template Hotel Booking (Golden Hour)
+- **Tanggal**: 06 Oktober 2026
+- **Aktivitas**:
+  - [x] Membaca vault Obsidian (HUB, Log, Templates Index, Memory, Style Guide)
+  - [x] Membuat template `templates/hotel-booking-golden-hour.html` bertema Golden Hour (oranye–kuning)
+  - [x] Header: brand, navigasi Popular / Near Me / Surprise Me, Sign up, Log in
+  - [x] Sidebar fungsional: Search, Popular Filters, Room Type, Price Range (dual slider), Star Rating, Reset
+  - [x] Kartu hotel: rating + skor + review, jarak dari user, chip fasilitas, tipe & kelas kamar, harga/malam + estimasi total
+  - [x] Filter (fasilitas AND, tipe kamar, bintang, harga), sort, empty state, toast sample "Booking Now"
+  - [x] Verifikasi statis: tag balance, duplikasi id, syntax JS, HTTP 200
+  - [x] Update vault Obsidian (Log, Templates Index, Memory, HUB, Style Guide)
+  - [x] Direview & disetujui user — commit dan push
+- **Template yang dikerjakan**: [[hotel-booking-golden-hour]]
+- **Catatan**: Direview dan disetujui user; di-commit dan dipush ke `origin`.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -67,3 +84,4 @@
 | 2026-10-06 | - | Inisialisasi | ✅ Selesai |
 | 2026-10-06 | marketing-report | Pembuatan template dashboard | ✅ Selesai |
 | 2026-10-06 | marketing-report | Redesain anti AI-slop + pindah ke `templates/` | ✅ Selesai |
+| 2026-10-06 | hotel-booking-golden-hour | Pembuatan template hotel booking | ✅ Selesai |

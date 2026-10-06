@@ -105,6 +105,14 @@ Dipakai oleh [[marketing-report]]; dapat dijadikan acuan untuk template bertema 
 - Light Blue Sky (tint): `#3f8fba`, `#6fb3d6`, `#a8d0e8`, `#eef4f8`
 - Aksen hemat: teal `#2f8f83`, amber `#b9822f`, coral `#b0505f`
 
+### Tema Referensi — Golden Hour (Orange–Kuning)
+Dipakai oleh [[hotel-booking-golden-hour]]; dapat dijadikan acuan untuk template bertema hangat.
+- Oranye: `#A84A0F` (aksi/tombol), `#C25A14` (aksen), `#7C350B` (hover)
+- Kuning-amber: `#E2A23C` (highlight, bintang), `#F0C87E` (soft), `#F5E3C2` (tint)
+- Netral krem: `#FAF6EE` (page), `#FDF4E3` (tint panel), `#FFFDF8` (panel harga), `#E9DCC5` (garis)
+- Tinta hangat: `#31241A` (teks), `#5E4B39` (sekunder), `#7E6A54` (muted)
+- Tipografi: Fraunces (display serif), Inter (body), IBM Plex Mono (angka/harga); ikon Font Awesome seperlunya
+
 ### Prinsip Anti AI-Slop (WAJIB)
 - Hindari gradien berlebihan dan warna rainbow; gunakan palet terbatas / ramp satu hue
 - Hindari shadow berlapis, glow neon, dan glassmorphism (`backdrop-filter: blur`)
