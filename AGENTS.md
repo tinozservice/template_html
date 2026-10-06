@@ -28,3 +28,11 @@ Projek ini bertujuan untuk menghasilkan template dalam bentuk HTML.
 - Setiap perubahan atau penambahan template harus dicatat di vault Obsidian
 - Patuhi konvensi penamaan yang telah ditetapkan
 - Jaga dokumentasi di vault tetap up-to-date
+
+## Penghindaran Desain AI Slop
+- **DILARANG** menggunakan desain yang khas AI-generated slop
+  - Gradien warna berlebihan (terutama rainbow/linear gradient yang berulang)
+  - Pola desain yang terlalu khas AI (shadow berlapis, border-radius berlebihan)
+  - Styling yang terlalu generic dan over-designed
+- Buat desain yang natural, minimalis, dan memiliki karakter unik
+- Fokus pada fungsionalitas dan estetika yang bersih
