@@ -139,6 +139,16 @@
 
 ---
 
+### # 2026-10-06 - Tambah README.md Projek
+- **Tanggal**: 06 Oktober 2026
+- **Aktivitas**:
+  - [x] Membuat `README.md` di root repo: ringkasan projek, daftar 4 template + tema & versi, karakter umum, struktur, cara pakai, konvensi, tautan dokumentasi, kredit
+  - [x] Commit dan push ke `origin`
+- **Template yang dikerjakan**: -
+- **Catatan**: README menjadi pintu masuk repo di GitHub.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -164,3 +174,4 @@
 | 2026-10-06 | e-novel-maroon-gray | Pembuatan template E-Novel (maroon–gray) | ✅ Selesai |
 | 2026-10-06 | portfolio-slate-cyan | Fix rasio gambar (height:auto) v1.0.1 | ✅ Selesai |
 | 2026-10-06 | portfolio-slate-cyan | Fix ikon Fiverr (inline SVG) v1.0.2 | ✅ Selesai |
+| 2026-10-06 | - | Tambah README.md projek | ✅ Selesai |
