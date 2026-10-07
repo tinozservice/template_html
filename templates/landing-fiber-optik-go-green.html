@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="id" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FiberIndo — internet fiber rumah & usaha dengan kecepatan simetris hingga 1 Gbps, tanpa FUP, tanpa biaya tersembunyi. Cek ketersediaan di alamat Anda.">
+    <meta name="theme-color" content="#0E3F26">
+    <title>FiberIndo — Internet Fiber Rumah &amp; Usaha | Template Landing Page</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230E3F26'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='700' fill='%23E9F5EE' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script>document.documentElement.className = 'js';</script>
+    <style>
+        /* ============================================================
+           FiberIndo — Landing Page Fiber Optik (tema Go Green)
+           Gaya: flat, garis 1px, radius kecil, palet hijau terbatas.
+           Anti AI-slop: tanpa gradien, glow, atau shadow berlapis.
+           ============================================================ */
+
+        /* ---------- Reset & base ---------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            /* Permukaan */
+            --paper: #F6FAF7;
+            --panel: #FFFFFF;
+            --panel-soft: #EFF6F1;
+            --mist: #F3FAF5;
+            /* Garis */
+            --line: #DCE8DF;
+            --line-soft: #E7F0EA;
+            /* Tinta */
+            --ink: #11251B;
+            --ink-2: #3E5949;
+            --muted: #5C7367;
+            /* Hijau (brand) */
+            --brand: #176B40;
+            --brand-hover: #115230;
+            --brand-deep: #0E3F26;
+            --brand-bright: #2E9E67;
+            --brand-soft: #D9EFE1;
+            --brand-softer: #E9F5EE;
+            /* Aksen hemat */
+            --amber: #B07C22;
+            /* Bentuk & tipografi */
+            --radius: 5px;
+            --radius-sm: 3px;
+            --font-display: 'Sora', Inter, system-ui, sans-serif;
+            --font-body: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: var(--brand);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--brand);
+            outline-offset: 2px;
+        }
+
+        ::selection {
+            background: var(--brand-soft);
+            color: var(--ink);
+        }
+
+        /* ---------- Utilitas ---------- */
+        .wrap {
+            width: min(1140px, 92vw);
+            margin-inline: auto;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 12px;
+            top: -48px;
+            z-index: 100;
+            background: var(--brand-deep);
+            color: #EAF6EE;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: top .2s ease;
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--brand);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 18px;
+            height: 1px;
+            background: currentColor;
+        }
+
+        .section {
+            padding: clamp(56px, 8vw, 96px) 0;
+        }
+
+        .section-alt {
+            background: var(--panel-soft);
+            border-top: 1px solid var(--line-soft);
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .section-head {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: clamp(28px, 4vw, 44px);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(26px, 3.4vw, 38px);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            max-width: 660px;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: 16.5px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .lead {
+            font-size: 16.5px;
+            color: var(--ink-2);
+            max-width: 660px;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        /* ---------- Tombol ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 13px 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--brand);
+            border-color: var(--brand);
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-hover);
+            border-color: var(--brand-hover);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: #BCCFC3;
+            color: var(--ink);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--brand);
+            color: var(--brand);
+        }
+
+        .btn-light {
+            background: #F2FAF5;
+            border-color: #F2FAF5;
+            color: var(--brand-deep);
+        }
+
+        .btn-light:hover {
+            background: #FFFFFF;
+            border-color: #FFFFFF;
+        }
+
+        .btn-sm {
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .link-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--brand);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s ease;
+        }
+
+        .link-arrow:hover {
+            border-bottom-color: var(--brand);
+        }
+
+        /* ---------- Header ---------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--paper);
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s ease;
+        }
+
+        .site-header.scrolled {
+            border-bottom-color: var(--line);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px 0;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .brand-dot {
+            width: 9px;
+            height: 9px;
+            background: var(--brand-bright);
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .nav ul {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            list-style: none;
+        }
+
+        .nav a {
+            position: relative;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: var(--ink-2);
+            text-decoration: none;
+            padding: 6px 0;
+            transition: color .2s ease;
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: var(--brand-bright);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .25s ease;
+        }
+
+        .nav a:hover,
+        .nav a.is-active {
+            color: var(--ink);
+        }
+
+        .nav a.is-active::after {
+            transform: scaleX(1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-actions .btn-ghost {
+            display: none;
+        }
+
+        .nav-toggle {
+            display: inline-grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            color: var(--ink);
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Drawer nav (mobile) */
+        @media (max-width: 899px) {
+            .nav.open {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--panel);
+                border-bottom: 1px solid var(--line);
+                padding: 10px 4vw 16px;
+            }
+
+            .nav.open ul {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .nav.open a {
+                display: block;
+                padding: 12px 2px;
+                border-bottom: 1px solid var(--line-soft);
+                font-size: 15.5px;
+            }
+
+            .nav.open a::after {
+                display: none;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .nav {
+                display: block;
+            }
+
+            .nav-toggle {
+                display: none;
+            }
+
+            .header-actions .btn-ghost {
+                display: inline-flex;
+            }
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding: clamp(40px, 6vw, 84px) 0 clamp(44px, 6vw, 76px);
+        }
+
+        .hero-grid {
+            display: grid;
+            gap: clamp(32px, 5vw, 60px);
+            align-items: center;
+        }
+
+        .hero-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 22px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5.4vw, 54px);
+            font-weight: 700;
+            line-height: 1.06;
+            letter-spacing: -0.02em;
+            max-width: 15ch;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--brand);
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            color: var(--ink-2);
+            max-width: 50ch;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-media {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--panel);
+            overflow: hidden;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+        }
+
+        .hero-media figcaption {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 10px 14px;
+            border-top: 1px solid var(--line-soft);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid var(--line);
+            margin-top: clamp(34px, 5vw, 56px);
+        }
+
+        .hero-stats > div {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 4px;
+            padding: 18px 18px 0 0;
+        }
+
+        .hero-stats > div + div {
+            padding-left: 18px;
+            border-left: 1px solid var(--line);
+        }
+
+        .hero-stats > div:nth-child(3) {
+            padding-left: 0;
+            border-left: 0;
+        }
+
+        @media (max-width: 599px) {
+            .hero-stats > div:nth-child(3),
+            .hero-stats > div:nth-child(4) {
+                margin-top: 18px;
+                padding-top: 18px;
+                border-top: 1px solid var(--line);
+            }
+        }
+
+        .hero-stats dt {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        .hero-stats dd {
+            font-family: var(--font-mono);
+            font-size: clamp(21px, 2.6vw, 28px);
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+
+        @media (min-width: 760px) {
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero-stats > div {
+                padding: 20px 20px 0 0;
+            }
+
+            .hero-stats > div + div {
+                padding-left: 20px;
+            }
+
+            .hero-stats > div:nth-child(3) {
+                padding-left: 20px;
+                border-left: 1px solid var(--line);
+            }
+        }
+
+        @media (min-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1.05fr 0.95fr;
+            }
+        }
+
+        /* ---------- Strip jaminan ---------- */
+        .strip {
+            background: var(--panel);
+            border-block: 1px solid var(--line);
+        }
+
+        .strip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .strip-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 14px 16px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink-2);
+        }
+
+        .strip-item i {
+            color: var(--brand);
+            font-size: 14px;
+        }
+
+        .strip-item + .strip-item {
+            padding-left: 14px;
+            border-left: 1px solid var(--line-soft);
+        }
+
+        @media (max-width: 599px) {
+            .strip-item:nth-child(3),
+            .strip-item:nth-child(4) {
+                border-top: 1px solid var(--line-soft);
+            }
+
+            .strip-item:nth-child(3) {
+                padding-left: 0;
+                border-left: 0;
+            }
+        }
+
+        @media (min-width: 760px) {
+            .strip-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* ---------- Kartu fitur ---------- */
+        .grid-cards {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 22px;
+        }
+
+        .icon-sq {
+            display: inline-grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            background: var(--brand-softer);
+            border: 1px solid var(--line-soft);
+            border-radius: 4px;
+            color: var(--brand);
+            font-size: 16px;
+        }
+
+        .feature p {
+            font-size: 14.5px;
+            color: var(--ink-2);
+        }
+
+        /* ---------- Split (infrastruktur) ---------- */
+        .split {
+            display: grid;
+            gap: clamp(28px, 4vw, 56px);
+            align-items: center;
+        }
+
+        .split-media {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--panel);
+            overflow: hidden;
+        }
+
+        .split-media img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+        }
+
+        .split-media figcaption {
+            padding: 10px 14px;
+            border-top: 1px solid var(--line-soft);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        .split-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .points {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .points li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 15px;
+            color: var(--ink-2);
+        }
+
+        .points li i {
+            color: var(--brand);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .points strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            border: 1px solid var(--line);
+            background: var(--panel);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink-2);
+        }
+
+        .chip b {
+            color: var(--brand);
+            font-weight: 600;
+        }
+
+        @media (min-width: 900px) {
+            .split {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .split.reverse .split-media {
+                order: 2;
+            }
+        }
+
+        /* ---------- Chart ---------- */
+        .chart-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .chart-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px 18px 14px;
+        }
+
+        .chart-head {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .chart-head h3 {
+            font-size: 15px;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink-2);
+        }
+
+        .legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .legend i {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .sw-brand {
+            background: var(--brand-bright);
+        }
+
+        .sw-brand-light {
+            background: #8CCBA6;
+        }
+
+        .sw-gray {
+            background: #C3D2C7;
+        }
+
+        .sw-gray-light {
+            background: #DEE8E0;
+        }
+
+        .chart {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .chart .ax {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            fill: var(--muted);
+        }
+
+        .chart .val {
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            fill: var(--ink-2);
+        }
+
+        .chart .lbl {
+            font-family: var(--font-body);
+            font-size: 12.5px;
+            font-weight: 500;
+            fill: var(--ink-2);
+        }
+
+        .chart .grid-line {
+            stroke: var(--line-soft);
+            stroke-width: 1;
+        }
+
+        .chart .axis-line {
+            stroke: var(--line);
+            stroke-width: 1;
+        }
+
+        .chart .track {
+            fill: #EDF4EF;
+        }
+
+        .chart-note {
+            margin-top: 10px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        /* Animasi bar chart */
+        #chartSpeeds rect.bar {
+            transform-box: fill-box;
+            transform-origin: bottom;
+            transform: scaleY(0);
+            transition: transform .8s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        #chartSpeeds.go rect.bar {
+            transform: scaleY(1);
+        }
+
+        #chartPrice rect.bar {
+            transform-box: fill-box;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform .8s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        #chartPrice.go rect.bar {
+            transform: scaleX(1);
+        }
+
+        #chartSpeeds text.val,
+        #chartPrice text.val {
+            opacity: 0;
+            transition: opacity .5s ease .35s;
+        }
+
+        #chartSpeeds.go text.val,
+        #chartPrice.go text.val {
+            opacity: 1;
+        }
+
+        .perf-side {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ring-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .ring-card svg {
+            flex: 0 0 auto;
+        }
+
+        .ring-value {
+            font-family: var(--font-mono);
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--ink);
+        }
+
+        .ring-card p {
+            font-size: 13.5px;
+            color: var(--ink-2);
+            max-width: 24ch;
+        }
+
+        .mini-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-card {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .stat-card .num {
+            font-family: var(--font-mono);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .stat-card .num small {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .stat-card p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        @media (min-width: 980px) {
+            .chart-grid {
+                grid-template-columns: 1.4fr 1fr;
+            }
+        }
+
+        /* ---------- Cakupan ---------- */
+        .cov-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cov-row {
+            display: grid;
+            grid-template-columns: 96px 1fr 48px;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .cov-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink-2);
+        }
+
+        .cov-track {
+            display: block;
+            height: 8px;
+            background: var(--brand-soft);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .cov-fill {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--brand-bright);
+            transition: width .9s ease;
+        }
+
+        .cov-val {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: right;
+            color: var(--ink);
+        }
+
+        .cov-note {
+            font-size: 14px;
+            color: var(--ink-2);
+            margin-top: 22px;
+        }
+
+        /* ---------- Use case ---------- */
+        .usecase {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .usecase img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .usecase-body {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 18px 20px 20px;
+        }
+
+        .usecase-body p {
+            font-size: 14.5px;
+            color: var(--ink-2);
+        }
+
+        /* ---------- Harga ---------- */
+        .price-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .seg {
+            display: inline-flex;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--panel);
+        }
+
+        .seg button {
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            font-weight: 600;
+            padding: 10px 16px;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            color: var(--ink-2);
+            transition: background-color .2s ease, color .2s ease;
+        }
+
+        .seg button + button {
+            border-left: 1px solid var(--line);
+        }
+
+        .seg button.is-active {
+            background: var(--brand);
+            color: #FFFFFF;
+        }
+
+        .save-note {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--brand);
+        }
+
+        .price-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 640px) {
+            .price-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1060px) {
+            .price-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .plan {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .plan.is-popular {
+            border-color: var(--brand);
+        }
+
+        .plan-head {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 20px 20px 16px;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .plan-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .plan-name {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .pop-badge {
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            background: var(--brand);
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
+        }
+
+        .plan-speed {
+            font-family: var(--font-mono);
+            font-size: 27px;
+            font-weight: 600;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .plan-speed small {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .plan-price {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .plan-price-num {
+            font-family: var(--font-mono);
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .plan-unit {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .plan-period-note {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--muted);
+        }
+
+        .plan ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 16px 20px;
+            font-size: 14px;
+            color: var(--ink-2);
+            flex: 1;
+        }
+
+        .plan li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .plan li i {
+            color: var(--brand);
+            font-size: 12.5px;
+            margin-top: 4px;
+        }
+
+        .plan-cta {
+            padding: 0 20px 20px;
+        }
+
+        .price-fine {
+            margin-top: 18px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        /* ---------- Perbandingan ---------- */
+        .cmp-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--panel);
+        }
+
+        .cmp-table {
+            width: 100%;
+            min-width: 720px;
+            border-collapse: collapse;
+            font-size: 14.5px;
+        }
+
+        .cmp-table th,
+        .cmp-table td {
+            padding: 13px 16px;
+            border-bottom: 1px solid var(--line-soft);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .cmp-table tbody tr:last-child th,
+        .cmp-table tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .cmp-table thead th {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink-2);
+            background: var(--mist);
+            white-space: nowrap;
+        }
+
+        .cmp-table th[scope="row"] {
+            width: 26%;
+            font-weight: 500;
+            color: var(--ink-2);
+            font-size: 14px;
+        }
+
+        .cmp-table .col-us {
+            background: var(--brand-softer);
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .cmp-table thead .col-us {
+            color: var(--brand);
+            font-weight: 600;
+        }
+
+        .cmp-table i.fa-check {
+            color: var(--brand);
+            font-size: 13px;
+            margin-right: 8px;
+        }
+
+        .cmp-table i.fa-xmark {
+            color: var(--muted);
+            font-size: 13px;
+            margin-right: 8px;
+        }
+
+        .cmp-charts {
+            display: grid;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 980px) {
+            .cmp-charts {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ---------- Testimoni ---------- */
+        .rating-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--ink-2);
+        }
+
+        .rating-line .stars {
+            color: var(--amber);
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .tgrid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr;
+            margin-top: 26px;
+        }
+
+        @media (min-width: 760px) {
+            .tgrid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .quote {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 22px;
+        }
+
+        .quote .stars {
+            color: var(--amber);
+            font-size: 12.5px;
+            letter-spacing: 2px;
+        }
+
+        .quote-text {
+            font-size: 15px;
+            color: var(--ink-2);
+        }
+
+        .quote-text strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .who {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 6px;
+        }
+
+        .who img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--line);
+        }
+
+        .who b {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .who span {
+            font-size: 12.5px;
+            color: var(--muted);
+        }
+
+        /* ---------- FAQ ---------- */
+        .faq-list {
+            border-top: 1px solid var(--line);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-q {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            text-align: left;
+            padding: 18px 2px;
+            font-family: var(--font-body);
+            font-size: 15.5px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .faq-q i {
+            color: var(--brand);
+            font-size: 14px;
+            flex: 0 0 auto;
+            transition: transform .25s ease;
+        }
+
+        .faq-item.open .faq-q i {
+            transform: rotate(180deg);
+        }
+
+        .faq-a {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows .3s ease;
+        }
+
+        .faq-a > div {
+            overflow: hidden;
+        }
+
+        .faq-a p {
+            font-size: 14.5px;
+            color: var(--ink-2);
+            max-width: 74ch;
+            padding: 0 34px 18px 2px;
+        }
+
+        .faq-item.open .faq-a {
+            grid-template-rows: 1fr;
+        }
+
+        /* ---------- CTA / form ---------- */
+        .cta {
+            background: var(--brand-deep);
+            color: #E9F5EE;
+        }
+
+        .cta h2 {
+            color: #F2FAF5;
+        }
+
+        .cta .eyebrow {
+            color: #7FC79D;
+        }
+
+        .cta .lead {
+            color: #BBD8C6;
+        }
+
+        .cta-grid {
+            display: grid;
+            gap: clamp(32px, 4vw, 56px);
+            align-items: start;
+        }
+
+        @media (min-width: 980px) {
+            .cta-grid {
+                grid-template-columns: 1.05fr 0.95fr;
+            }
+        }
+
+        .cta-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .contact-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #D6EBDD;
+        }
+
+        .contact-line i {
+            color: #7FC79D;
+            width: 18px;
+            text-align: center;
+        }
+
+        .check-form {
+            background: #10402A;
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: var(--radius);
+            padding: 24px;
+            display: grid;
+            gap: 16px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #CBE4D4;
+            margin-bottom: 6px;
+        }
+
+        .field input {
+            width: 100%;
+            background: #0C3320;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 4px;
+            padding: 11px 12px;
+            font-family: var(--font-body);
+            font-size: 14.5px;
+            color: #EAF6EE;
+        }
+
+        .field input::placeholder {
+            color: #6FA283;
+        }
+
+        .field input:focus-visible {
+            outline: 2px solid #7FC79D;
+            outline-offset: 1px;
+        }
+
+        .form-fine {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            color: #9CC4AC;
+        }
+
+        /* ---------- Footer ---------- */
+        .site-footer {
+            background: #0A2A1A;
+            color: #DCEEE3;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 32px;
+            grid-template-columns: 1fr;
+            padding: clamp(40px, 6vw, 64px) 0 34px;
+        }
+
+        @media (min-width: 760px) {
+            .footer-grid {
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            }
+        }
+
+        .foot-brand p {
+            font-size: 14px;
+            color: #A9CDB7;
+            max-width: 34ch;
+            margin-top: 12px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .social-row a {
+            display: inline-grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 4px;
+            color: #CFE8D9;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color .2s ease, color .2s ease;
+        }
+
+        .social-row a:hover {
+            background: rgba(255, 255, 255, .08);
+            color: #FFFFFF;
+        }
+
+        .foot-col h3 {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #8FBCA1;
+            margin-bottom: 14px;
+        }
+
+        .foot-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .foot-col a {
+            font-size: 14px;
+            color: #DCEEE3;
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+
+        .foot-col a:hover {
+            color: #FFFFFF;
+        }
+
+        .foot-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 24px;
+            justify-content: space-between;
+            padding: 18px 0 22px;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            font-size: 12.5px;
+            color: #8FBCA1;
+        }
+
+        /* ---------- Toast ---------- */
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%, 14px);
+            opacity: 0;
+            pointer-events: none;
+            background: var(--ink);
+            color: #EAF6EE;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: var(--radius);
+            padding: 13px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            max-width: min(92vw, 480px);
+            text-align: center;
+            transition: opacity .3s ease, transform .3s ease;
+            z-index: 80;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* ---------- Reveal on scroll ---------- */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .js .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ---------- Reduced motion ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            #chartSpeeds rect.bar,
+            #chartPrice rect.bar {
+                transition: none;
+                transform: none;
+            }
+
+            #chartSpeeds text.val,
+            #chartPrice text.val {
+                opacity: 1;
+                transition: none;
+            }
+
+            .cov-fill {
+                transition: none;
+            }
+
+            .faq-a {
+                transition: none;
+            }
+
+            .nav a::after {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#konten">Langsung ke konten</a>
+
+    <!-- ================= Header ================= -->
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="#atas" id="atas">FiberIndo<span class="brand-dot" aria-hidden="true"></span></a>
+
+            <nav class="nav" id="nav-utama" aria-label="Navigasi utama">
+                <ul>
+                    <li><a href="#keunggulan">Keunggulan</a></li>
+                    <li><a href="#cakupan">Cakupan</a></li>
+                    <li><a href="#harga">Harga</a></li>
+                    <li><a href="#banding">Perbandingan</a></li>
+                    <li><a href="#faq">Q &amp; A</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn btn-ghost btn-sm" href="#cek">Cek ketersediaan</a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-utama">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    <span class="sr-only">Buka menu navigasi</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="konten">
+        <!-- ================= Hero ================= -->
+        <section class="hero">
+            <div class="wrap">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <span class="eyebrow">Fiber to the Home</span>
+                        <h1>Internet fiber yang tetap cepat saat <em>semua orang online</em>.</h1>
+                        <p class="hero-sub">FiberIndo membangun jaringannya sendiri: serat optik penuh sampai ke rumah Anda, kecepatan unggah&ndash;unduh simetris hingga 1 Gbps, dan tim yang siap 24/7. Tanpa FUP, tanpa biaya tersembunyi.</p>
+                        <div class="hero-cta">
+                            <a class="btn btn-primary" href="#harga">Lihat paket &amp; harga</a>
+                            <a class="btn btn-ghost" href="#cek">Cek ketersediaan <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                    <figure class="hero-media">
+                        <img src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&amp;fit=crop&amp;w=900&amp;q=60" alt="Router WiFi dengan kabel ethernet tersambung ke jaringan" width="900" height="600" fetchpriority="high">
+                        <figcaption>
+                            <span>Router WiFi 6 disertakan</span>
+                            <span>Tanpa biaya sewa</span>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <dl class="hero-stats">
+                    <div>
+                        <dt>Uptime jaringan 90 hari terakhir</dt>
+                        <dd><span class="num" data-count="99.95" data-decimals="2">99,95</span>%</dd>
+                    </div>
+                    <div>
+                        <dt>Latensi rata-rata</dt>
+                        <dd><span class="num" data-count="8" data-decimals="0">8</span> ms</dd>
+                    </div>
+                    <div>
+                        <dt>Paket tertinggi</dt>
+                        <dd><span class="num" data-count="1" data-decimals="0">1</span> Gbps</dd>
+                    </div>
+                    <div>
+                        <dt>Rumah &amp; usaha terhubung</dt>
+                        <dd><span class="num" data-count="120" data-decimals="0">120</span> rb+</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ================= Strip jaminan ================= -->
+        <section class="strip" aria-label="Jaminan layanan">
+            <div class="wrap">
+                <ul class="strip-grid" style="list-style:none;">
+                    <li class="strip-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Survei &amp; instalasi gratis</li>
+                    <li class="strip-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Tanpa FUP &amp; tanpa kontrak</li>
+                    <li class="strip-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Router WiFi 6 termasuk</li>
+                    <li class="strip-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Dukungan pelanggan 24/7</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= Keunggulan ================= -->
+        <section class="section" id="keunggulan">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Keunggulan</span>
+                    <h2>Enam alasan orang pindah ke FiberIndo</h2>
+                    <p class="lead">Bukan sekadar lebih cepat &mdash; jaringan kami dirancang tetap konsisten di jam sibuk, dengan aturan yang jelas dan tanpa kejutan di tagihan.</p>
+                </div>
+
+                <div class="grid-cards">
+                    <article class="card feature reveal">
+                        <span class="icon-sq"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                        <h3>Kecepatan simetris</h3>
+                        <p>Unggah sama kencangnya dengan unduh. Penting untuk video call, cloud, backup, dan konten.</p>
+                    </article>
+                    <article class="card feature reveal">
+                        <span class="icon-sq"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                        <h3>Uptime 99,95%</h3>
+                        <p>Backbone redundan dan pemantauan NOC 24/7 &mdash; gangguan terdeteksi sebelum Anda menelepon.</p>
+                    </article>
+                    <article class="card feature reveal">
+                        <span class="icon-sq"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></span>
+                        <h3>Latensi 8 ms</h3>
+                        <p>Enak untuk gaming, video conference, dan remote desktop. Jitter kecil, koneksi terasa instan.</p>
+                    </article>
+                    <article class="card feature reveal">
+                        <span class="icon-sq"><i class="fa-solid fa-infinity" aria-hidden="true"></i></span>
+                        <h3>Tanpa FUP</h3>
+                        <p>Pakai sepuasnya. Tidak ada pemotongan kecepatan diam-diam setelah kuota tertentu.</p>
+                    </article>
+                    <article class="card feature reveal">
+                        <span class="icon-sq"><i class="fa-solid fa-wifi" aria-hidden="true"></i></span>
+                        <h3>WiFi 6 standar</h3>
+                        <p>Router modern disertakan di semua paket. Banyak perangkat tetap lancar di seluruh rumah.</p>
+                    </article>
+                    <article class="card feature reveal">
+                        <span class="icon-sq"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
+                        <h3>Instalasi 1&ndash;2 hari</h3>
+                        <p>Survei gratis, pemasangan rapi oleh teknisi bersertifikat, dan pemasangan kabel yang tidak asal-asalan.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Infrastruktur ================= -->
+        <section class="section section-alt" id="jaringan">
+            <div class="wrap split">
+                <figure class="split-media reveal">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="Panel distribusi jaringan fiber dengan kabel patch biru" width="1000" height="667" loading="lazy">
+                    <figcaption>Perangkat distribusi fiber di salah satu node FiberIndo.</figcaption>
+                </figure>
+
+                <div class="split-copy">
+                    <span class="eyebrow">Infrastruktur</span>
+                    <h2>Backbone fiber milik sendiri, hingga ke rumah Anda</h2>
+                    <p class="lead">Dari pusat data hingga kotak terminal di depan rumah, seluruh jalur dikelola langsung oleh tim FiberIndo.</p>
+                    <ul class="points">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i><span><strong>Rute ganda antar-node</strong> &mdash; gangguan di satu jalur tidak memutus koneksi Anda.</span></li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i><span><strong>Monitoring NOC 24/7</strong> &mdash; tim memantau kualitas sinyal tiap pelanggan secara berkala.</span></li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i><span><strong>Kapasitas ditambah tiap kuartal</strong> &mdash; mengikuti pertumbuhan trafik, bukan menunggu penuh.</span></li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i><span><strong>Perangkat kelas carrier</strong> &mdash; OLT, switch, dan router dari vendor tier-1.</span></li>
+                    </ul>
+                    <div class="chip-row">
+                        <span class="chip"><b>12</b> node inti</span>
+                        <span class="chip"><b>99,95%</b> uptime 12 bulan</span>
+                        <span class="chip"><b>40+</b> kota terlayani</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Performa (chart) ================= -->
+        <section class="section" id="performa">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Performa</span>
+                    <h2>Cepat tidak cukup &mdash; harus konsisten</h2>
+                    <p class="lead">Kecepatan tinggi gampang diklaim. Yang sulit adalah menjaganya saat jam sibuk. Ini data pemantauan internal tiga bulan terakhir.</p>
+                </div>
+
+                <div class="chart-grid">
+                    <div class="chart-card reveal">
+                        <div class="chart-head">
+                            <h3>Throughput 24 jam &mdash; paket 1 Gbps</h3>
+                            <div class="legend">
+                                <span><i class="sw-brand" aria-hidden="true"></i>Unduh</span>
+                                <span><i class="sw-brand-light" aria-hidden="true"></i>Unggah</span>
+                            </div>
+                        </div>
+                        <svg class="chart" id="chart24" viewBox="0 0 640 300" role="img" aria-label="Grafik kecepatan unduh dan unggah sepanjang 24 jam yang relatif stabil di kisaran 900 Mbps, dengan penurunan ringan pada jam sibuk."></svg>
+                        <p class="chart-note">Rata-rata per jam, dalam Mbps. <noscript>Chart memerlukan JavaScript.</noscript></p>
+                    </div>
+
+                    <div class="perf-side">
+                        <div class="card ring-card reveal">
+                            <svg id="ringUptime" width="140" height="140" viewBox="0 0 140 140" aria-hidden="true"></svg>
+                            <div>
+                                <div class="ring-value">99,95%</div>
+                                <p>Uptime jaringan 90 hari terakhir, diukur dari NOC.</p>
+                            </div>
+                        </div>
+                        <div class="mini-stats">
+                            <div class="card stat-card reveal">
+                                <span class="num">8 <small>ms</small></span>
+                                <p>Latensi rata-rata ke 10 destinasi populer.</p>
+                            </div>
+                            <div class="card stat-card reveal">
+                                <span class="num">1,2 <small>ms</small></span>
+                                <p>Jitter &mdash; stabil untuk video call dan gaming.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Cakupan ================= -->
+        <section class="section section-alt" id="cakupan">
+            <div class="wrap split reverse">
+                <div class="split-copy">
+                    <span class="eyebrow">Cakupan</span>
+                    <h2>Sudah hadir di 40+ kota di Indonesia</h2>
+                    <p class="lead">Ketersediaan berbeda tiap wilayah. Masukkan alamat Anda di <a href="#cek">form cek ketersediaan</a> &mdash; tim kami memverifikasi dalam hitungan jam.</p>
+
+                    <div class="cov-list" aria-label="Persentase ketersediaan jaringan per kota">
+                        <div class="cov-row">
+                            <span class="cov-name">Jakarta</span>
+                            <span class="cov-track"><span class="cov-fill" data-pct="96" style="width:96%"></span></span>
+                            <span class="cov-val">96%</span>
+                        </div>
+                        <div class="cov-row">
+                            <span class="cov-name">Bandung</span>
+                            <span class="cov-track"><span class="cov-fill" data-pct="91" style="width:91%"></span></span>
+                            <span class="cov-val">91%</span>
+                        </div>
+                        <div class="cov-row">
+                            <span class="cov-name">Surabaya</span>
+                            <span class="cov-track"><span class="cov-fill" data-pct="88" style="width:88%"></span></span>
+                            <span class="cov-val">88%</span>
+                        </div>
+                        <div class="cov-row">
+                            <span class="cov-name">Yogyakarta</span>
+                            <span class="cov-track"><span class="cov-fill" data-pct="84" style="width:84%"></span></span>
+                            <span class="cov-val">84%</span>
+                        </div>
+                        <div class="cov-row">
+                            <span class="cov-name">Medan</span>
+                            <span class="cov-track"><span class="cov-fill" data-pct="79" style="width:79%"></span></span>
+                            <span class="cov-val">79%</span>
+                        </div>
+                    </div>
+
+                    <p class="cov-note">Segera hadir: <strong>Semarang, Denpasar, Balikpapan</strong>. Minta dihubungi saat jaringan tiba di area Anda.</p>
+                    <a class="link-arrow" href="#cek">Cek alamat Anda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <figure class="split-media reveal">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="Panorama kota-kota tempat jaringan FiberIndo beroperasi" width="1000" height="667" loading="lazy">
+                    <figcaption>Cakupan jaringan diperluas bertahap tiap kuartal.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ================= Use case ================= -->
+        <section class="section" id="kebutuhan">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Kegunaan</span>
+                    <h2>Untuk rumah, kerja, dan bermain</h2>
+                    <p class="lead">Satu koneksi fiber untuk semua aktivitas keluarga &mdash; tanpa perlu antre bandwidth.</p>
+                </div>
+
+                <div class="grid-cards">
+                    <article class="card usecase reveal">
+                        <img src="https://images.unsplash.com/photo-1601944177325-f8867652837f?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Televisi ruang keluarga menampilkan layanan streaming" width="800" height="500" loading="lazy">
+                        <div class="usecase-body">
+                            <h3>Streaming &amp; TV 4K</h3>
+                            <p>Beberapa layar menonton sekaligus tanpa buffering, karena kapasitas tidak dibagi-bagi diam-diam.</p>
+                        </div>
+                    </article>
+                    <article class="card usecase reveal">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Tiga orang bekerja bersama menggunakan laptop" width="800" height="500" loading="lazy">
+                        <div class="usecase-body">
+                            <h3>Kerja dari rumah</h3>
+                            <p>Meeting, cloud, dan backup besar tetap lancar berkat kecepatan unggah yang simetris.</p>
+                        </div>
+                    </article>
+                    <article class="card usecase reveal">
+                        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Dua orang bermain game di depan televisi" width="800" height="500" loading="lazy">
+                        <div class="usecase-body">
+                            <h3>Gaming &amp; live streaming</h3>
+                            <p>Ping 8 ms dan jitter kecil &mdash; tidak perlu lagi menyalahkan WiFi saat kalah.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Harga ================= -->
+        <section class="section section-alt" id="harga">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Harga</span>
+                    <h2>Empat paket, tanpa embel-embel</h2>
+                    <p class="lead">Semua paket simetris, tanpa FUP, sudah termasuk perangkat dan instalasi. Pilih yang paling pas, upgrade kapan saja.</p>
+                </div>
+
+                <div class="price-toolbar reveal">
+                    <div class="seg" role="group" aria-label="Pilihan periode pembayaran">
+                        <button type="button" class="seg-btn is-active" data-period="monthly" aria-pressed="true">Bulanan</button>
+                        <button type="button" class="seg-btn" data-period="annual" aria-pressed="false">Tahunan</button>
+                    </div>
+                    <span class="save-note">Bayar tahunan &mdash; hemat 2 bulan.</span>
+                </div>
+
+                <div class="price-grid">
+                    <article class="plan reveal" data-monthly="235000" data-annual="195000">
+                        <div class="plan-head">
+                            <div class="plan-top">
+                                <span class="plan-name">Lite</span>
+                            </div>
+                            <span class="plan-speed">30 <small>Mbps simetris</small></span>
+                            <span class="plan-price"><span class="plan-price-num">Rp 235.000</span><span class="plan-unit">/bln</span></span>
+                            <span class="plan-period-note">Bayar bulanan, berhenti kapan saja.</span>
+                        </div>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Router WiFi 5 standar</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Tanpa FUP &amp; tanpa kontrak</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Instalasi gratis</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Cocok untuk 3&ndash;5 perangkat</li>
+                        </ul>
+                        <div class="plan-cta">
+                            <a class="btn btn-ghost btn-block" href="#cek">Pilih Lite</a>
+                        </div>
+                    </article>
+
+                    <article class="plan is-popular reveal" data-monthly="315000" data-annual="265000">
+                        <div class="plan-head">
+                            <div class="plan-top">
+                                <span class="plan-name">Home</span>
+                                <span class="pop-badge">Paling populer</span>
+                            </div>
+                            <span class="plan-speed">100 <small>Mbps simetris</small></span>
+                            <span class="plan-price"><span class="plan-price-num">Rp 315.000</span><span class="plan-unit">/bln</span></span>
+                            <span class="plan-period-note">Bayar bulanan, berhenti kapan saja.</span>
+                        </div>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Router WiFi 6</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Tanpa FUP &amp; tanpa kontrak</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Instalasi &amp; survei gratis</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Cocok streaming 4K + 5&ndash;10 perangkat</li>
+                        </ul>
+                        <div class="plan-cta">
+                            <a class="btn btn-primary btn-block" href="#cek">Pilih Home</a>
+                        </div>
+                    </article>
+
+                    <article class="plan reveal" data-monthly="465000" data-annual="390000">
+                        <div class="plan-head">
+                            <div class="plan-top">
+                                <span class="plan-name">Pro</span>
+                            </div>
+                            <span class="plan-speed">300 <small>Mbps simetris</small></span>
+                            <span class="plan-price"><span class="plan-price-num">Rp 465.000</span><span class="plan-unit">/bln</span></span>
+                            <span class="plan-period-note">Bayar bulanan, berhenti kapan saja.</span>
+                        </div>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Router WiFi 6 + 1 unit mesh</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Tanpa FUP &amp; tanpa kontrak</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Prioritas dukungan pelanggan</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Cocok untuk WFH berat &amp; kreator</li>
+                        </ul>
+                        <div class="plan-cta">
+                            <a class="btn btn-ghost btn-block" href="#cek">Pilih Pro</a>
+                        </div>
+                    </article>
+
+                    <article class="plan reveal" data-monthly="1190000" data-annual="999000">
+                        <div class="plan-head">
+                            <div class="plan-top">
+                                <span class="plan-name">Bisnis</span>
+                            </div>
+                            <span class="plan-speed">1 <small>Gbps simetris</small></span>
+                            <span class="plan-price"><span class="plan-price-num">Rp 1.190.000</span><span class="plan-unit">/bln</span></span>
+                            <span class="plan-period-note">Bayar bulanan, berhenti kapan saja.</span>
+                        </div>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Router pro + mesh, IP statis</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>SLA 99,9% &amp; prioritas gangguan 4 jam</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Dukungan akun khusus</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Cocok untuk kantor &amp; usaha</li>
+                        </ul>
+                        <div class="plan-cta">
+                            <a class="btn btn-ghost btn-block" href="#cek">Pilih Bisnis</a>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="price-fine">Harga demo untuk keperluan template &mdash; sudah termasuk PPN, tanpa biaya instalasi atau sewa perangkat.</p>
+            </div>
+        </section>
+
+        <!-- ================= Perbandingan ================= -->
+        <section class="section" id="banding">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Perbandingan</span>
+                    <h2>FiberIndo vs layanan fiber lain</h2>
+                    <p class="lead">Bandingkan hal-hal yang paling sering membuat kecewa: kecepatan unggah, FUP, kontrak, dan biaya tersembunyi.</p>
+                </div>
+
+                <div class="cmp-wrap reveal">
+                    <table class="cmp-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">&nbsp;</th>
+                                <th scope="col" class="col-us">FiberIndo</th>
+                                <th scope="col">Provider Fiber X</th>
+                                <th scope="col">Provider Fiber Y</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Rasio kecepatan unggah</th>
+                                <td class="col-us">1:1 (simetris penuh)</td>
+                                <td>1:5 (unggah 20% dari unduh)</td>
+                                <td>1:10 (unggah 10% dari unduh)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Latensi rata-rata</th>
+                                <td class="col-us">8 ms</td>
+                                <td>18 ms</td>
+                                <td>25 ms</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kebijakan FUP</th>
+                                <td class="col-us">Tanpa FUP</td>
+                                <td>1 TB, lalu kecepatan turun</td>
+                                <td>500 GB, lalu kecepatan turun</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kontrak minimum</th>
+                                <td class="col-us">Tanpa ikatan kontrak</td>
+                                <td>12 bulan</td>
+                                <td>24 bulan</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Biaya instalasi</th>
+                                <td class="col-us">Gratis</td>
+                                <td>Rp 250.000</td>
+                                <td>Rp 500.000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Router WiFi 6</th>
+                                <td class="col-us"><i class="fa-solid fa-check" aria-hidden="true"></i>Termasuk</td>
+                                <td>Sewa Rp 50.000/bln</td>
+                                <td><i class="fa-solid fa-xmark" aria-hidden="true"></i>Tidak tersedia</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">SLA perbaikan gangguan</th>
+                                <td class="col-us">Maks. 24 jam</td>
+                                <td>Maks. 3&times;24 jam</td>
+                                <td>Maks. 5&times;24 jam</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="price-fine">Provider X dan Y adalah pembanding fiktif dengan angka estimasi pasar rata-rata &mdash; bukan data resmi operator mana pun.</p>
+
+                <div class="cmp-charts">
+                    <div class="chart-card reveal">
+                        <div class="chart-head">
+                            <h3>Kecepatan unduh &amp; unggah (Mbps)</h3>
+                            <div class="legend">
+                                <span><i class="sw-brand" aria-hidden="true"></i>Unduh</span>
+                                <span><i class="sw-brand-light" aria-hidden="true"></i>Unggah</span>
+                            </div>
+                        </div>
+                        <svg class="chart" id="chartSpeeds" viewBox="0 0 640 300" role="img" aria-label="Diagram batang membandingkan kecepatan unduh dan unggah: FiberIndo 950 unduh dan 940 unggah, Provider Fiber X 500 unduh dan 100 unggah, Provider Fiber Y 300 unduh dan 50 unggah."></svg>
+                        <p class="chart-note">Paket kelas 1 Gbps vs paket tertinggi pembanding. <noscript>Chart memerlukan JavaScript.</noscript></p>
+                    </div>
+
+                    <div class="chart-card reveal">
+                        <div class="chart-head">
+                            <h3>Harga per Mbps (Rp, makin rendah makin baik)</h3>
+                        </div>
+                        <svg class="chart" id="chartPrice" viewBox="0 0 640 210" role="img" aria-label="Diagram batang horizontal harga per Mbps pada paket 100 Mbps kelas rumahan: FiberIndo Rp 3.150, Provider Fiber X Rp 4.750, Provider Fiber Y Rp 6.250."></svg>
+                        <p class="chart-note">Paket 100 Mbps kelas rumahan. <noscript>Chart memerlukan JavaScript.</noscript></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= Testimoni ================= -->
+        <section class="section" id="ulasan">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Ulasan</span>
+                    <h2>Kata pelanggan</h2>
+                    <div class="rating-line">
+                        <span class="stars" aria-hidden="true">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </span>
+                        <span><strong>4,8</strong> dari 5 &middot; 1.240 ulasan pelanggan</span>
+                    </div>
+                </div>
+
+                <div class="tgrid">
+                    <figure class="card quote reveal">
+                        <span class="stars" aria-hidden="true"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <blockquote class="quote-text">&ldquo;Dulu tiap malam jam 8 video call pasti putus. Sebulan pakai FiberIndo, meeting tiga jam tetap mulus &mdash; unggahnya benar-benar simetris.&rdquo;</blockquote>
+                        <figcaption class="who">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=160&amp;q=60" alt="Foto Sari Wulandari" width="160" height="160" loading="lazy">
+                            <div>
+                                <b>Sari Wulandari</b>
+                                <span>Karyawan remote &middot; Bandung</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="card quote reveal">
+                        <span class="stars" aria-hidden="true"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <blockquote class="quote-text">&ldquo;Pindah karena kesal kena FUP terus. Sekarang unduh game 80 GB tanpa takut kecepatan turun di tengah jalan.&rdquo;</blockquote>
+                        <figcaption class="who">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=160&amp;q=60" alt="Foto Dimas Prasetyo" width="160" height="160" loading="lazy">
+                            <div>
+                                <b>Dimas Prasetyo</b>
+                                <span>Content creator &amp; gamer &middot; Jakarta</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="card quote reveal">
+                        <span class="stars" aria-hidden="true"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <blockquote class="quote-text">&ldquo;Tagihan sesuai yang dijanjikan, instalasi rapi, dan support-nya responsif waktu kabel sempat tergeser proyek jalan.&rdquo;</blockquote>
+                        <figcaption class="who">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&amp;fit=crop&amp;w=160&amp;q=60" alt="Foto Rina Kusuma" width="160" height="160" loading="lazy">
+                            <div>
+                                <b>Rina Kusuma</b>
+                                <span>Pemilik kafe &middot; Yogyakarta</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQ ================= -->
+        <section class="section section-alt" id="faq">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Q &amp; A</span>
+                    <h2>Pertanyaan yang sering diajukan</h2>
+                    <p class="lead">Belum ketemu jawabannya? Hubungi kami di <a href="#cek">1500-346</a> atau WhatsApp &mdash; dijawab manusia, bukan bot.</p>
+                </div>
+
+                <div class="faq-list reveal">
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+                            Berapa lama proses pemasangan setelah saya mendaftar?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                            <div><p>Setelah survei singkat dan konfirmasi alamat, instalasi biasanya dijadwalkan dalam 1&ndash;2 hari kerja. Tim kami mengabari slot kedatangan teknisi lewat WhatsApp, jadi Anda tidak perlu menunggu seharian.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                            Apakah benar tanpa FUP? Bagaimana kalau pemakaian saya besar?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                            <div><p>Benar. Tidak ada kuota atau pembatasan diam-diam. Kami memantau kualitas jaringan, bukan jumlah pemakaian Anda. Streaming 4K, cloud, dan unduh game besar tetap mendapat kecepatan yang sama.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                            Kecepatan unggah benar-benar simetris dengan unduh?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                            <div><p>Ya, di semua paket. Rasio 1:1 membuat unggah file kerja, backup, dan siaran langsung sama cepatnya dengan unduh &mdash; bukan 10&ndash;20% seperti kebanyakan paket rumahan.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                            Alamat saya belum tercakup. Bagaimana?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                            <div><p>Masukkan alamat di form cek ketersediaan; tim kami akan memberi estimasi jadwal perluasan area. Anda bisa minta dihubungi begitu jaringan tersedia di lokasi Anda.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                            Bisa upgrade, downgrade, atau berhenti kapan saja?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+                            <div><p>Bisa. Karena tidak ada kontrak berjangka, Anda bebas pindah paket kapan pun lewat aplikasi, dan berhenti tanpa penalti. Kenaikan paket aktif dalam hitungan jam.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+                            Berapa lama perbaikan kalau ada gangguan?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+                            <div><p>Monitoring kami mendeteksi banyak gangguan sebelum Anda sadar. SLA perbaikan maksimal 24 jam; sebagian besar kasus selesai di bawah 8 jam pada hari kerja.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">
+                            Router WiFi termasuk? Bisa pakai router sendiri?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7">
+                            <div><p>Router WiFi 6 termasuk di semua paket tanpa biaya sewa. Jika ingin memakai router sendiri, kami sediakan kredensial PPPoE beserta panduannya.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a8" id="faq-q8">
+                            Ada biaya tersembunyi yang perlu saya tahu?
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8">
+                            <div><p>Tidak ada. Harga sudah termasuk PPN, instalasi, dan perangkat. Tidak ada biaya survei, aktivasi, atau denda berhenti. Satu tagihan, jumlahnya sama setiap bulan.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA / cek ketersediaan ================= -->
+        <section class="section cta" id="cek">
+            <div class="wrap cta-grid">
+                <div class="cta-copy">
+                    <span class="eyebrow">Cek ketersediaan</span>
+                    <h2>Siap pindah ke fiber yang benar?</h2>
+                    <p class="lead">Masukkan alamat Anda dan tim kami akan memverifikasi ketersediaan, kecepatan yang bisa dicapai, serta jadwal instalasi &mdash; dalam hitungan jam, bukan minggu.</p>
+                    <div class="contact-lines">
+                        <span class="contact-line"><i class="fa-solid fa-phone" aria-hidden="true"></i>Telepon 1500-346 (24 jam)</span>
+                        <span class="contact-line"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp +62 811-1000-346</span>
+                        <span class="contact-line"><i class="fa-solid fa-headset" aria-hidden="true"></i>Dukungan pelanggan 24/7, dijawab manusia</span>
+                    </div>
+                </div>
+
+                <form class="check-form" id="cek-form" novalidate>
+                    <div class="field">
+                        <label for="alamat">Alamat lengkap</label>
+                        <input type="text" id="alamat" name="alamat" placeholder="Jalan, nomor, RT/RW, kecamatan, kota" required>
+                    </div>
+                    <div class="field">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+                    </div>
+                    <div class="field">
+                        <label for="wa">Nomor WhatsApp</label>
+                        <input type="tel" id="wa" name="wa" placeholder="0811-xxxx-xxxx" required>
+                    </div>
+                    <button class="btn btn-light btn-block" type="submit">Kirim &amp; cek ketersediaan</button>
+                    <p class="form-fine">Demo template &mdash; data tidak dikirim ke mana pun. Tim fiktif ini akan &ldquo;menghubungi&rdquo; Anda di layar.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="foot-brand">
+                    <a class="brand" href="#atas" style="color:#F2FAF5;">FiberIndo<span class="brand-dot" aria-hidden="true"></span></a>
+                    <p>Internet fiber untuk rumah &amp; usaha &mdash; simetris, tanpa FUP, dan jujur di harga.</p>
+                    <div class="social-row">
+                        <a href="#" aria-label="WhatsApp FiberIndo"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram FiberIndo"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Facebook FiberIndo"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="YouTube FiberIndo"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="foot-col">
+                    <h3>Produk</h3>
+                    <ul>
+                        <li><a href="#harga">Paket &amp; harga</a></li>
+                        <li><a href="#keunggulan">Keunggulan</a></li>
+                        <li><a href="#cakupan">Cakupan jaringan</a></li>
+                        <li><a href="#cek">Cek ketersediaan</a></li>
+                    </ul>
+                </div>
+
+                <div class="foot-col">
+                    <h3>Perusahaan</h3>
+                    <ul>
+                        <li><a href="#">Tentang kami</a></li>
+                        <li><a href="#">Karier</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#cek">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div class="foot-col">
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="#faq">Q &amp; A</a></li>
+                        <li><a href="#">Status jaringan</a></li>
+                        <li><a href="#">Panduan pemasangan</a></li>
+                        <li><a href="#">Kebijakan privasi</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="foot-bottom">
+                <span>&copy; <span id="tahun">2026</span> FiberIndo. Seluruh hak cipta.</span>
+                <span>Template demo &mdash; nama, harga, angka, dan testimoni bersifat fiktif.</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            /* ---------- Header: border saat scroll ---------- */
+            var header = document.querySelector('.site-header');
+            var onScroll = function () {
+                header.classList.toggle('scrolled', window.scrollY > 8);
+            };
+            onScroll();
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            /* ---------- Navigasi mobile ---------- */
+            var nav = document.getElementById('nav-utama');
+            var navToggle = document.querySelector('.nav-toggle');
+
+            navToggle.addEventListener('click', function () {
+                var open = nav.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+
+            nav.addEventListener('click', function (e) {
+                if (e.target.closest('a')) {
+                    nav.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            /* ---------- Scrollspy ---------- */
+            var spyLinks = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+            var spyMap = {};
+            spyLinks.forEach(function (link) {
+                var id = link.getAttribute('href').slice(1);
+                var section = document.getElementById(id);
+                if (section) { spyMap[id] = link; }
+            });
+
+            if ('IntersectionObserver' in window) {
+                var spyObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var link = spyMap[entry.target.id];
+                        if (!link) { return; }
+                        if (entry.isIntersecting) {
+                            spyLinks.forEach(function (l) { l.classList.remove('is-active'); });
+                            link.classList.add('is-active');
+                        }
+                    });
+                }, { rootMargin: '-40% 0px -55% 0px' });
+
+                Object.keys(spyMap).forEach(function (id) {
+                    spyObserver.observe(document.getElementById(id));
+                });
+            }
+
+            /* ---------- Reveal on scroll ---------- */
+            var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+            var showAll = function () {
+                revealEls.forEach(function (el) { el.classList.add('in'); });
+            };
+
+            var onVisible = function (el, cb) {
+                if (!('IntersectionObserver' in window)) {
+                    cb();
+                    return;
+                }
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            cb();
+                            obs.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                obs.observe(el);
+            };
+
+            if (reduceMotion || !('IntersectionObserver' in window)) {
+                showAll();
+            } else {
+                var revealObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                revealEls.forEach(function (el) { revealObserver.observe(el); });
+            }
+
+            /* ---------- Count-up angka hero ---------- */
+            function countUp(el) {
+                var target = parseFloat(el.getAttribute('data-count'));
+                var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+                var duration = reduceMotion ? 0 : 1100;
+                var start = null;
+
+                function format(value) {
+                    return value.toLocaleString('id-ID', {
+                        minimumFractionDigits: decimals,
+                        maximumFractionDigits: decimals
+                    });
+                }
+
+                if (duration === 0) {
+                    el.textContent = format(target);
+                    return;
+                }
+
+                function step(ts) {
+                    if (start === null) { start = ts; }
+                    var progress = Math.min((ts - start) / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = format(target * eased);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                }
+
+                el.textContent = format(0);
+                window.requestAnimationFrame(step);
+            }
+
+            var countEls = Array.prototype.slice.call(document.querySelectorAll('.hero-stats .num'));
+            var heroStats = document.querySelector('.hero-stats');
+            if (heroStats && countEls.length) {
+                onVisible(heroStats, function () {
+                    countEls.forEach(countUp);
+                });
+            }
+
+            /* ---------- Helper SVG ---------- */
+            var SVG_NS = 'http://www.w3.org/2000/svg';
+
+            function sEl(name, attrs, text) {
+                var node = document.createElementNS(SVG_NS, name);
+                if (attrs) {
+                    Object.keys(attrs).forEach(function (key) {
+                        node.setAttribute(key, attrs[key]);
+                    });
+                }
+                if (text !== undefined && text !== null) {
+                    node.textContent = text;
+                }
+                return node;
+            }
+
+            function xTick(label, x, y) {
+                return sEl('text', { x: x, y: y, 'text-anchor': 'middle', 'class': 'ax' }, label);
+            }
+
+            /* ---------- Chart 1: throughput 24 jam ---------- */
+            function buildChart24() {
+                var svg = document.getElementById('chart24');
+                if (!svg) { return; }
+
+                var W = 640, H = 300;
+                var padL = 52, padR = 16, padT = 16, padB = 36;
+                var innerW = W - padL - padR;
+                var innerH = H - padT - padB;
+                var yMax = 1000;
+
+                var unduh = [952, 951, 950, 949, 947, 944, 940, 933, 925, 918, 912, 908, 906, 909, 914, 921, 930, 939, 946, 951, 953, 952, 951, 950];
+                var unggah = [941, 940, 939, 938, 936, 933, 929, 922, 915, 908, 902, 898, 896, 899, 904, 911, 920, 929, 936, 941, 943, 942, 941, 940];
+
+                var X = function (i) { return padL + i * innerW / 23; };
+                var Y = function (v) { return padT + innerH * (1 - v / yMax); };
+
+                /* Grid horizontal + label sumbu Y */
+                [0, 250, 500, 750, 1000].forEach(function (v) {
+                    svg.appendChild(sEl('line', {
+                        x1: padL, y1: Y(v), x2: W - padR, y2: Y(v), 'class': 'grid-line'
+                    }));
+                    svg.appendChild(sEl('text', {
+                        x: padL - 8, y: Y(v) + 4, 'text-anchor': 'end', 'class': 'ax'
+                    }, v.toLocaleString('id-ID')));
+                });
+
+                svg.appendChild(sEl('text', { x: padL, y: padT - 2, 'class': 'ax' }, 'Mbps'));
+
+                /* Label jam */
+                [0, 4, 8, 12, 16, 20].forEach(function (i) {
+                    svg.appendChild(xTick(('0' + i).slice(-2), X(i), H - 12));
+                });
+
+                /* Garis dasar */
+                svg.appendChild(sEl('line', {
+                    x1: padL, y1: Y(0), x2: W - padR, y2: Y(0), 'class': 'axis-line'
+                }));
+
+                function linePath(values) {
+                    return values.map(function (v, i) {
+                        return (i === 0 ? 'M' : 'L') + X(i).toFixed(1) + ' ' + Y(v).toFixed(1);
+                    }).join(' ');
+                }
+
+                function areaPath(values) {
+                    return linePath(values) +
+                        ' L' + (W - padR) + ' ' + Y(0) +
+                        ' L' + padL + ' ' + Y(0) + ' Z';
+                }
+
+                /* Area unduh */
+                var area = sEl('path', {
+                    d: areaPath(unduh),
+                    fill: '#2E9E67',
+                    'fill-opacity': reduceMotion ? '0.14' : '0',
+                    stroke: 'none'
+                });
+                area.style.transition = 'fill-opacity .9s ease .2s';
+                svg.appendChild(area);
+
+                /* Garis unduh & unggah */
+                var dlLine = sEl('path', {
+                    d: linePath(unduh),
+                    fill: 'none',
+                    stroke: '#2E9E67',
+                    'stroke-width': '2',
+                    'stroke-linejoin': 'round',
+                    'stroke-linecap': 'round'
+                });
+                var ulLine = sEl('path', {
+                    d: linePath(unggah),
+                    fill: 'none',
+                    stroke: '#8CCBA6',
+                    'stroke-width': '2',
+                    'stroke-linejoin': 'round',
+                    'stroke-linecap': 'round'
+                });
+                svg.appendChild(ulLine);
+                svg.appendChild(dlLine);
+
+                /* Titik data + tooltip */
+                [unduh, unggah].forEach(function (values, seriesIndex) {
+                    var color = seriesIndex === 0 ? '#2E9E67' : '#8CCBA6';
+                    var seriesName = seriesIndex === 0 ? 'Unduh' : 'Unggah';
+                    values.forEach(function (v, i) {
+                        var dot = sEl('circle', {
+                            cx: X(i).toFixed(1),
+                            cy: Y(v).toFixed(1),
+                            r: '2.6',
+                            fill: '#FFFFFF',
+                            stroke: color,
+                            'stroke-width': '1.6'
+                        });
+                        dot.appendChild(sEl('title', null, seriesName + ' ' + ('0' + i).slice(-2) + '.00 — ' + v + ' Mbps'));
+                        svg.appendChild(dot);
+                    });
+                });
+
+                if (!reduceMotion) {
+                    [dlLine, ulLine].forEach(function (line, idx) {
+                        var len = line.getTotalLength();
+                        line.style.strokeDasharray = len + ' ' + len;
+                        line.style.strokeDashoffset = len;
+                        line.style.transition = 'stroke-dashoffset 1.3s ease ' + (idx * 0.15) + 's';
+                    });
+
+                    window.requestAnimationFrame(function () {
+                        window.requestAnimationFrame(function () {
+                            [dlLine, ulLine].forEach(function (line) {
+                                line.style.strokeDashoffset = '0';
+                            });
+                            area.setAttribute('fill-opacity', '0.14');
+                        });
+                    });
+                }
+            }
+
+            /* ---------- Chart 2: kecepatan pembanding ---------- */
+            function buildChartSpeeds() {
+                var svg = document.getElementById('chartSpeeds');
+                if (!svg) { return; }
+
+                var W = 640, H = 300;
+                var padL = 52, padR = 16, padT = 20, padB = 46;
+                var innerW = W - padL - padR;
+                var innerH = H - padT - padB;
+                var yMax = 1000;
+
+                var groups = [
+                    { name: 'FiberIndo', dl: 950, ul: 940, us: true },
+                    { name: 'Provider X', dl: 500, ul: 100, us: false },
+                    { name: 'Provider Y', dl: 300, ul: 50, us: false }
+                ];
+
+                var Y = function (v) { return padT + innerH * (1 - v / yMax); };
+
+                [0, 250, 500, 750, 1000].forEach(function (v) {
+                    svg.appendChild(sEl('line', {
+                        x1: padL, y1: Y(v), x2: W - padR, y2: Y(v), 'class': 'grid-line'
+                    }));
+                    svg.appendChild(sEl('text', {
+                        x: padL - 8, y: Y(v) + 4, 'text-anchor': 'end', 'class': 'ax'
+                    }, v.toLocaleString('id-ID')));
+                });
+
+                svg.appendChild(sEl('line', {
+                    x1: padL, y1: Y(0), x2: W - padR, y2: Y(0), 'class': 'axis-line'
+                }));
+
+                var groupW = innerW / groups.length;
+                var barW = 38;
+                var gap = 10;
+
+                groups.forEach(function (group, gi) {
+                    var center = padL + groupW * gi + groupW / 2;
+                    var dlX = center - gap / 2 - barW / 2;
+                    var ulX = center + gap / 2;
+                    var dlH = innerH * group.dl / yMax;
+                    var ulH = innerH * group.ul / yMax;
+                    var dlColor = group.us ? '#2E9E67' : '#C3D2C7';
+                    var ulColor = group.us ? '#8CCBA6' : '#DEE8E0';
+
+                    var bars = [
+                        { x: dlX, h: dlH, v: group.dl, color: dlColor, kind: 'Unduh' },
+                        { x: ulX, h: ulH, v: group.ul, color: ulColor, kind: 'Unggah' }
+                    ];
+
+                    bars.forEach(function (bar, bi) {
+                        var rect = sEl('rect', {
+                            x: bar.x.toFixed(1),
+                            y: (padT + innerH - bar.h).toFixed(1),
+                            width: barW,
+                            height: bar.h.toFixed(1),
+                            fill: bar.color,
+                            'class': 'bar'
+                        });
+                        rect.appendChild(sEl('title', null, group.name + ' — ' + bar.kind + ' ' + bar.v + ' Mbps'));
+                        rect.style.transitionDelay = ((gi * 2 + bi) * 55) + 'ms';
+                        svg.appendChild(rect);
+
+                        var val = sEl('text', {
+                            x: (bar.x + barW / 2).toFixed(1),
+                            y: (padT + innerH - bar.h - 8).toFixed(1),
+                            'text-anchor': 'middle',
+                            'class': 'val'
+                        }, String(bar.v));
+                        svg.appendChild(val);
+                    });
+
+                    svg.appendChild(sEl('text', {
+                        x: center.toFixed(1),
+                        y: H - 18,
+                        'text-anchor': 'middle',
+                        'class': group.us ? 'lbl' : 'ax'
+                    }, group.name));
+                });
+            }
+
+            /* ---------- Chart 3: harga per Mbps ---------- */
+            function buildChartPrice() {
+                var svg = document.getElementById('chartPrice');
+                if (!svg) { return; }
+
+                var W = 640, H = 210;
+                var padL = 106, padR = 130, padT = 16, padB = 16;
+                var innerW = W - padL - padR;
+                var innerH = H - padT - padB;
+
+                var rows = [
+                    { name: 'FiberIndo', value: 3150, us: true },
+                    { name: 'Provider X', value: 4750, us: false },
+                    { name: 'Provider Y', value: 6250, us: false }
+                ];
+
+                var vMax = 7000;
+                var rowH = innerH / rows.length;
+                var barH = 18;
+
+                rows.forEach(function (row, i) {
+                    var y = padT + rowH * i + (rowH - barH) / 2;
+                    var barW = innerW * row.value / vMax;
+
+                    svg.appendChild(sEl('text', {
+                        x: padL - 12,
+                        y: (y + barH / 2 + 4).toFixed(1),
+                        'text-anchor': 'end',
+                        'class': 'lbl'
+                    }, row.name));
+
+                    svg.appendChild(sEl('rect', {
+                        x: padL,
+                        y: y.toFixed(1),
+                        width: innerW.toFixed(1),
+                        height: barH,
+                        rx: 2,
+                        'class': 'track'
+                    }));
+
+                    var bar = sEl('rect', {
+                        x: padL,
+                        y: y.toFixed(1),
+                        width: barW.toFixed(1),
+                        height: barH,
+                        rx: 2,
+                        fill: row.us ? '#2E9E67' : '#C3D2C7',
+                        'class': 'bar'
+                    });
+                    bar.appendChild(sEl('title', null, row.name + ' — Rp ' + row.value.toLocaleString('id-ID') + ' per Mbps'));
+                    bar.style.transitionDelay = (i * 90) + 'ms';
+                    svg.appendChild(bar);
+
+                    svg.appendChild(sEl('text', {
+                        x: (padL + barW + 10).toFixed(1),
+                        y: (y + barH / 2 + 4).toFixed(1),
+                        'class': 'val'
+                    }, 'Rp ' + row.value.toLocaleString('id-ID')));
+                });
+            }
+
+            /* ---------- Ring uptime ---------- */
+            function buildRing() {
+                var svg = document.getElementById('ringUptime');
+                if (!svg) { return; }
+
+                var size = 140, cx = 70, cy = 70, r = 57;
+                var circumference = 2 * Math.PI * r;
+                var progress = 0.9995; /* 99,95% */
+
+                svg.appendChild(sEl('circle', {
+                    cx: cx, cy: cy, r: r,
+                    fill: 'none',
+                    stroke: '#E3EFE7',
+                    'stroke-width': '10'
+                }));
+
+                var arc = sEl('circle', {
+                    cx: cx, cy: cy, r: r,
+                    fill: 'none',
+                    stroke: '#2E9E67',
+                    'stroke-width': '10',
+                    'stroke-dasharray': circumference.toFixed(1) + ' ' + circumference.toFixed(1),
+                    'stroke-dashoffset': (circumference * (1 - progress)).toFixed(1),
+                    transform: 'rotate(-90 ' + cx + ' ' + cy + ')'
+                });
+                svg.appendChild(arc);
+
+                if (!reduceMotion) {
+                    arc.style.strokeDashoffset = circumference.toFixed(1);
+                    arc.style.transition = 'stroke-dashoffset 1.4s ease .2s';
+                    window.requestAnimationFrame(function () {
+                        window.requestAnimationFrame(function () {
+                            arc.style.strokeDashoffset = (circumference * (1 - progress)).toFixed(1);
+                        });
+                    });
+                }
+            }
+
+            /* ---------- Bar cakupan kota ---------- */
+            var covRow = document.querySelector('.cov-list');
+            if (covRow) {
+                onVisible(covRow, function () {
+                    var fills = Array.prototype.slice.call(covRow.querySelectorAll('.cov-fill'));
+                    if (reduceMotion) { return; }
+                    fills.forEach(function (fill) {
+                        fill.style.width = '0';
+                    });
+                    window.requestAnimationFrame(function () {
+                        fills.forEach(function (fill) {
+                            fill.style.width = fill.getAttribute('data-pct') + '%';
+                        });
+                    });
+                });
+            }
+
+            /* ---------- Gambar chart saat terlihat ---------- */
+            [['chart24', buildChart24], ['chartSpeeds', buildChartSpeeds], ['chartPrice', buildChartPrice], ['ringUptime', buildRing]].forEach(function (pair) {
+                var el = document.getElementById(pair[0]);
+                if (!el) { return; }
+                onVisible(el.closest('.chart-card, .ring-card') || el, function () {
+                    pair[1]();
+                    if (pair[0] === 'chartSpeeds' || pair[0] === 'chartPrice') {
+                        var svg = document.getElementById(pair[0]);
+                        if (reduceMotion) {
+                            svg.classList.add('go');
+                        } else {
+                            window.requestAnimationFrame(function () {
+                                window.requestAnimationFrame(function () {
+                                    svg.classList.add('go');
+                                });
+                            });
+                        }
+                    }
+                });
+            });
+
+            /* ---------- Toggle harga ---------- */
+            var segButtons = Array.prototype.slice.call(document.querySelectorAll('.seg-btn'));
+            var plans = Array.prototype.slice.call(document.querySelectorAll('.plan'));
+
+            function formatRupiah(value) {
+                return 'Rp ' + value.toLocaleString('id-ID');
+            }
+
+            segButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var period = button.getAttribute('data-period');
+
+                    segButtons.forEach(function (btn) {
+                        var active = btn === button;
+                        btn.classList.toggle('is-active', active);
+                        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+                    });
+
+                    plans.forEach(function (plan) {
+                        var value = parseInt(plan.getAttribute(period === 'annual' ? 'data-annual' : 'data-monthly'), 10);
+                        var num = plan.querySelector('.plan-price-num');
+                        var note = plan.querySelector('.plan-period-note');
+                        if (num) { num.textContent = formatRupiah(value); }
+                        if (note) {
+                            note.textContent = period === 'annual'
+                                ? 'Bayar tahunan — hemat 2 bulan.'
+                                : 'Bayar bulanan, berhenti kapan saja.';
+                        }
+                    });
+                });
+            });
+
+            /* ---------- FAQ accordion ---------- */
+            var faqButtons = Array.prototype.slice.call(document.querySelectorAll('.faq-q'));
+            faqButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var item = button.closest('.faq-item');
+                    var open = item.classList.toggle('open');
+                    button.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            });
+
+            /* ---------- Form cek ketersediaan (demo) ---------- */
+            var form = document.getElementById('cek-form');
+            var toast = document.getElementById('toast');
+            var toastTimer = null;
+
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                window.clearTimeout(toastTimer);
+                toastTimer = window.setTimeout(function () {
+                    toast.classList.remove('show');
+                }, 4500);
+            }
+
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var nama = document.getElementById('nama').value.trim();
+                    var alamat = document.getElementById('alamat').value.trim();
+                    var wa = document.getElementById('wa').value.trim();
+
+                    if (!nama || !alamat || !wa) {
+                        showToast('Mohon lengkapi nama, alamat, dan nomor WhatsApp.');
+                        return;
+                    }
+
+                    showToast('Terima kasih, ' + nama + '! Alamat di "' + alamat + '" sedang kami cek — tim akan menghubungi ' + wa + ' dalam 1 jam kerja.');
+                    form.reset();
+                });
+            }
+
+            /* ---------- Tahun footer ---------- */
+            var year = document.getElementById('tahun');
+            if (year) {
+                year.textContent = String(new Date().getFullYear());
+            }
+        })();
+    </script>
+</body>
+</html>

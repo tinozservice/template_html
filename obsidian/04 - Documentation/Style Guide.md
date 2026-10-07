@@ -127,6 +127,14 @@ Dipakai oleh [[e-novel-maroon-gray]]; mendukung dark mode.
 - Dark mode: background `#17151A`, kartu `#201D24`, panel `#26232B`, garis `#3A3540`, tinta `#F1EEF4`, aksen teks `#DE96A3`
 - Tipografi: Outfit (display), Inter (body), IBM Plex Mono (angka); pill (radius 999) hanya untuk tab & tombol follow
 
+### Tema Referensi — Go Green (Hijau)
+Dipakai oleh [[landing-fiber-optik-go-green]]; cocok untuk produk ramah lingkungan, energi, dan ISP/fiber.
+- Hijau aksi: `#176B40` (tombol/link), `#115230` (hover); band gelap `#0E3F26`
+- Hijau grafik & terang: `#2E9E67`, `#8CCBA6`, tint `#D9EFE1`/`#E9F5EE`/`#F3FAF5`
+- Netral: page `#F6FAF7`, panel `#FFFFFF`/`#EFF6F1`, garis `#DCE8DF`/`#E7F0EA`
+- Tinta `#11251B`, sekunder `#3E5949`, muted `#5C7367` — jangan lebih terang dari ini untuk teks kecil di latar terang (hasil audit kontras)
+- Tipografi: Sora (display), Inter (body), IBM Plex Mono (angka/label); ikon Font Awesome seperlunya; chart SVG murni
+
 ### Prinsip Anti AI-Slop (WAJIB)
 - Hindari gradien berlebihan dan warna rainbow; gunakan palet terbatas / ramp satu hue
 - Hindari shadow berlapis, glow neon, dan glassmorphism (`backdrop-filter: blur`)

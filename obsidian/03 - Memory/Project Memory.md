@@ -70,6 +70,14 @@
 
 ---
 
+### # 2026-10-07 - Tema warna Go Green (hijau) & pola landing page konversi
+**Konteks**: Pembuatan template landing page ISP fiber fiktif "FiberIndo" memerlukan identitas hijau (go green) sekaligus pola konversi lengkap (harga, perbandingan, Q&A, cek ketersediaan).
+**Keputusan**: Palet Go Green — hijau aksi `#176B40` (hover `#115230`), hijau grafik `#2E9E67` (+ sekunder `#8CCBA6`), band gelap `#0E3F26`, tint `#D9EFE1`/`#E9F5EE`; netral page `#F6FAF7`, panel `#FFFFFF`/`#EFF6F1`, garis `#DCE8DF`; tinta `#11251B`, sekunder `#3E5949`, muted `#5C7367` (digelapkan dari `#6E8377` setelah audit kontras Lighthouse). Tipografi: Sora (display), Inter (body), IBM Plex Mono (angka/harga). Toggle harga bulanan/tahunan via atribut `data-monthly`/`data-annual` pada kartu paket.
+**Dampak**: Ramp hijau siap dipakai untuk template bertema hijau berikutnya; prinsip anti AI-slop dipertahankan (tanpa gradien, radius ≤ 6px, chart SVG murni). Muted `#5C7367` menjadi batas aman teks kecil 12–13px di latar terang.
+**Referensi**: [[landing-fiber-optik-go-green]], [[Style Guide]]
+
+---
+
 ### # YYYY-MM-DD - Deskripsi keputusan
 **Konteks**: 
 **Keputusan**: 
@@ -112,6 +120,16 @@
 - **Masalah**: Ikon `fa-fiverr` tidak dirender (kotak kosong) karena brand Fiverr tidak tersedia di Font Awesome 6 free — dikonfirmasi tidak ada di 6.5.2 maupun 6.7.2.
 - **Solusi**: Untuk brand yang tidak ada di FA free, gunakan inline SVG resmi dari Simple Icons (CC0) dengan `fill="currentColor"` agar mengikuti warna tema. Biasakan audit kelas `fa-*` template terhadap file CSS FA (cek keberadaan `.<kelas>:before`) untuk mendeteksi ikon hilang sebelum review.
 - **Referensi**: [[portfolio-slate-cyan]]
+
+### Pelajaran 5
+- **Masalah**: Saat verifikasi visual lewat browser otomasi, jendela browser kadang tidak terlihat/terfokus — rendering dijeda sehingga `requestAnimationFrame` dan callback `IntersectionObserver` tidak berjalan; elemen reveal & chart tampak "tidak muncul" padahal logikanya benar (false alarm).
+- **Solusi**: Pastikan jendela browser terlihat/fokus untuk verifikasi visual (reveal, chart, animated). Verifikasi interaksi DOM murni (toggle harga, accordion, toast form) tetap valid tanpa rendering. Lighthouse tetap bisa dipakai karena ia melakukan render sendiri. Untuk test scroll terjadwal, matikan dulu `scroll-behavior: smooth` agar `scrollTo` instan.
+- **Referensi**: [[landing-fiber-optik-go-green]]
+
+### Pelajaran 6
+- **Masalah**: Bar cakupan kota (`.cov-fill`) tidak terlihat sama sekali; semua track tampak identik. Root cause: elemen `<span>` bersifat `display: inline`, sehingga `width`/`height` diabaikan. Track lolos karena sebagai grid item otomatis di-blockify, tetapi fill di dalamnya tetap inline.
+- **Solusi**: Beri `display: block` (atau `inline-block`) pada elemen inline yang diberi dimensi. Verifikasi memakai `getBoundingClientRect()` (geometri terkomputasi) — mengecek atribut `style`/`cssText` saja bisa memberi false positive (nilai benar, layout tidak menerapkan).
+- **Referensi**: [[landing-fiber-optik-go-green]]
 
 ---
 

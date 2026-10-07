@@ -15,7 +15,7 @@
 ### 💼 Landing Page
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
-| - | - | - | - | - |
+| landing-fiber-optik-go-green | ✅ Selesai | 2026-10-07 | v1.0.1 | [[landing-fiber-optik-go-green]] |
 
 ### 📝 Blog
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
@@ -236,6 +236,54 @@ Halaman aplikasi baca novel satu file berdasarkan screenshot referensi, bertema 
 
 ### Preview
 ![[preview-e-novel-maroon-gray.png]]
+
+### Link Terkait
+- [[Progress Log]]
+
+---
+
+## 🚀 Landing Page — Fiber Optik Go Green
+
+- **File**: `templates/landing-fiber-optik-go-green.html`
+- **Kategori**: Landing Page / ISP Fiber
+- **Tanggal**: 2026-10-07
+- **Versi**: v1.0.1
+- **Status**: ✅ Selesai
+
+### Deskripsi
+Landing page satu file untuk ISP fiber fiktif **FiberIndo** bertema **Go Green** — ramp hijau di atas netral mint. Gaya flat anti AI-slop: garis 1px, radius 3–6px, tanpa gradien/glow, ikon hemat, tipografi Sora (display) + Inter (body) + IBM Plex Mono (angka/harga). Berfokus pada alur konversi: keunggulan → bukti performa → cakupan → harga → perbandingan → ulasan → Q&A → cek ketersediaan.
+
+### Fitur
+- Header sticky: brand, navbar (scrollspy: Keunggulan, Cakupan, Harga, Perbandingan, Q&A), CTA "Cek ketersediaan", drawer nav di mobile
+- **Hero**: headline, CTA, foto router (Unsplash) + caption, 4 stat mono dengan animasi count-up (99,95% uptime, 8 ms, 1 Gbps, 120 rb+)
+- Strip jaminan: survei & instalasi gratis, tanpa FUP & kontrak, router WiFi 6 termasuk, dukungan 24/7
+- **Keunggulan**: 6 kartu fitur dengan ikon FA (simetris, uptime, latensi, tanpa FUP, WiFi 6, instalasi cepat)
+- **Infrastruktur**: split layout dengan foto panel fiber + 4 poin (rute ganda, NOC 24/7, kapasitas kuartalan, perangkat carrier) + chips stat
+- **Performa**: 5 visualisasi SVG murni — line/area throughput 24 jam (unduh/unggah), ring uptime 99,95%, mini-stats latensi & jitter
+- **Cakupan**: bar ketersediaan per kota (animasi saat terlihat), foto skyline, catatan kota segera hadir
+- **Kegunaan**: 3 kartu use case dengan foto (streaming 4K, WFH, gaming & live)
+- **Harga**: 4 paket (Lite/Home/Pro/Bisnis) dengan toggle **Bulanan/Tahunan** fungsional + badge "Paling populer"
+- **Perbandingan**: tabel vs 2 provider fiktif (rasio unggah, latensi, FUP, kontrak, instalasi, WiFi 6, SLA) + grouped bar kecepatan & horizontal bar harga per Mbps
+- **Ulasan**: 3 testimoni dengan avatar Unsplash + rating 4,8/5
+- **Q&A**: accordion 8 pertanyaan dengan animasi buka/tutup
+- **CTA + form**: form cek ketersediaan demo (validasi + toast personal), kontak telepon/WA 24/7
+- Footer 4 kolom + sosial + disclaimer demo; responsif mobile-first, mendukung `prefers-reduced-motion`
+
+### Catatan Desain
+- Palet: hijau aksi `#176B40`/`#115230`, grafik `#2E9E67`/`#8CCBA6`, band gelap `#0E3F26`, tint `#D9EFE1`/`#E9F5EE`, netral `#F6FAF7`/`#EFF6F1`, tinta `#11251B`
+- Anti AI-slop: tanpa gradien, tanpa glow/glassmorphism, radius maksimal 6px
+- Kontras teks kecil diaudit — `--muted` final `#5C7367`; Lighthouse Accessibility/Best Practices/SEO = 100/100/100
+- Bar cakupan kota: `.cov-track` & `.cov-fill` wajib `display: block` — elemen `span` inline mengabaikan `width`/`height` (fix v1.0.1, diverifikasi rasio terkomputasi 96/91/88/84/79%)
+
+### Teknologi
+- HTML5 semantic
+- CSS3 (Custom Properties, Grid, Flexbox, animasi ringan)
+- Vanilla JavaScript (IIFE, IntersectionObserver, tanpa dependensi chart)
+- Chart digambar dengan SVG murni
+- Google Fonts (Sora, Inter, IBM Plex Mono), Font Awesome 6 (hemat, 19 kelas diaudit), foto dari Unsplash (HTTP 200 + inspeksi visual)
+
+### Preview
+![[preview-landing-fiber-optik-go-green.png]]
 
 ### Link Terkait
 - [[Progress Log]]

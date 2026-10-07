@@ -149,6 +149,25 @@
 
 ---
 
+### # 2026-10-07 - Template Landing Page Fiber Optik (Go Green)
+- **Tanggal**: 07 Oktober 2026
+- **Aktivitas**:
+  - [x] Membaca vault Obsidian (HUB, Log, Templates Index, Memory, Style Guide)
+  - [x] Membuat template `templates/landing-fiber-optik-go-green.html` bertema Go Green — brand fiktif **FiberIndo**
+  - [x] 12 section: Hero + stats, strip jaminan, Keunggulan (6 kartu), Infrastruktur (split), Performa (chart), Cakupan (bar kota), Kegunaan (3 kartu), Harga (4 paket + toggle bulanan/tahunan), Perbandingan (tabel + 2 chart), Ulasan (3 testimoni), Q&A (8 item), CTA + form cek ketersediaan, footer
+  - [x] 5 visualisasi SVG murni: line/area throughput 24 jam, grouped bar kecepatan, horizontal bar harga per Mbps, ring uptime, bar cakupan kota
+  - [x] Interaksi: scrollspy, reveal-on-scroll, count-up stats, toggle harga, accordion FAQ, scroll smooth, toast form
+  - [x] Verifikasi: tag balance, 0 duplikasi id, syntax JS (`node --check`), 19 kelas ikon FA diaudit terhadap FA 6.5.2 (semua ada), 9 gambar Unsplash HTTP 200 + inspeksi visual, console browser 0 error
+  - [x] Perbaikan kontras: `--muted` `#6E8377` → `#5C7367` (temuan Lighthouse) — Accessibility naik ke 100
+  - [x] Lighthouse final: Accessibility 100 / Best Practices 100 / SEO 100 (0 temuan)
+  - [x] Revisi review user: bar cakupan tampak identik — root cause `.cov-fill` adalah `<span>` inline sehingga `width`/`height` diabaikan; fix `display: block` pada `.cov-track` & `.cov-fill`; verifikasi geometri terkomputasi 96/91/88/84/79%
+  - [x] Update vault Obsidian (Log, Templates Index, Memory + Pelajaran 5 & 6, HUB, Style Guide)
+  - [x] Direview & disetujui user — commit dan push
+- **Template yang dikerjakan**: [[landing-fiber-optik-go-green]]
+- **Catatan**: Dependensi eksternal: Google Fonts (Sora, Inter, IBM Plex Mono), Font Awesome 6 seperlunya, foto Unsplash. Semua harga/angka/testimoni fiktif (demo). Versi revisi review: v1.0.1. Direview & disetujui user; di-commit dan dipush ke `origin`.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -175,3 +194,6 @@
 | 2026-10-06 | portfolio-slate-cyan | Fix rasio gambar (height:auto) v1.0.1 | ✅ Selesai |
 | 2026-10-06 | portfolio-slate-cyan | Fix ikon Fiverr (inline SVG) v1.0.2 | ✅ Selesai |
 | 2026-10-06 | - | Tambah README.md projek | ✅ Selesai |
+| 2026-10-07 | landing-fiber-optik-go-green | Pembuatan template landing page fiber optik (Go Green) | ✅ Selesai |
+| 2026-10-07 | landing-fiber-optik-go-green | Audit Lighthouse + fix kontras `--muted` | ✅ Selesai |
+| 2026-10-07 | landing-fiber-optik-go-green | Revisi bar cakupan (v1.0.1), disetujui user, commit & push | ✅ Selesai |
