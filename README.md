@@ -1,6 +1,6 @@
 # Template HTML — VibeCode Template
 
-Koleksi **template HTML single-file** siap pakai: dashboard laporan, halaman booking hotel, portofolio personal, dan aplikasi baca novel. Setiap template berdiri sendiri dalam satu file (HTML + CSS + JavaScript inline) tanpa proses build dan tanpa framework.
+Koleksi **template HTML single-file** siap pakai: dashboard laporan, halaman booking hotel, portofolio personal, aplikasi baca novel, landing page ISP fiber, portal berita, dan toko online. Setiap template berdiri sendiri dalam satu file (HTML + CSS + JavaScript inline) tanpa proses build dan tanpa framework.
 
 > Dokumentasi internal projek (log progres, memory, style guide) tersimpan di vault [`obsidian/`](obsidian/).
 
@@ -12,6 +12,9 @@ Koleksi **template HTML single-file** siap pakai: dashboard laporan, halaman boo
 | 2 | [`hotel-booking-golden-hour.html`](templates/hotel-booking-golden-hour.html) | Hotel / Booking | Golden Hour (oranye–kuning) | v1.0.0 | Filter fungsional (fasilitas, tipe kamar, bintang, dual price slider), estimasi harga dinamis dari tanggal & tamu, sort, empty state |
 | 3 | [`portfolio-slate-cyan.html`](templates/portfolio-slate-cyan.html) | Portfolio | Slate Cyan (gray–cyan) | v1.0.2 | 6 section (Hero–Contact), scrollspy, skill bar animasi, form kontak demo mailto, sosial media |
 | 4 | [`e-novel-maroon-gray.html`](templates/e-novel-maroon-gray.html) | E-Novel / Reading App | Maroon Gray | v1.0.0 | Dark mode, search filter buku, reading progress, daftar penulis trending & novel terbaru |
+| 5 | [`landing-fiber-optik-go-green.html`](templates/landing-fiber-optik-go-green.html) | Landing Page / ISP Fiber | Go Green (hijau) | v1.0.1 | 12 section lengkap, 5 visualisasi SVG murni (line/area, grouped bar, horizontal bar, ring uptime, bar cakupan), toggle harga bulanan/tahunan, form cek ketersediaan demo |
+| 6 | [`news-blog-noir-maroon.html`](templates/news-blog-noir-maroon.html) | Blog / Portal Berita | Noir Maroon (hitam–putih–maroon) | v1.0.0 | 3 header bertingkat (utility, masthead, navbar sticky), grid 15 berita dengan filter kategori/tag/penulis + pencarian + load more, footer lengkap + slot iklan 1:1 |
+| 7 | [`ecommerce-ez-fresh-orange-yellow.html`](templates/ecommerce-ez-fresh-orange-yellow.html) | E-commerce / Toko Online | Orange–Yellow | v1.0.0 | Konversi single-file dari Ogani: carousel, filter tab, pencarian global/per kategori, keranjang & favorit demo (badge + total rupiah live), newsletter |
 
 ## ✨ Karakter Umum
 
@@ -20,8 +23,9 @@ Koleksi **template HTML single-file** siap pakai: dashboard laporan, halaman boo
 - **Anti AI-slop** — flat color, palet warna terbatas, garis 1px, radius kecil, tanpa gradien berlebih/glassmorphism
 - **Vanilla JavaScript** — dibungkus IIFE, kompatibel dengan browser modern
 - **Animasi seperlunya** — halus dan menghormati `prefers-reduced-motion`
+- **Dependensi ringan** — meski single-file, sebagian template mengambil Google Fonts, Font Awesome 6, dan foto Unsplash via CDN; `marketing-report-deep-ocean` sepenuhnya offline tanpa dependensi
 - **Ikon hemat** — Font Awesome 6 free (seperlunya); ikon brand yang tidak tersedia di FA free (mis. Fiverr) memakai inline SVG dari Simple Icons (CC0)
-- **Konten sample** — gambar dari Unsplash (free license), semua URL terverifikasi; data (hotel, novel, klien) bersifat fiktif
+- **Konten sample** — gambar dari Unsplash (free license), semua URL terverifikasi; seluruh data (hotel, novel, klien, paket internet, berita, produk) bersifat fiktif
 
 ## 📁 Struktur Projek
 
@@ -37,8 +41,11 @@ template_html/
 │   └── 04 - Documentation/    # Style guide
 └── templates/                 # SEMUA output template HTML
     ├── e-novel-maroon-gray.html
+    ├── ecommerce-ez-fresh-orange-yellow.html
     ├── hotel-booking-golden-hour.html
+    ├── landing-fiber-optik-go-green.html
     ├── marketing-report-deep-ocean.html
+    ├── news-blog-noir-maroon.html
     └── portfolio-slate-cyan.html
 ```
 
@@ -80,6 +87,7 @@ template_html/
 ## 📜 Kredit & Lisensi
 
 - **Template** — bebas dipakai dan dimodifikasi
+- **E-commerce EZ-Fresh** — dikonversi dari template [Ogani](https://colorlib.com/wp/templates/) oleh Colorlib (CC BY 3.0) menjadi single-file; seluruh dependensi (jQuery, Bootstrap, plugin) diganti vanilla JS/CSS
 - **Gambar** — [Unsplash](https://unsplash.com/license) (free license)
 - **Ikon** — [Font Awesome 6 Free](https://fontawesome.com) dan [Simple Icons](https://simpleicons.org) (CC0)
 - **Font** — [Google Fonts](https://fonts.google.com) sesuai tema masing-masing template

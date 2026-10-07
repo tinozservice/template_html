@@ -210,6 +210,18 @@
 
 ---
 
+### # 2026-10-07 - Update README.md (7 template)
+- **Tanggal**: 07 Oktober 2026
+- **Aktivitas**:
+  - [x] Menambahkan 3 template baru ke daftar: `landing-fiber-optik-go-green`, `news-blog-noir-maroon`, `ecommerce-ez-fresh-orange-yellow`
+  - [x] Memperbarui deskripsi pembuka, struktur folder `templates/` (7 file), dan karakter umum (dependensi ringan + cakupan konten fiktif)
+  - [x] Menambahkan kredit konversi Ogani (Colorlib, CC BY 3.0) untuk EZ-Fresh
+  - [x] Commit dan push
+- **Template yang dikerjakan**: -
+- **Catatan**: README kembali sinkron dengan 7 template di repo.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -244,3 +256,4 @@
 | 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Konversi Ogani → single HTML (EZ-Fresh, orange-yellow) | ✅ Selesai |
 | 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Revisi palet #FFA600/#FFC65C (teks adaptif) + fix badge `hidden` & brand footer | ✅ Selesai |
 | 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Disetujui user, commit & push | ✅ Selesai |
+| 2026-10-07 | - | Update README.md (7 template) | ✅ Selesai |
