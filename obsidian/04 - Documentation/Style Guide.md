@@ -143,6 +143,16 @@ Dipakai oleh [[news-blog-noir-maroon]]; gaya klasik koran untuk portal berita.
 - Aksen di latar gelap: `#D06A7A` (maroon terang)
 - Tipografi: Source Serif 4 (judul/brand), Inter (body/UI), IBM Plex Mono (meta/angka); rasio thumbnail 3:2, iklan 1:1; Font Awesome seperlunya
 
+### Tema Referensi — Orange–Yellow (Kanvas Light Orange)
+Dipakai oleh [[ecommerce-ez-fresh-orange-yellow]]; cocok untuk ecommerce/retail pangan yang ceria.
+- Fill aksi: orange `#FFA600` (selalu berpasangan dengan teks tinta `#33210F`), hover `#F09A00`
+- Teks/ikon di latar terang: `#9E4E00` (`--orange-ink`) untuk link, harga, kicker, ikon
+- Sorotan: kuning `#FFC65C` (CTA/badge — selalu berpasangan dengan teks tinta), tint `#FFF3CC`
+- Kanvas: light orange `#FFF4E9`; kartu putih `#FFFFFF`; tint orange `#FFE7D2`
+- Garis: `#F0DCC8`/`#E5C7A8`; tinta `#33210F`, sekunder `#6B4F33`, muted `#7E5F44`
+- Footer gelap hangat: `#2A1808`; aksen brand di latar gelap memakai orange terang `#FFA600`; tipografi Poppins (display) + Inter (body) + IBM Plex Mono (harga/angka)
+- Semua gambar dibungkus pembungkus putih (`display: block`) agar menyatu dengan kanvas berwarna
+
 ### Prinsip Anti AI-Slop (WAJIB)
 - Hindari gradien berlebihan dan warna rainbow; gunakan palet terbatas / ramp satu hue
 - Hindari shadow berlapis, glow neon, dan glassmorphism (`backdrop-filter: blur`)

@@ -187,6 +187,29 @@
 
 ---
 
+### # 2026-10-07 - Template E-Commerce EZ-Fresh (konversi Ogani → single HTML)
+- **Tanggal**: 07 Oktober 2026
+- **Aktivitas**:
+  - [x] Membaca vault Obsidian (HUB, Log, Templates Index, Memory, Style Guide)
+  - [x] Menganalisis sample Ogani (`sample/ogani-v1.0.0/`, ±130 file) — hanya tampilan home (index.html) yang dikonversi
+  - [x] Membuat `templates/ecommerce-ez-fresh-orange-yellow.html` single-file, brand **EZ-Fresh**, tema orange–kuning–putih dengan kanvas light orange
+  - [x] Struktur home Ogani dipertahankan: topbar, header (logo, search, wishlist/keranjang), navbar dropdown kategori, hero (sidebar kategori + carousel 3 slide), 6 kategori, produk unggulan bertab, 2 banner promo, 3 kolom rekomendasi, 3 kartu blog, footer + metode pembayaran
+  - [x] Semua dependensi pihak ketiga dihilangkan (jQuery, Bootstrap, Owl Carousel, mixitup, slicknav) → vanilla JS + CSS murni
+  - [x] Fitur bilingual/language switcher dihapus; konten default Bahasa Indonesia
+  - [x] 19 foto Unsplash diverifikasi (HTTP 200 + inspeksi visual), semua gambar dibungkus thumbnail putih (`.thumb { display:block }`)
+  - [x] Interaksi fungsional: carousel (autoplay, dots, panah), filter tab kategori, pencarian global + per kategori (empty state), dropdown kategori, keranjang & favorit demo (badge + total rupiah), newsletter, toast
+  - [x] Perbaikan UX: pencarian dari header kini global — tab tidak mengunci hasil kecuali kategori dipilih eksplisit di select
+  - [x] Fix a11y hasil Lighthouse: kontras `.slide-kicker`, target dot carousel 9px → area 24px, aria-label slide → teks sr-only, aria-label tombol keranjang/favorit disinkronkan dengan angka badge (WCAG 2.5.3)
+  - [x] Verifikasi: tag balance, 0 duplikasi id, syntax JS, 26 kelas FA diaudit terhadap FA 6.5.2 (semua ada), 31/31 gambar load, rasio terkomputasi (produk 1:1, hero/blog 3:2, banner 16:10), console 0 error, Lighthouse 100/100/100
+  - [x] Revisi review: palet dicerahkan ke `#FFA600` (orange) + `#FFC65C` (kuning) atas permintaan user — teks di atas fill menjadi tinta gelap, teks link/harga/kicker memakai varian `#9E4E00` (`--orange-ink`); disetujui user
+  - [x] Fix temuan revisi: badge `.count` `hidden` dikalahkan specificity CSS (badge "0" selalu tampil) + kontras "-Fresh" di footer gelap (2.87:1 → memakai orange terang); Lighthouse tetap 100/100/100 dalam kondisi awal & badge aktif
+  - [x] Update vault Obsidian (Log, Templates Index, Memory + Pelajaran 8 & 9, HUB, Style Guide)
+  - [x] Direview & disetujui user — commit dan push
+- **Template yang dikerjakan**: [[ecommerce-ez-fresh-orange-yellow]]
+- **Catatan**: Konversi dari template Ogani (Colorlib, CC BY 3.0) menjadi satu file HTML. Konten, harga & brand fiktif (demo). Palet final disetujui user: `#FFA600` + `#FFC65C` dengan teks adaptif. Direview & disetujui user; di-commit dan dipush ke `origin`.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -218,3 +241,6 @@
 | 2026-10-07 | landing-fiber-optik-go-green | Revisi bar cakupan (v1.0.1), disetujui user, commit & push | ✅ Selesai |
 | 2026-10-07 | news-blog-noir-maroon | Pembuatan template news blog (Noir Maroon) | ✅ Selesai |
 | 2026-10-07 | news-blog-noir-maroon | Disetujui user (desktop + mobile), commit & push | ✅ Selesai |
+| 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Konversi Ogani → single HTML (EZ-Fresh, orange-yellow) | ✅ Selesai |
+| 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Revisi palet #FFA600/#FFC65C (teks adaptif) + fix badge `hidden` & brand footer | ✅ Selesai |
+| 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Disetujui user, commit & push | ✅ Selesai |

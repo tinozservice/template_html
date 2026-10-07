@@ -25,7 +25,7 @@
 ### 🛍 E-commerce
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
-| - | - | - | - | - |
+| ecommerce-ez-fresh-orange-yellow | ✅ Selesai | 2026-10-07 | v1.0.0 | [[ecommerce-ez-fresh-orange-yellow]] |
 
 ### 📚 E-Novel
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
@@ -323,6 +323,52 @@ Portal berita satu file **IndoPress** bertema **Noir Maroon** — gaya klasik ko
 
 ### Preview
 ![[preview-news-blog-noir-maroon.png]]
+
+### Link Terkait
+- [[Progress Log]]
+
+---
+
+## 🛒 E-Commerce — EZ-Fresh Orange Yellow
+
+- **File**: `templates/ecommerce-ez-fresh-orange-yellow.html`
+- **Kategori**: E-commerce / Toko Online
+- **Tanggal**: 2026-10-07
+- **Versi**: v1.0.0
+- **Status**: ✅ Selesai
+
+### Deskripsi
+Halaman home toko online satu file **EZ-Fresh** bertema **Orange–Yellow** — kanvas light orange, kartu putih, aksen orange untuk aksi dan kuning untuk sorotan. Konversi dari template **Ogani** (Colorlib, multi-file + jQuery/Bootstrap) menjadi satu file HTML tanpa dependensi JS eksternal; hanya tampilan home yang diambil, tanpa fitur bilingual. Semua gambar dibungkus **thumbnail putih** agar menyatu dengan kanvas berwarna. Tipografi: Poppins (display), Inter (body), IBM Plex Mono (harga/angka).
+
+### Fitur
+- **Topbar**: email + info gratis ongkir; sosial media + tombol masuk
+- **Header**: logo EZ-Fresh, search box (select kategori + input + tombol), wishlist & keranjang dengan badge angka + total rupiah live (demo)
+- **Navbar**: dropdown "Semua Kategori" (6 kategori + jumlah produk), navigasi Home/Kategori/Produk/Promo/Blog/Kontak, chip promo; drawer menu di mobile
+- **Hero**: sidebar kategori + carousel 3 slide (autoplay, dots 24px, panah, pause saat hover, hormat `prefers-reduced-motion`)
+- **Kategori**: 6 kartu dengan gambar thumbnail putih + jumlah produk (klik → filter)
+- **Produk unggulan**: 8 produk dengan tab filter (Semua/Sayuran/Buah/Susu & Telur/Daging & Ikan), badge Terlaris/Diskon/Premium, rating, harga (+ harga coret), tombol favorit (toggle) & tambah ke keranjang (badge + total hidup)
+- **Pencarian fungsional**: global atau per kategori (select), empty state + catatan hasil + hapus pencarian
+- **Banner promo**: 2 kartu (paket sayur mingguan, jus tanpa gula)
+- **Rekomendasi**: 3 kolom (Produk Terbaru, Rating Terbaik, Pilihan Editor) berisi 9 item
+- **Blog**: 3 kartu (gambar 3:2, tanggal, komentar, judul, cuplikan, tautan)
+- **Footer**: brand + kontak (alamat/telepon/email), tautan, kategori, newsletter demo, sosial media, copyright + metode pembayaran (Visa/Mastercard/PayPal + chip GoPay/OVO/COD)
+- Toast demo untuk tautan yang belum tersedia; responsif mobile-first
+
+### Catatan Desain
+- Palet final (disetujui user): fill aksi orange `#FFA600` (hover `#F09A00`) — selalu berpasangan dengan teks tinta `#33210F`; teks/ikon di latar terang memakai varian `#9E4E00` (`--orange-ink`); kuning `#FFC65C` untuk CTA/badge (teks tinta); tint `#FFE7D2`/`#FFF3CC`; kanvas `#FFF4E9`; kartu putih; garis `#F0DCC8`/`#E5C7A8`; tinta `#33210F`, sekunder `#6B4F33`, muted `#7E5F44`
+- Anti AI-slop: tanpa gradien/glow/shadow, radius 3–6px, garis 1px, ikon FA hemat (26 kelas untuk seluruh halaman)
+- Pembungkus `.thumb` putih (`display:block`) untuk semua gambar agar tidak "tabrakan" dengan kanvas light orange
+- Rasio terverifikasi: produk 1:1, kategori 1:1, hero & blog 3:2, banner 16:10
+- Fix revisi: badge `.count` diberi rule `[hidden] { display:none }` (atribut `hidden` kalah specificity dari `display:inline-grid`); brand "-Fresh" di footer gelap memakai orange terang `#FFA600`
+
+### Teknologi
+- HTML5 semantic
+- CSS3 (Custom Properties, Grid, Flexbox, line-clamp)
+- Vanilla JavaScript (IIFE; carousel, filter, pencarian, keranjang/favorit demo — tanpa jQuery/Bootstrap)
+- Google Fonts (Poppins, Inter, IBM Plex Mono), Font Awesome 6 (hemat), 19 foto dari Unsplash (HTTP 200 + inspeksi visual)
+
+### Preview
+![[preview-ecommerce-ez-fresh-orange-yellow.png]]
 
 ### Link Terkait
 - [[Progress Log]]

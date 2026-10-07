@@ -86,6 +86,14 @@
 
 ---
 
+### # 2026-10-07 - Tema warna Orange–Yellow (kanvas light orange) & konversi template pihak ketiga
+**Konteks**: Konversi template Ogani (multi-file, jQuery + Bootstrap + plugin carousel/filter) menjadi single HTML "EZ-Fresh" untuk toko online pangan segar.
+**Keputusan**: Palet Orange–Yellow (final, disetujui user) — fill aksi orange `#FFA600` (hover `#F09A00`) yang selalu berpasangan dengan teks tinta `#33210F`; varian `#9E4E00` (`--orange-ink`) khusus teks/ikon di latar terang; kuning `#FFC65C` untuk CTA/badge (teks tinta); tint `#FFE7D2`/`#FFF3CC`, kanvas `#FFF4E9`, kartu putih, garis `#F0DCC8`, tinta `#33210F`, muted `#7E5F44`. Tipografi: Poppins (display), Inter (body), IBM Plex Mono (harga/angka). Pola konversi: struktur visual dipertahankan, seluruh dependensi diganti vanilla JS + CSS, gambar diganti Unsplash, semua gambar dibungkus `.thumb` putih (`display:block`) agar menyatu dengan kanvas berwarna.
+**Dampak**: Kanvas berwarna memerlukan pembungkus putih untuk gambar; palet terang memerlukan strategi dua token (fill terang + `--orange-ink` untuk teks). Konversi template pihak ketiga kini punya resep baku (audit struktur → ganti dependensi → ganti aset → verifikasi visual).
+**Referensi**: [[ecommerce-ez-fresh-orange-yellow]], [[Style Guide]]
+
+---
+
 ### # YYYY-MM-DD - Deskripsi keputusan
 **Konteks**: 
 **Keputusan**: 
@@ -143,6 +151,16 @@
 - **Masalah**: URL Google Fonts dengan sumbu variabel `family=Source+Serif+4:opsz,wght@8..60,600;700` mengembalikan HTTP 400 sehingga font fallback terpakai — dan error ini **tidak muncul** di console browser.
 - **Solusi**: Tuple setelah `;` harus menyertakan seluruh sumbu — gunakan rentang penuh `opsz,wght@8..60,600..700` (HTTP 200). Biasakan cek `curl -o NUL -w "%{http_code}"` untuk setiap URL Google Fonts sebelum verifikasi visual.
 - **Referensi**: [[news-blog-noir-maroon]]
+
+### Pelajaran 8
+- **Masalah**: Lighthouse accessibility (0.93) pada template e-commerce menemukan 3 pola masalah khas komponen interaktif: (1) teks kecil orange di atas tint orange hanya 4.2:1; (2) `aria-label` pada slide carousel tidak memuat teks terlihatnya (WCAG 2.5.3 — pola lama W3C APG); (3) dot carousel 9×9 px di bawah target minimum 24×24; dan (4) `aria-label` tombol keranjang "Keranjang belanja" tidak memuat angka badge yang terlihat.
+- **Solusi**: (1) pakai varian lebih gelap (`--orange-hover`) untuk teks kecil di atas tint; (2) ganti `aria-label` slide dengan teks `sr-only` di dalam slide + `role="group"` + `aria-roledescription="slide"`; (3) beri tombol dot area 24×24 dengan visual kecil via `::after`; (4) sinkronkan `aria-label` tombol secara dinamis dengan nilai badge ("Keranjang belanja, 2 item"). Semua terverifikasi Lighthouse 100/100/100.
+- **Referensi**: [[ecommerce-ez-fresh-orange-yellow]]
+
+### Pelajaran 9
+- **Masalah**: (1) Atribut `hidden` pada badge tidak bekerja karena `.count { display: inline-grid }` (specificity class) mengalahkan `[hidden] { display: none }` dari UA stylesheet — badge "0" selalu tampil dan memicu audit `label-content-name-mismatch`. (2) Saat palet dicerahkan ke `#FFA600`, teks "-Fresh" (`.brand-name span`) yang kini memakai varian gelap `#9E4E00` jatuh ke 2.87:1 di footer gelap.
+- **Solusi**: (1) Jangan mengandalkan atribut `hidden` bila komponen punya rule `display` sendiri — tambahkan `[hidden] { display: none }` eksplisit di komponen terkait. (2) Sediakan override untuk konteks gelap (footer memakai orange terang `#FFA600`). (3) Prinsip palet terang: fill terang + teks tinta gelap + token `--orange-ink` khusus teks di latar terang.
+- **Referensi**: [[ecommerce-ez-fresh-orange-yellow]]
 
 ---
 
