@@ -78,6 +78,14 @@
 
 ---
 
+### # 2026-10-07 - Tema warna Noir Maroon (hitam–putih–maroon) & pola portal berita
+**Konteks**: Pembuatan template news blog "IndoPress" memerlukan identitas klasik koran (hitam + putih + maroon) dengan struktur 3 header bertingkat dan grid berita yang dapat difilter.
+**Keputusan**: Palet Noir Maroon — hitam `#141014` (utility bar & footer), maroon `#6B1620` (navbar), `#4C1119` (gelap), `#8A1F2D` (link/tombol), `#A62B3C` (hover), tint `#F7E9EC`/`#FBF3F4`; netral putih `#FFFFFF`/`#F7F5F6`, garis `#E5DFE1`, tinta `#151115`, muted `#6B5F63`, aksen latar gelap `#D06A7A`. Tipografi koran: Source Serif 4 (judul/brand), Inter (body/UI), IBM Plex Mono (meta/angka). Pola interaksi: semua kartu dirender statis di HTML (progressive enhancement), JS hanya filter/sort/search/load-more.
+**Dampak**: Pola 3 header + grid berita berfilter siap dipakai ulang untuk template portal berikutnya; struktur statis + JS filter menjaga konten tetap terlihat tanpa JavaScript.
+**Referensi**: [[news-blog-noir-maroon]], [[Style Guide]]
+
+---
+
 ### # YYYY-MM-DD - Deskripsi keputusan
 **Konteks**: 
 **Keputusan**: 
@@ -130,6 +138,11 @@
 - **Masalah**: Bar cakupan kota (`.cov-fill`) tidak terlihat sama sekali; semua track tampak identik. Root cause: elemen `<span>` bersifat `display: inline`, sehingga `width`/`height` diabaikan. Track lolos karena sebagai grid item otomatis di-blockify, tetapi fill di dalamnya tetap inline.
 - **Solusi**: Beri `display: block` (atau `inline-block`) pada elemen inline yang diberi dimensi. Verifikasi memakai `getBoundingClientRect()` (geometri terkomputasi) — mengecek atribut `style`/`cssText` saja bisa memberi false positive (nilai benar, layout tidak menerapkan).
 - **Referensi**: [[landing-fiber-optik-go-green]]
+
+### Pelajaran 7
+- **Masalah**: URL Google Fonts dengan sumbu variabel `family=Source+Serif+4:opsz,wght@8..60,600;700` mengembalikan HTTP 400 sehingga font fallback terpakai — dan error ini **tidak muncul** di console browser.
+- **Solusi**: Tuple setelah `;` harus menyertakan seluruh sumbu — gunakan rentang penuh `opsz,wght@8..60,600..700` (HTTP 200). Biasakan cek `curl -o NUL -w "%{http_code}"` untuk setiap URL Google Fonts sebelum verifikasi visual.
+- **Referensi**: [[news-blog-noir-maroon]]
 
 ---
 

@@ -20,7 +20,7 @@
 ### 📝 Blog
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
 |---------------|--------|----------------|-------|------|
-| - | - | - | - | - |
+| news-blog-noir-maroon | ✅ Selesai | 2026-10-07 | v1.0.0 | [[news-blog-noir-maroon]] |
 
 ### 🛍 E-commerce
 | Nama Template | Status | Tanggal Dibuat | Versi | Link |
@@ -284,6 +284,45 @@ Landing page satu file untuk ISP fiber fiktif **FiberIndo** bertema **Go Green**
 
 ### Preview
 ![[preview-landing-fiber-optik-go-green.png]]
+
+### Link Terkait
+- [[Progress Log]]
+
+---
+
+## 📰 News Blog — Noir Maroon
+
+- **File**: `templates/news-blog-noir-maroon.html`
+- **Kategori**: Blog / Portal Berita
+- **Tanggal**: 2026-10-07
+- **Versi**: v1.0.0
+- **Status**: ✅ Selesai
+
+### Deskripsi
+Portal berita satu file **IndoPress** bertema **Noir Maroon** — gaya klasik koran: putih sebagai kanvas, bar hitam untuk utilitas, maroon untuk navbar dan aksen. Tiga header bertingkat (utility, masthead, navbar sticky), grid berita 15 post yang dapat difilter, dan footer bernavigasi lengkap dengan slot iklan. Tipografi editorial: Source Serif 4 (judul/brand) + Inter (body/UI) + IBM Plex Mono (meta/angka).
+
+### Fitur
+- **Header 1 (hitam)**: About, Privacy Policy, Cookies, Advertise, Signup, Login + ikon sosial (X/Twitter, YouTube, Pinterest, feed RSS)
+- **Header 2 (masthead putih)**: logo IP + brand IndoPress + slogan, banner iklan contoh 468×90 (menaut ke slot iklan footer)
+- **Header 3 (navbar maroon sticky)**: Home, 6 kategori, Latest News, Trending, Author, Contact Us + search box + tombol; drawer menu di mobile
+- **Grid berita** (15 post, 6 kategori): thumbnail rasio 3:2, judul di bawah thumbnail, cuplikan (line-clamp), chip kategori + tag yang dapat diklik, avatar & nama penulis, waktu relatif ("5 menit lalu"), total views (ikon mata)
+- **Filter fungsional**: kategori (chip filter + link navbar + link footer), tag (#ai, #umkm, dll), penulis (select 6 penulis), pencarian live (judul + cuplikan), sort Terbaru/Terpopuler (segmented + navbar, tersinkron), Load More 9 → 15, empty state + reset
+- **Footer**: brand + visi & misi, sosial media, kolom kategori, Help & Support + email redaksi/ads (mailto), newsletter demo (validasi + toast), slot iklan 1:1 (300×300), copyright + legal links
+- Toast demo untuk tautan yang belum tersedia; responsif mobile-first; mendukung `prefers-reduced-motion`
+
+### Catatan Desain
+- Palet: hitam `#141014`, maroon `#6B1620`/`#4C1119`/`#8A1F2D`/`#A62B3C`, tint `#F7E9EC`/`#FBF3F4`, netral `#FFFFFF`/`#F7F5F6`, garis `#E5DFE1`, muted `#6B5F63`; aksen latar gelap `#D06A7A`
+- Anti AI-slop: tanpa gradien, tanpa shadow berlapis, radius 3–4px, garis 1px, ikon FA sangat hemat (9 kelas)
+- Rasio penting diverifikasi terkomputasi: thumbnail 3:2 (458×305), avatar 24×24, iklan footer 1:1 (210×210)
+
+### Teknologi
+- HTML5 semantic
+- CSS3 (Custom Properties, Grid, Flexbox, line-clamp)
+- Vanilla JavaScript (IIFE; filter/sort/search/load-more/progressive enhancement — semua kartu ada di HTML)
+- Google Fonts (Source Serif 4, Inter, IBM Plex Mono), Font Awesome 6 (hemat), foto & avatar dari Unsplash (HTTP 200 + inspeksi visual)
+
+### Preview
+![[preview-news-blog-noir-maroon.png]]
 
 ### Link Terkait
 - [[Progress Log]]

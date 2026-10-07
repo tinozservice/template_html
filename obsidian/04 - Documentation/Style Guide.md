@@ -135,6 +135,14 @@ Dipakai oleh [[landing-fiber-optik-go-green]]; cocok untuk produk ramah lingkung
 - Tinta `#11251B`, sekunder `#3E5949`, muted `#5C7367` — jangan lebih terang dari ini untuk teks kecil di latar terang (hasil audit kontras)
 - Tipografi: Sora (display), Inter (body), IBM Plex Mono (angka/label); ikon Font Awesome seperlunya; chart SVG murni
 
+### Tema Referensi — Noir Maroon (Hitam–Putih–Maroon)
+Dipakai oleh [[news-blog-noir-maroon]]; gaya klasik koran untuk portal berita.
+- Hitam: `#141014` (utility bar, footer, tombol aktif); tinta teks `#151115`
+- Maroon: `#6B1620` (navbar), `#4C1119` (gelap), `#8A1F2D` (link/tombol), `#A62B3C` (hover); tint `#F7E9EC`/`#FBF3F4`
+- Netral: putih `#FFFFFF`, panel `#F7F5F6`, garis `#E5DFE1`/`#EFEAEC`; muted `#6B5F63`
+- Aksen di latar gelap: `#D06A7A` (maroon terang)
+- Tipografi: Source Serif 4 (judul/brand), Inter (body/UI), IBM Plex Mono (meta/angka); rasio thumbnail 3:2, iklan 1:1; Font Awesome seperlunya
+
 ### Prinsip Anti AI-Slop (WAJIB)
 - Hindari gradien berlebihan dan warna rainbow; gunakan palet terbatas / ramp satu hue
 - Hindari shadow berlapis, glow neon, dan glassmorphism (`backdrop-filter: blur`)

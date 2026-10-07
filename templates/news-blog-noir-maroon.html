@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IndoPress — portal berita independen: Entertainment, Technology, Business, Gadgets, Health, dan Sports. Berita tajam, jernih, tanpa basa-basi.">
+    <meta name="theme-color" content="#6B1620">
+    <title>IndoPress — Berita Tajam, Jernih, Tanpa Basa-Basi | Template News Blog</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%236B1620'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23FFFFFF' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600..700&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        /* ============================================================
+           IndoPress — News Blog (noir + maroon)
+           Gaya: klasik koran — putih, bar hitam & maroon, garis 1px,
+           radius kecil. Anti AI-slop: tanpa gradien/glow/shadow.
+           ============================================================ */
+
+        /* ---------- Reset & base ---------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --paper: #FFFFFF;
+            --paper-soft: #F7F5F6;
+            --line: #E5DFE1;
+            --line-soft: #EFEAEC;
+            --ink: #151115;
+            --ink-2: #4A3F43;
+            --muted: #6B5F63;
+            --black: #141014;
+            --maroon: #8A1F2D;
+            --maroon-hover: #A62B3C;
+            --maroon-mid: #6B1620;
+            --maroon-deep: #4C1119;
+            --maroon-tint: #F7E9EC;
+            --maroon-tint-2: #FBF3F4;
+            --maroon-on-dark: #D06A7A;
+            --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-body: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: var(--maroon);
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--maroon);
+            outline-offset: 2px;
+        }
+
+        ::selection {
+            background: var(--maroon-tint);
+            color: var(--ink);
+        }
+
+        [id] {
+            scroll-margin-top: 64px;
+        }
+
+        /* ---------- Utilitas ---------- */
+        .wrap {
+            width: min(1200px, 94vw);
+            margin-inline: auto;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 12px;
+            top: -48px;
+            z-index: 100;
+            background: var(--black);
+            color: #F4EFF1;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: top .2s ease;
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        /* ---------- Header 1: utility bar (hitam) ---------- */
+        .topbar {
+            background: var(--black);
+            color: #D9D2D4;
+        }
+
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            min-height: 38px;
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .top-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .top-links a {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #D9D2D4;
+            text-decoration: none;
+            line-height: 38px;
+            transition: color .2s ease;
+        }
+
+        .top-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .top-social {
+            display: none;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-social a {
+            display: inline-grid;
+            place-items: center;
+            width: 28px;
+            height: 28px;
+            color: #B7AEB1;
+            font-size: 12.5px;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: color .2s ease, background-color .2s ease;
+        }
+
+        .top-social a:hover {
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, .08);
+        }
+
+        @media (min-width: 760px) {
+            .top-social {
+                display: flex;
+            }
+        }
+
+        /* ---------- Header 2: masthead ---------- */
+        .masthead {
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .masthead-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px 28px;
+            padding: 20px 0;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            text-decoration: none;
+        }
+
+        .logo-box {
+            display: inline-grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            background: var(--maroon-mid);
+            border-radius: 4px;
+            color: #FFFFFF;
+            font-family: var(--font-display);
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-size: 31px;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            line-height: 1;
+            color: var(--ink);
+        }
+
+        .brand-slogan {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .brand-wrap h1 {
+            display: inline;
+        }
+
+        .ad-lead {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3px;
+            flex: 1 1 300px;
+            max-width: 460px;
+            background: var(--maroon-tint-2);
+            border: 1px solid #E9CFD4;
+            border-radius: 4px;
+            padding: 10px 16px;
+            text-decoration: none;
+            transition: border-color .2s ease;
+        }
+
+        .ad-lead:hover {
+            border-color: var(--maroon);
+        }
+
+        .ad-lead .ad-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--maroon);
+        }
+
+        .ad-lead .ad-copy {
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--ink-2);
+        }
+
+        .ad-lead .ad-mail {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--muted);
+        }
+
+        /* ---------- Header 3: navbar (maroon, sticky) ---------- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: var(--maroon-mid);
+            border-bottom: 2px solid var(--black);
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-height: 46px;
+        }
+
+        .nav-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, .28);
+            border-radius: 3px;
+            color: #F3E6E9;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 7px 11px;
+            cursor: pointer;
+            flex: 0 0 auto;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            display: block;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #EBD8DC;
+            text-decoration: none;
+            padding: 13px 0;
+            border-bottom: 2px solid transparent;
+            transition: color .2s ease, border-color .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .nav-links a.is-active {
+            color: #FFFFFF;
+            border-bottom-color: #FFFFFF;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: auto;
+            flex: 1 1 auto;
+            max-width: 300px;
+        }
+
+        .nav-search input {
+            width: 100%;
+            min-width: 0;
+            background: var(--paper);
+            border: 1px solid var(--maroon-deep);
+            border-radius: 3px;
+            padding: 8px 10px;
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            color: var(--ink);
+        }
+
+        .nav-search input::placeholder {
+            color: var(--muted);
+        }
+
+        .nav-search button {
+            flex: 0 0 auto;
+            display: inline-grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            background: var(--black);
+            border: 1px solid var(--black);
+            border-radius: 3px;
+            color: #FFFFFF;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color .2s ease, border-color .2s ease;
+        }
+
+        .nav-search button:hover {
+            background: var(--maroon);
+            border-color: var(--maroon);
+        }
+
+        @media (max-width: 1023px) {
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                background: var(--maroon-deep);
+                border-top: 1px solid rgba(255, 255, 255, .14);
+                padding: 6px 3vw 12px;
+            }
+
+            .nav-links.open a {
+                padding: 12px 2px;
+                border-bottom: 1px solid rgba(255, 255, 255, .1);
+                border-top: 0;
+            }
+
+            .nav-links.open a.is-active {
+                color: #FFFFFF;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .nav-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex: 1 1 auto;
+                flex-wrap: wrap;
+            }
+
+            .nav-search {
+                flex: 0 1 250px;
+            }
+        }
+
+        /* ---------- Bagian berita ---------- */
+        .news {
+            padding: 30px 0 clamp(48px, 7vw, 76px);
+        }
+
+        .news-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px 20px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--black);
+            margin-bottom: 22px;
+        }
+
+        .news-head h2 {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        .news-date {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        /* Panel filter */
+        .filter-panel {
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-right: 4px;
+        }
+
+        .chip {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--ink-2);
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            padding: 5px 11px;
+            cursor: pointer;
+            transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+        }
+
+        .chip:hover {
+            color: var(--maroon);
+            border-color: var(--maroon);
+        }
+
+        .chip.is-active {
+            background: var(--maroon-mid);
+            border-color: var(--maroon-mid);
+            color: #FFFFFF;
+        }
+
+        .chip-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 5px 9px;
+        }
+
+        .filter-tools {
+            gap: 10px;
+        }
+
+        .filter-tools select {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-2);
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            padding: 7px 9px;
+            cursor: pointer;
+        }
+
+        .seg {
+            display: inline-flex;
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .seg button {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink-2);
+            background: var(--paper);
+            border: 0;
+            padding: 7px 13px;
+            cursor: pointer;
+            transition: background-color .2s ease, color .2s ease;
+        }
+
+        .seg button + button {
+            border-left: 1px solid var(--line);
+        }
+
+        .seg button.is-active {
+            background: var(--black);
+            color: #FFFFFF;
+        }
+
+        .result-count {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--muted);
+            margin-left: auto;
+        }
+
+        .link-reset {
+            background: none;
+            border: 0;
+            color: var(--maroon);
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 2px;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .link-reset:hover {
+            color: var(--maroon-hover);
+        }
+
+        /* Grid berita */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 660px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1020px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: border-color .2s ease;
+        }
+
+        .post:hover {
+            border-color: #C9AEB4;
+        }
+
+        .post.hide {
+            display: none;
+        }
+
+        .post-media {
+            display: block;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .post-media img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+        }
+
+        .post-body {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            padding: 15px 16px 16px;
+            flex: 1;
+        }
+
+        .post-title {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.28;
+            letter-spacing: -0.005em;
+        }
+
+        .post-title a {
+            color: var(--ink);
+            text-decoration: none;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: color .2s ease;
+        }
+
+        .post-title a:hover {
+            color: var(--maroon);
+        }
+
+        .post-excerpt {
+            font-size: 14px;
+            color: var(--ink-2);
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-chips {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chip-cat {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--maroon);
+            background: var(--maroon-tint-2);
+            border: 1px solid #EAD2D6;
+            border-radius: 3px;
+            padding: 3px 8px;
+            cursor: pointer;
+            transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+        }
+
+        .chip-cat:hover {
+            background: var(--maroon-mid);
+            border-color: var(--maroon-mid);
+            color: #FFFFFF;
+        }
+
+        .chip-tagline {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--muted);
+            background: none;
+            border: 0;
+            padding: 3px 1px;
+            cursor: pointer;
+            transition: color .2s ease;
+        }
+
+        .chip-tagline:hover {
+            color: var(--maroon);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 4px;
+            font-size: 12.5px;
+            color: var(--muted);
+        }
+
+        .post-author {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .post-author img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--line);
+        }
+
+        .post-author b {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink-2);
+        }
+
+        .dot {
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: #D3C8CB;
+        }
+
+        .post-meta .meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+        }
+
+        .post-meta .meta-item i {
+            font-size: 11px;
+        }
+
+        /* Load more & empty state */
+        .grid-foot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding-top: 30px;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+            background: var(--paper);
+            border: 1px solid var(--ink);
+            border-radius: 3px;
+            padding: 12px 26px;
+            cursor: pointer;
+            transition: background-color .2s ease, color .2s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--black);
+            color: #FFFFFF;
+        }
+
+        .grid-foot .foot-note {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--muted);
+            display: none;
+        }
+
+        .grid-foot .foot-note.show {
+            display: block;
+        }
+
+        .empty-state {
+            display: none;
+            border: 1px dashed var(--line);
+            border-radius: 4px;
+            padding: 46px 20px;
+            text-align: center;
+        }
+
+        .empty-state.show {
+            display: block;
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 21px;
+            margin-bottom: 6px;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            color: var(--ink-2);
+            margin-bottom: 16px;
+        }
+
+        /* ---------- Footer ---------- */
+        .site-footer {
+            background: var(--black);
+            color: #C9C0C3;
+            border-top: 3px solid var(--maroon);
+        }
+
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: clamp(38px, 5vw, 54px) 0 8px;
+        }
+
+        @media (min-width: 700px) {
+            .foot-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .foot-grid {
+                grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+            }
+        }
+
+        .foot-brand .brand-name {
+            color: #F4EFF1;
+        }
+
+        .foot-brand .brand {
+            gap: 11px;
+        }
+
+        .foot-brand .logo-box {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+        .foot-brand p {
+            font-size: 13.5px;
+            color: #B7AEB1;
+            line-height: 1.65;
+            max-width: 42ch;
+            margin-top: 14px;
+        }
+
+        .foot-brand p strong {
+            color: #E9E2E4;
+            font-weight: 600;
+        }
+
+        .foot-social {
+            display: flex;
+            gap: 9px;
+            margin-top: 18px;
+        }
+
+        .foot-social a {
+            display: inline-grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 3px;
+            color: #D9D2D4;
+            font-size: 13px;
+            text-decoration: none;
+            transition: background-color .2s ease, color .2s ease;
+        }
+
+        .foot-social a:hover {
+            background: rgba(255, 255, 255, .08);
+            color: #FFFFFF;
+        }
+
+        .foot-col h3 {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: #EFE9EB;
+            margin-bottom: 12px;
+        }
+
+        .foot-col ul {
+            list-style: none;
+        }
+
+        .foot-col li a,
+        .foot-col li span {
+            display: inline-block;
+            font-size: 13.5px;
+            color: #C9C0C3;
+            text-decoration: none;
+            padding: 5px 0;
+            transition: color .2s ease;
+        }
+
+        .foot-col li a:hover {
+            color: #FFFFFF;
+        }
+
+        .foot-col li .mail {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            color: var(--maroon-on-dark);
+        }
+
+        .foot-col li .mail:hover {
+            color: #FFFFFF;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 0;
+            background: #1E181C;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 3px;
+            padding: 10px 12px;
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            color: #F4EFF1;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #8F8489;
+        }
+
+        .newsletter-form input:focus-visible {
+            outline: 2px solid var(--maroon-on-dark);
+            outline-offset: 1px;
+        }
+
+        .newsletter-form button {
+            flex: 0 0 auto;
+            background: var(--maroon);
+            border: 1px solid var(--maroon);
+            border-radius: 3px;
+            color: #FFFFFF;
+            font-size: 13.5px;
+            font-weight: 600;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: background-color .2s ease, border-color .2s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--maroon-hover);
+            border-color: var(--maroon-hover);
+        }
+
+        .newsletter-note {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: #8F8489;
+            margin-top: 9px;
+        }
+
+        /* Iklan 1:1 di footer */
+        .foot-ad {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+        }
+
+        @media (min-width: 800px) {
+            .foot-ad {
+                grid-template-columns: 1fr auto;
+            }
+        }
+
+        .foot-ad h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: #F4EFF1;
+            margin-bottom: 8px;
+        }
+
+        .foot-ad p {
+            font-size: 13.5px;
+            color: #B7AEB1;
+            max-width: 54ch;
+            line-height: 1.65;
+        }
+
+        .foot-ad .ad-detail {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #8F8489;
+            margin-top: 10px;
+        }
+
+        .ad-square {
+            width: min(210px, 64vw);
+            aspect-ratio: 1 / 1;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            background: #1E181C;
+            border: 1px solid rgba(255, 255, 255, .22);
+            border-radius: 4px;
+        }
+
+        .ad-square .ad-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--maroon-on-dark);
+        }
+
+        .ad-square .ad-size {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: #F4EFF1;
+            margin: 6px 0 4px;
+        }
+
+        .ad-square .ad-copy {
+            font-size: 11.5px;
+            color: #8F8489;
+        }
+
+        .foot-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 22px;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 34px;
+            padding: 18px 0 24px;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            font-size: 12.5px;
+            color: #8F8489;
+        }
+
+        .foot-legal {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            align-items: center;
+        }
+
+        .foot-legal a {
+            color: #C9C0C3;
+            text-decoration: none;
+        }
+
+        .foot-legal a:hover {
+            color: #FFFFFF;
+        }
+
+        .foot-legal .sep {
+            color: #4A4247;
+        }
+
+        /* ---------- Toast ---------- */
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%, 14px);
+            opacity: 0;
+            pointer-events: none;
+            background: var(--black);
+            color: #F4EFF1;
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: 4px;
+            padding: 13px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            max-width: min(92vw, 500px);
+            text-align: center;
+            transition: opacity .3s ease, transform .3s ease;
+            z-index: 80;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* ---------- Reduced motion ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#berita">Langsung ke berita</a>
+
+    <!-- ================= Header 1 : utility bar ================= -->
+    <div class="topbar">
+        <div class="wrap topbar-inner">
+            <ul class="top-links">
+                <li><a href="#tentang">About</a></li>
+                <li><a href="#" data-demo="halaman Privacy Policy">Privacy Policy</a></li>
+                <li><a href="#" data-demo="halaman Cookies">Cookies</a></li>
+                <li><a href="#iklan">Advertise</a></li>
+                <li><a href="#" data-demo="halaman Signup">Signup</a></li>
+                <li><a href="#" data-demo="halaman Login">Login</a></li>
+            </ul>
+            <div class="top-social">
+                <a href="#" data-demo="profil X / Twitter" aria-label="X / Twitter IndoPress"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                <a href="#" data-demo="kanal YouTube" aria-label="YouTube IndoPress"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                <a href="#" data-demo="profil Pinterest" aria-label="Pinterest IndoPress"><i class="fa-brands fa-pinterest" aria-hidden="true"></i></a>
+                <a href="#" data-demo="feed RSS" aria-label="Feed RSS IndoPress"><i class="fa-solid fa-rss" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= Header 2 : masthead ================= -->
+    <header class="masthead">
+        <div class="wrap masthead-inner">
+            <div class="brand-wrap">
+                <h1>
+                    <a class="brand" href="#berita">
+                        <span class="logo-box" aria-hidden="true">IP</span>
+                        <span class="brand-name">IndoPress</span>
+                    </a>
+                </h1>
+                <p class="brand-slogan">Tajam, jernih, tanpa basa-basi.</p>
+            </div>
+
+            <a class="ad-lead" href="#iklan">
+                <span class="ad-tag">Ruang Iklan &middot; 468&times;90</span>
+                <span class="ad-copy">Jangkau 2,4 juta pembaca setiap bulan.</span>
+                <span class="ad-mail">ads@indopress.id</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= Header 3 : navbar ================= -->
+    <nav class="navbar" aria-label="Navigasi utama">
+        <div class="wrap navbar-inner">
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                Menu
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" id="nav-home">Home</a></li>
+                <li><a href="#" data-cat-nav="entertainment">Entertainment</a></li>
+                <li><a href="#" data-cat-nav="technology">Technology</a></li>
+                <li><a href="#" data-cat-nav="business">Business</a></li>
+                <li><a href="#" data-cat-nav="gadgets">Gadgets</a></li>
+                <li><a href="#" data-cat-nav="health">Health</a></li>
+                <li><a href="#" data-cat-nav="sports">Sports</a></li>
+                <li><a href="#" data-sort-nav="new" class="is-active" aria-current="true">Latest News</a></li>
+                <li><a href="#" data-sort-nav="views">Trending</a></li>
+                <li><a href="#" id="nav-author">Author</a></li>
+                <li><a href="#kontak">Contact Us</a></li>
+            </ul>
+            <form class="nav-search" role="search" id="search-form">
+                <label class="sr-only" for="search-input">Cari berita</label>
+                <input type="search" id="search-input" placeholder="Cari berita&hellip;" autocomplete="off">
+                <button type="submit" aria-label="Cari">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ================= Berita ================= -->
+        <section class="news" id="berita">
+            <div class="wrap">
+                <div class="news-head">
+                    <h2>Berita Terbaru</h2>
+                    <span class="news-date">Rabu, 7 Oktober 2026 &middot; 07.15 WIB</span>
+                </div>
+
+                <div class="filter-panel" id="filter-panel">
+                    <div class="filter-row" aria-label="Filter kategori">
+                        <span class="filter-label">Kategori</span>
+                        <button class="chip is-active" type="button" data-cat-filter="all" aria-pressed="true">Semua</button>
+                        <button class="chip" type="button" data-cat-filter="entertainment" aria-pressed="false">Entertainment</button>
+                        <button class="chip" type="button" data-cat-filter="technology" aria-pressed="false">Technology</button>
+                        <button class="chip" type="button" data-cat-filter="business" aria-pressed="false">Business</button>
+                        <button class="chip" type="button" data-cat-filter="gadgets" aria-pressed="false">Gadgets</button>
+                        <button class="chip" type="button" data-cat-filter="health" aria-pressed="false">Health</button>
+                        <button class="chip" type="button" data-cat-filter="sports" aria-pressed="false">Sports</button>
+                    </div>
+                    <div class="filter-row" aria-label="Filter tag">
+                        <span class="filter-label">Tag</span>
+                        <button class="chip chip-tag" type="button" data-tag-filter="ai">#ai</button>
+                        <button class="chip chip-tag" type="button" data-tag-filter="umkm">#umkm</button>
+                        <button class="chip chip-tag" type="button" data-tag-filter="gadget">#gadget</button>
+                        <button class="chip chip-tag" type="button" data-tag-filter="kesehatan">#kesehatan</button>
+                        <button class="chip chip-tag" type="button" data-tag-filter="film">#film</button>
+                        <button class="chip chip-tag" type="button" data-tag-filter="sepak-bola">#sepak-bola</button>
+                        <button class="chip chip-tag" type="button" data-tag-filter="musik">#musik</button>
+                        <button class="chip chip-tag" type="button" data-tag-filter="regulasi">#regulasi</button>
+                    </div>
+                    <div class="filter-row filter-tools">
+                        <label class="sr-only" for="author-select">Filter penulis</label>
+                        <select id="author-select">
+                            <option value="all">Semua Penulis</option>
+                            <option value="dimas">Dimas Prasetyo</option>
+                            <option value="sari">Sari Wulandari</option>
+                            <option value="rina">Rina Kusuma</option>
+                            <option value="bimo">Bimo Saputra</option>
+                            <option value="raka">Raka Pratama</option>
+                            <option value="nadia">Nadia Rahmawati</option>
+                        </select>
+                        <div class="seg" role="group" aria-label="Urutkan berita">
+                            <button type="button" class="seg-btn is-active" data-sort="new" aria-pressed="true">Terbaru</button>
+                            <button type="button" class="seg-btn" data-sort="views" aria-pressed="false">Terpopuler</button>
+                        </div>
+                        <button class="link-reset" type="button" id="reset-filter">Reset filter</button>
+                        <span class="result-count" id="result-count" aria-live="polite">Menampilkan 9 dari 15 berita</span>
+                    </div>
+                </div>
+
+                <div class="grid" id="grid">
+                    <!-- ===== Entertainment ===== -->
+                    <article class="post" data-category="entertainment" data-tags="film" data-author="dimas" data-time="5" data-views="2380">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Deretan kursi bioskop merah di ruangan gelap" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Film &ldquo;Senja di Batavia&rdquo; Tembus 4 Juta Penonton dalam Dua Pekan</a></h3>
+                            <p class="post-excerpt">Drama sejarah rilisan akhir bulan lalu itu menjadi film lokal tercepat yang menembus angka tersebut sejak pandemi, didorong ulasan positif di media sosial.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="entertainment">Entertainment</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="film">#film</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Dimas Prasetyo" width="96" height="96" loading="lazy"><b>Dimas Prasetyo</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>5 menit lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>2,4 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Technology ===== -->
+                    <article class="post" data-category="technology" data-tags="ai startup umkm" data-author="sari" data-time="18" data-views="9450">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Close-up chip dan sirkuit pada papan elektronik" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Startup AI Lokal Rilis Model Bahasa Indonesia untuk UMKM</a></h3>
+                            <p class="post-excerpt">Model ini dirancang memahami bahasa dagang sehari-hari, mulai dari membalas chat pelanggan hingga menyusun laporan penjualan sederhana.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="technology">Technology</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="ai">#ai</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="startup">#startup</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="umkm">#umkm</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Sari Wulandari" width="96" height="96" loading="lazy"><b>Sari Wulandari</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>18 menit lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>9,4 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Sports ===== -->
+                    <article class="post" data-category="sports" data-tags="sepak-bola timnas" data-author="dimas" data-time="22" data-views="24300">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Pemain sepak bola menendang bola di lapangan hijau" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Timnas U-23 Melaju ke Semifinal Usai Menang Dramatis 2-1</a></h3>
+                            <p class="post-excerpt">Gol kemenangan di menit 88 membawa tim ke babak empat besar; pelatih menyebut mental pemain sebagai kunci comeback.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="sports">Sports</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="sepak-bola">#sepak-bola</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="timnas">#timnas</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Dimas Prasetyo" width="96" height="96" loading="lazy"><b>Dimas Prasetyo</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>22 menit lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>24,3 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Entertainment ===== -->
+                    <article class="post" data-category="entertainment" data-tags="musik sosial" data-author="rina" data-time="42" data-views="1240">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Kerumunan penonton di depan panggung konser dengan lampu sorot" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Konser Amal &ldquo;Suara Nusantara&rdquo; Kumpulkan Rp 8 Miliar untuk Sekolah Terpencil</a></h3>
+                            <p class="post-excerpt">Melibatkan 40 musisi lintas generasi, seluruh hasil penjualan tiket dan donasi disalurkan lewat yayasan pendidikan yang diaudit publik.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="entertainment">Entertainment</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="musik">#musik</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="sosial">#sosial</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Rina Kusuma" width="96" height="96" loading="lazy"><b>Rina Kusuma</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>42 menit lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>1,2 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Business ===== -->
+                    <article class="post" data-category="business" data-tags="umkm ekonomi" data-author="sari" data-time="60" data-views="8120">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Meja kerja dengan laptop dan dokumen rencana bisnis" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">UMKM Kuliner Tumbuh 12% Kuartal Ini, Pengusaha Muda Jadi Motor</a></h3>
+                            <p class="post-excerpt">Data asosiasi menunjukkan penambahan 48 ribu usaha baru; pembiayaan digital dan promosi media sosial disebut sebagai pendorong utama.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="business">Business</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="umkm">#umkm</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="ekonomi">#ekonomi</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Sari Wulandari" width="96" height="96" loading="lazy"><b>Sari Wulandari</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>1 jam lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>8,1 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Gadgets ===== -->
+                    <article class="post" data-category="gadgets" data-tags="gadget mobile" data-author="raka" data-time="75" data-views="11200">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Ponsel pintar dengan beragam aplikasi di atas meja terang" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Ponsel Lipat Generasi Baru Resmi Masuk Indonesia, Harga Lebih Ramah</a></h3>
+                            <p class="post-excerpt">Dibanderol mulai belasan juta, perangkat ini menawarkan engsel generasi kelima dan layar dalam yang lebih tahan lipatan.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="gadgets">Gadgets</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="gadget">#gadget</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="mobile">#mobile</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Raka Pratama" width="96" height="96" loading="lazy"><b>Raka Pratama</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>1 jam lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>11,2 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Technology ===== -->
+                    <article class="post" data-category="technology" data-tags="ai regulasi" data-author="dimas" data-time="120" data-views="6740">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Baris kode program di layar laptop" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Kerangka Regulasi AI Nasional Masuk Tahap Akhir: Fokus pada Etika dan Data</a></h3>
+                            <p class="post-excerpt">Pemerintah menyasar keseimbangan antara inovasi dan perlindungan data pribadi; masukan publik dibuka hingga akhir bulan.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="technology">Technology</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="ai">#ai</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="regulasi">#regulasi</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Dimas Prasetyo" width="96" height="96" loading="lazy"><b>Dimas Prasetyo</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>2 jam lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>6,7 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Health ===== -->
+                    <article class="post" data-category="health" data-tags="kesehatan gaya-hidup" data-author="sari" data-time="180" data-views="7430">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Sepatu lari melangkah menaiki anak tangga batu" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Studi: Jalan Kaki 30 Menit Sehari Turunkan Risiko Penyakit Jantung 18%</a></h3>
+                            <p class="post-excerpt">Penelitian terhadap 12 ribu partisipan menemukan manfaat signifikan bahkan pada intensitas ringan, tanpa perlu ke gym.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="health">Health</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="kesehatan">#kesehatan</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="gaya-hidup">#gaya-hidup</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Sari Wulandari" width="96" height="96" loading="lazy"><b>Sari Wulandari</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>3 jam lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>7,4 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Business ===== -->
+                    <article class="post" data-category="business" data-tags="pasar keuangan" data-author="bimo" data-time="240" data-views="5280">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Grafik candlestick pasar keuangan di layar monitor" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Rupiah Menguat Tipis, Investor Asing Catat Beli Bersih Rp 2,1 Triliun</a></h3>
+                            <p class="post-excerpt">Sentimen positif datang dari rilis data inflasi dan ekspektasi pemangkasan suku bunga; analis mengingatkan volatilitas masih membayangi.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="business">Business</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="pasar">#pasar</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="keuangan">#keuangan</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Bimo Saputra" width="96" height="96" loading="lazy"><b>Bimo Saputra</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>4 jam lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>5,3 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Entertainment ===== -->
+                    <article class="post" data-category="entertainment" data-tags="musik festival" data-author="nadia" data-time="360" data-views="4210">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Penyanyi tampil di atas panggung dengan asap berwarna" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Festival Musik Nusantara Digelar di Lima Kota, Tiket Hari Pertama Ludes</a></h3>
+                            <p class="post-excerpt">Penyelenggara menambah kapasitas panggung utama setelah permintaan melebihi ekspektasi; penampil tamu dari tiga negara dikonfirmasi hadir.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="entertainment">Entertainment</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="musik">#musik</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="festival">#festival</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Nadia Rahmawati" width="96" height="96" loading="lazy"><b>Nadia Rahmawati</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>6 jam lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>4,2 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Gadgets (dimuat via Load More) ===== -->
+                    <article class="post" data-category="gadgets" data-tags="gadget wearable" data-author="bimo" data-time="720" data-views="6120">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Jam pintar dengan tampilan layar animasi di latar putih" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Ulasan Jam Pintar Tahan Air: Akurasi Detak Jantung Jadi Sorotan</a></h3>
+                            <p class="post-excerpt">Setelah dua minggu pemakaian, perangkat ini unggul di pemantauan tidur dan latihan renang, meski baterainya bertahan tiga hari saja.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="gadgets">Gadgets</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="gadget">#gadget</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="wearable">#wearable</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Bimo Saputra" width="96" height="96" loading="lazy"><b>Bimo Saputra</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>12 jam lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>6,1 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Technology (Load More) ===== -->
+                    <article class="post" data-category="technology" data-tags="energi data" data-author="raka" data-time="1440" data-views="3150">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Bumi dari ruang angkasa dengan cahaya kota di malam hari" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Pusat Data Hijau di Batam Beroperasi, Pasok 40 MW untuk Layanan Cloud</a></h3>
+                            <p class="post-excerpt">Fasilitas ini diklaim salah satu yang paling efisien di Asia Tenggara, memakai pendinginan cair dan panel surya untuk sebagian kebutuhan listriknya.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="technology">Technology</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="energi">#energi</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="data">#data</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Raka Pratama" width="96" height="96" loading="lazy"><b>Raka Pratama</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>1 hari lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>3,1 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Business (Load More) ===== -->
+                    <article class="post" data-category="business" data-tags="umkm ekspor" data-author="rina" data-time="2880" data-views="2980">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Laptop menampilkan dasbor analitik penjualan di kantor" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Kerajinan Lokal Tembus Pasar Eropa, Nilai Ekspor Naik 23% Setahun</a></h3>
+                            <p class="post-excerpt">Rotan, batik, dan keramik artisanal jadi primadona; pelaku usaha menyoroti pentingnya sertifikasi ramah lingkungan untuk pasar premium.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="business">Business</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="umkm">#umkm</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="ekspor">#ekspor</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Rina Kusuma" width="96" height="96" loading="lazy"><b>Rina Kusuma</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>2 hari lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>2,9 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Health (Load More) ===== -->
+                    <article class="post" data-category="health" data-tags="kesehatan pendidikan" data-author="rina" data-time="4320" data-views="3610">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Mangkuk makanan sehat berisi sayur, telur, dan alpukat" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Menu Makan Bergizi Diperluas ke 1.000 Sekolah Mulai Semester Depan</a></h3>
+                            <p class="post-excerpt">Program ini melibatkan ahli gizi daerah dan kantin sekolah; evaluasi berkala dijanjikan setiap kuartal.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="health">Health</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="kesehatan">#kesehatan</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="pendidikan">#pendidikan</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Rina Kusuma" width="96" height="96" loading="lazy"><b>Rina Kusuma</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>3 hari lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>3,6 rb</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Sports (Load More) ===== -->
+                    <article class="post" data-category="sports" data-tags="basket liga" data-author="bimo" data-time="7200" data-views="2140">
+                        <a class="post-media" href="#" data-demo="halaman artikel (demo)">
+                            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&amp;fit=crop&amp;w=800&amp;q=60" alt="Bola basket melewati jaring ring di arena pertandingan" width="800" height="533" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <h3 class="post-title"><a href="#" data-demo="halaman artikel (demo)">Liga Basket Nasional Masuki Playoff, Lima Tim Bersaing Ketat</a></h3>
+                            <p class="post-excerpt">Persaingan menuju final diprediksi berlangsung hingga laga terakhir; dua tim promosi tampil mengejutkan musim ini.</p>
+                            <div class="post-chips">
+                                <button class="chip-cat" type="button" data-cat-filter="sports">Sports</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="basket">#basket</button>
+                                <button class="chip-tagline" type="button" data-tag-filter="liga">#liga</button>
+                            </div>
+                            <div class="post-meta">
+                                <span class="post-author"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=96&amp;q=60" alt="Foto Bimo Saputra" width="96" height="96" loading="lazy"><b>Bimo Saputra</b></span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-clock" aria-hidden="true"></i>5 hari lalu</span>
+                                <span class="dot" aria-hidden="true"></span>
+                                <span class="meta-item"><i class="fa-regular fa-eye" aria-hidden="true"></i>2,1 rb</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="empty-state" id="empty-state">
+                    <h3>Tidak ada berita yang cocok</h3>
+                    <p>Coba ubah kata kunci pencarian atau longgarkan filter kategori, tag, dan penulis.</p>
+                    <button class="link-reset" type="button" id="empty-reset">Reset semua filter</button>
+                </div>
+
+                <div class="grid-foot">
+                    <button class="btn-outline" type="button" id="load-more">Muat lebih banyak (6)</button>
+                    <span class="foot-note" id="all-loaded">Semua berita sudah dimuat.</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div class="foot-brand" id="tentang">
+                    <a class="brand" href="#berita">
+                        <span class="logo-box" aria-hidden="true">IP</span>
+                        <span class="brand-name">IndoPress</span>
+                    </a>
+                    <p><strong>Visi:</strong> menjadi rujukan berita harian yang dipercaya, membumi, dan bebas kepentingan.<br>
+                    <strong>Misi:</strong> menyajikan informasi akurat dengan bahasa yang jernih &mdash; tanpa clickbait, tanpa kebisingan.</p>
+                    <div class="foot-social">
+                        <a href="#" data-demo="profil X / Twitter" aria-label="X / Twitter IndoPress"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                        <a href="#" data-demo="kanal YouTube" aria-label="YouTube IndoPress"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                        <a href="#" data-demo="profil Pinterest" aria-label="Pinterest IndoPress"><i class="fa-brands fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="#" data-demo="feed RSS" aria-label="Feed RSS IndoPress"><i class="fa-solid fa-rss" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="foot-col">
+                    <h3>Kategori</h3>
+                    <ul>
+                        <li><a href="#" data-cat-filter="entertainment">Entertainment</a></li>
+                        <li><a href="#" data-cat-filter="technology">Technology</a></li>
+                        <li><a href="#" data-cat-filter="business">Business</a></li>
+                        <li><a href="#" data-cat-filter="gadgets">Gadgets</a></li>
+                        <li><a href="#" data-cat-filter="health">Health</a></li>
+                        <li><a href="#" data-cat-filter="sports">Sports</a></li>
+                    </ul>
+                </div>
+
+                <div class="foot-col" id="kontak">
+                    <h3>Help &amp; Support</h3>
+                    <ul>
+                        <li><a class="mail" href="mailto:redaksi@indopress.id">redaksi@indopress.id</a></li>
+                        <li><a class="mail" href="mailto:ads@indopress.id">ads@indopress.id</a></li>
+                        <li><a href="#" data-demo="Pusat Bantuan">Pusat Bantuan</a></li>
+                        <li><a href="#" data-demo="Pedoman Media Siber">Pedoman Media Siber</a></li>
+                        <li><a href="#" data-demo="halaman Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="#" data-demo="pengaturan Cookies">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <div class="foot-col" id="newsletter">
+                    <h3>Newsletter Pagi</h3>
+                    <ul style="margin-bottom:14px;">
+                        <li><span>Ringkasan berita terpenting, dikirim tiap Senin&ndash;Jumat pukul 06.30 WIB.</span></li>
+                    </ul>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <label class="sr-only" for="newsletter-email">Alamat email</label>
+                        <input type="email" id="newsletter-email" placeholder="email@anda.com" required>
+                        <button type="submit">Langganan</button>
+                    </form>
+                    <p class="newsletter-note">Gratis. Berhenti berlangganan kapan saja. (Demo &mdash; tidak mengirim email.)</p>
+                </div>
+            </div>
+
+            <div class="foot-ad" id="iklan">
+                <div>
+                    <h3>Pasang Iklan di IndoPress</h3>
+                    <p>Jangkau 2,4 juta pembaca unik setiap bulan &mdash; dari pembaca setia kota besar hingga komunitas daerah. Tersedia banner display, artikel bersponsor, dan slot newsletter.</p>
+                    <p class="ad-detail">ads@indopress.id &middot; +62 21 5000 346</p>
+                </div>
+                <div class="ad-square" role="img" aria-label="Contoh banner iklan kotak rasio satu banding satu, ukuran 300 kali 300">
+                    <div>
+                        <div class="ad-tag">Ruang Iklan</div>
+                        <div class="ad-size">300&times;300</div>
+                        <div class="ad-copy">Banner kotak 1:1</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-bottom">
+                <span>&copy; <span id="tahun">2026</span> IndoPress Media. Seluruh hak cipta.</span>
+                <span class="foot-legal">
+                    <a href="#" data-demo="halaman Privacy Policy">Privacy Policy</a>
+                    <span class="sep" aria-hidden="true">|</span>
+                    <a href="#" data-demo="pengaturan Cookies">Cookies</a>
+                    <span class="sep" aria-hidden="true">|</span>
+                    <a href="#tentang">About</a>
+                    <span class="sep" aria-hidden="true">|</span>
+                    <span>Template demo &mdash; konten, angka &amp; tokoh fiktif.</span>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var grid = document.getElementById('grid');
+            var cards = Array.prototype.slice.call(grid.querySelectorAll('.post'));
+            var searchForm = document.getElementById('search-form');
+            var searchInput = document.getElementById('search-input');
+            var authorSelect = document.getElementById('author-select');
+            var resultCount = document.getElementById('result-count');
+            var loadMoreBtn = document.getElementById('load-more');
+            var allLoadedNote = document.getElementById('all-loaded');
+            var emptyState = document.getElementById('empty-state');
+            var resetBtn = document.getElementById('reset-filter');
+            var emptyResetBtn = document.getElementById('empty-reset');
+            var toast = document.getElementById('toast');
+            var toastTimer = null;
+
+            var state = {
+                cat: 'all',
+                tag: '',
+                author: 'all',
+                q: '',
+                sort: 'new',
+                limit: 9
+            };
+
+            /* ---------- Toast ---------- */
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                window.clearTimeout(toastTimer);
+                toastTimer = window.setTimeout(function () {
+                    toast.classList.remove('show');
+                }, 4200);
+            }
+
+            /* ---------- Util ---------- */
+
+            /* ---------- Render grid (filter + sort + slice) ---------- */
+            function apply() {
+                var q = state.q.toLowerCase();
+
+                var list = cards.filter(function (card) {
+                    if (state.cat !== 'all' && card.getAttribute('data-category') !== state.cat) {
+                        return false;
+                    }
+                    if (state.tag) {
+                        var tags = card.getAttribute('data-tags').split(' ');
+                        if (tags.indexOf(state.tag) === -1) {
+                            return false;
+                        }
+                    }
+                    if (state.author !== 'all' && card.getAttribute('data-author') !== state.author) {
+                        return false;
+                    }
+                    if (q) {
+                        var title = card.querySelector('.post-title').textContent.toLowerCase();
+                        var excerpt = card.querySelector('.post-excerpt').textContent.toLowerCase();
+                        if (title.indexOf(q) === -1 && excerpt.indexOf(q) === -1) {
+                            return false;
+                        }
+                    }
+                    return true;
+                });
+
+                list.sort(function (a, b) {
+                    if (state.sort === 'views') {
+                        var diff = parseInt(b.getAttribute('data-views'), 10) - parseInt(a.getAttribute('data-views'), 10);
+                        if (diff !== 0) { return diff; }
+                    }
+                    return parseInt(a.getAttribute('data-time'), 10) - parseInt(b.getAttribute('data-time'), 10);
+                });
+
+                /* urutkan ulang DOM sesuai hasil sort */
+                list.forEach(function (card) {
+                    grid.appendChild(card);
+                });
+
+                var visible = list.slice(0, state.limit);
+
+                cards.forEach(function (card) {
+                    var inList = list.indexOf(card) !== -1;
+                    var isVisible = visible.indexOf(card) !== -1;
+                    card.classList.toggle('hide', !(inList && isVisible));
+                });
+
+                /* hitungan hasil */
+                var countText = 'Menampilkan ' + visible.length + ' dari ' + list.length + ' berita';
+                if (q) {
+                    countText += ' untuk \u201c' + state.q + '\u201d';
+                }
+                resultCount.textContent = countText;
+
+                /* tombol load more */
+                var remaining = list.length - visible.length;
+                if (list.length === 0) {
+                    loadMoreBtn.style.display = 'none';
+                    allLoadedNote.classList.remove('show');
+                } else if (remaining > 0) {
+                    loadMoreBtn.style.display = '';
+                    loadMoreBtn.textContent = 'Muat lebih banyak (' + remaining + ')';
+                    allLoadedNote.classList.remove('show');
+                } else {
+                    loadMoreBtn.style.display = 'none';
+                    allLoadedNote.classList.add('show');
+                }
+
+                /* empty state */
+                emptyState.classList.toggle('show', list.length === 0);
+
+                /* sinkronisasi UI filter */
+                syncFilterUI();
+            }
+
+            /* ---------- Sinkronisasi status tombol/chip ---------- */
+            function syncFilterUI() {
+                Array.prototype.forEach.call(document.querySelectorAll('[data-cat-filter]'), function (btn) {
+                    var active = btn.getAttribute('data-cat-filter') === state.cat;
+                    btn.classList.toggle('is-active', active);
+                    if (btn.tagName === 'BUTTON') {
+                        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+                    }
+                });
+                Array.prototype.forEach.call(document.querySelectorAll('[data-cat-nav]'), function (link) {
+                    var active = link.getAttribute('data-cat-nav') === state.cat;
+                    link.classList.toggle('is-active', active);
+                    if (active) {
+                        link.setAttribute('aria-current', 'true');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
+                });
+                Array.prototype.forEach.call(document.querySelectorAll('[data-tag-filter]'), function (btn) {
+                    var active = btn.getAttribute('data-tag-filter') === state.tag;
+                    btn.classList.toggle('is-active', active);
+                    if (btn.classList.contains('chip')) {
+                        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+                    }
+                });
+                Array.prototype.forEach.call(document.querySelectorAll('[data-sort], [data-sort-nav]'), function (btn) {
+                    var value = btn.getAttribute('data-sort') || btn.getAttribute('data-sort-nav');
+                    var active = value === state.sort;
+                    btn.classList.toggle('is-active', active);
+                    if (btn.hasAttribute('data-sort')) {
+                        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+                    }
+                    if (btn.hasAttribute('data-sort-nav')) {
+                        if (active) {
+                            btn.setAttribute('aria-current', 'true');
+                        } else {
+                            btn.removeAttribute('aria-current');
+                        }
+                    }
+                });
+                authorSelect.value = state.author;
+            }
+
+            function scrollToGrid() {
+                document.getElementById('berita').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            function setCategory(value, shouldScroll) {
+                state.cat = value;
+                state.limit = 9;
+                apply();
+                if (shouldScroll) { scrollToGrid(); }
+            }
+
+            function setTag(value, shouldScroll) {
+                state.tag = (state.tag === value) ? '' : value;
+                state.limit = 9;
+                apply();
+                if (shouldScroll) { scrollToGrid(); }
+            }
+
+            function setSort(value, shouldScroll) {
+                state.sort = value;
+                apply();
+                if (shouldScroll) { scrollToGrid(); }
+            }
+
+            function resetAll() {
+                state.cat = 'all';
+                state.tag = '';
+                state.author = 'all';
+                state.q = '';
+                state.sort = 'new';
+                state.limit = 9;
+                searchInput.value = '';
+                apply();
+            }
+
+            /* ---------- Interaksi filter (event delegation) ---------- */
+            document.addEventListener('click', function (e) {
+                var catBtn = e.target.closest('[data-cat-filter]');
+                if (catBtn) {
+                    e.preventDefault();
+                    var inChrome = catBtn.closest('.navbar, .topbar, .site-footer');
+                    setCategory(catBtn.getAttribute('data-cat-filter'), !!inChrome);
+                    return;
+                }
+
+                var navCat = e.target.closest('[data-cat-nav]');
+                if (navCat) {
+                    e.preventDefault();
+                    setCategory(navCat.getAttribute('data-cat-nav'), true);
+                    closeNav();
+                    return;
+                }
+
+                var tagBtn = e.target.closest('[data-tag-filter]');
+                if (tagBtn) {
+                    e.preventDefault();
+                    setTag(tagBtn.getAttribute('data-tag-filter'), false);
+                    return;
+                }
+
+                var sortBtn = e.target.closest('[data-sort]');
+                if (sortBtn) {
+                    setSort(sortBtn.getAttribute('data-sort'), false);
+                    return;
+                }
+
+                var sortNav = e.target.closest('[data-sort-nav]');
+                if (sortNav) {
+                    e.preventDefault();
+                    setSort(sortNav.getAttribute('data-sort-nav'), true);
+                    closeNav();
+                    return;
+                }
+
+                var demoEl = e.target.closest('[data-demo]');
+                if (demoEl) {
+                    e.preventDefault();
+                    showToast('Demo template: ' + demoEl.getAttribute('data-demo') + ' tidak disertakan.');
+                    return;
+                }
+            });
+
+            /* ---------- Pencarian ---------- */
+            function runSearch() {
+                state.q = searchInput.value.trim();
+                state.limit = 9;
+                apply();
+            }
+
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                runSearch();
+            });
+
+            searchInput.addEventListener('input', runSearch);
+
+            /* ---------- Filter penulis & reset ---------- */
+            authorSelect.addEventListener('change', function () {
+                state.author = authorSelect.value;
+                state.limit = 9;
+                apply();
+            });
+
+            resetBtn.addEventListener('click', resetAll);
+            emptyResetBtn.addEventListener('click', resetAll);
+
+            /* ---------- Load more ---------- */
+            loadMoreBtn.addEventListener('click', function () {
+                state.limit += 6;
+                apply();
+            });
+
+            /* ---------- Nav: Home, Author, menu mobile ---------- */
+            var navLinks = document.getElementById('nav-links');
+            var navToggle = document.querySelector('.nav-toggle');
+
+            function closeNav() {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            navToggle.addEventListener('click', function () {
+                var open = navLinks.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+
+            document.getElementById('nav-home').addEventListener('click', function (e) {
+                e.preventDefault();
+                resetAll();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                closeNav();
+            });
+
+            document.getElementById('nav-author').addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('filter-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                window.setTimeout(function () { authorSelect.focus(); }, 450);
+                closeNav();
+            });
+
+            /* ---------- Newsletter (demo) ---------- */
+            var newsletterForm = document.getElementById('newsletter-form');
+
+            newsletterForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var emailInput = document.getElementById('newsletter-email');
+                var email = emailInput.value.trim();
+                if (!/.+@.+\..+/.test(email)) {
+                    showToast('Mohon masukkan alamat email yang valid.');
+                    return;
+                }
+                showToast('Terima kasih! "' + email + '" terdaftar di newsletter demo kami.');
+                newsletterForm.reset();
+            });
+
+            /* ---------- Tahun footer ---------- */
+            var year = document.getElementById('tahun');
+            if (year) {
+                year.textContent = String(new Date().getFullYear());
+            }
+
+            /* ---------- Init ---------- */
+            apply();
+        })();
+    </script>
+</body>
+</html>

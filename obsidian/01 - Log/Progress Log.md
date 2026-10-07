@@ -168,6 +168,25 @@
 
 ---
 
+### # 2026-10-07 - Template News Blog (Noir Maroon)
+- **Tanggal**: 07 Oktober 2026
+- **Aktivitas**:
+  - [x] Membaca vault Obsidian (HUB, Log, Templates Index, Memory, Style Guide)
+  - [x] Membuat template `templates/news-blog-noir-maroon.html` bertema Noir Maroon — portal berita fiktif **IndoPress**
+  - [x] 3 header: utility bar hitam (link + sosial), masthead putih (logo IP, brand, slogan, banner iklan 468×90), navbar maroon sticky (11 navigasi + search box tombol)
+  - [x] Grid berita 15 post: thumbnail 3:2, judul di bawah gambar, cuplikan, kategori + tag, avatar & nama penulis, waktu relatif Indonesia, total views
+  - [x] Filter fungsional: kategori (chip + navbar), tag, penulis (select), pencarian live + tombol, sort Terbaru/Terpopuler (seg + nav), Load More (9 → 15), empty state, reset
+  - [x] Footer lengkap: brand + visi misi, sosial media, kategori, Help & Support + kontak email, newsletter demo, banner iklan 1:1 (210×210), copyright + legal
+  - [x] Verifikasi: tag balance, 0 duplikasi id, syntax JS, 9 kelas FA diaudit terhadap FA 6.5.2 (semua ada), 15 foto + 6 avatar Unsplash HTTP 200 + inspeksi visual, 30/30 elemen gambar load sukses, console 0 error, rasio terkomputasi (thumb 3:2, iklan 1:1) benar
+  - [x] Lighthouse: Accessibility 100 / Best Practices 100 / SEO 100 (0 temuan)
+  - [x] Fix sintaks Google Fonts: `opsz,wght@8..60,600;700` (HTTP 400) → `8..60,600..700` (HTTP 200) — dicatat sebagai Pelajaran 7
+  - [x] Update vault Obsidian (Log, Templates Index, Memory + Pelajaran 7, HUB, Style Guide)
+  - [x] Direview & disetujui user (desktop + mobile) — commit dan push
+- **Template yang dikerjakan**: [[news-blog-noir-maroon]]
+- **Catatan**: Dependensi eksternal: Google Fonts (Source Serif 4, Inter, IBM Plex Mono), Font Awesome 6 seperlunya, foto Unsplash. Konten, angka & tokoh fiktif (demo). Direview & disetujui user; di-commit dan dipush ke `origin`.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -197,3 +216,5 @@
 | 2026-10-07 | landing-fiber-optik-go-green | Pembuatan template landing page fiber optik (Go Green) | ✅ Selesai |
 | 2026-10-07 | landing-fiber-optik-go-green | Audit Lighthouse + fix kontras `--muted` | ✅ Selesai |
 | 2026-10-07 | landing-fiber-optik-go-green | Revisi bar cakupan (v1.0.1), disetujui user, commit & push | ✅ Selesai |
+| 2026-10-07 | news-blog-noir-maroon | Pembuatan template news blog (Noir Maroon) | ✅ Selesai |
+| 2026-10-07 | news-blog-noir-maroon | Disetujui user (desktop + mobile), commit & push | ✅ Selesai |
