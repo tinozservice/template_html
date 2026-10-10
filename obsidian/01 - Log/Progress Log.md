@@ -222,6 +222,21 @@
 
 ---
 
+### # 2026-10-10 - Perbaikan Atribusi Author Git (GitHub)
+- **Tanggal**: 10 Oktober 2026
+- **Aktivitas**:
+  - [x] Audit author/komitter 15 commit: semua tercatat `tinozservice <tinoz@noreply-github.com>` — bukan format noreply GitHub resmi, sehingga tidak teratribusi ke akun
+  - [x] Tulis ulang seluruh history dengan `git filter-branch --env-filter` → `Tino Suratno <tinozservice@users.noreply.github.com>`
+  - [x] Verifikasi tidak ada perubahan isi file: `git diff` tree lama vs baru kosong
+  - [x] Verifikasi email global: `Tino Suratno <tinozservice@users.noreply.github.com>` (sudah diset user)
+  - [x] Force-push ke `origin` memakai `--force-with-lease` (hanya sukses jika remote masih di commit lama)
+  - [x] Verifikasi remote: `origin/master` = `7399456`, author & komitter benar semua
+  - [x] Hapus ref backup `refs/original/` agar tidak ter-push tidak sengaja
+- **Template yang dikerjakan**: -
+- **Catatan**: SHA commit berubah total (lama `1f461d1`..`59ed1ae` → baru `18fce85`..`7399456`). Commit lama masih bisa diakses via URL SHA di GitHub sampai di-GC; atribusi tampilan commit di GitHub kini ke akun `tinozservice`.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -257,3 +272,4 @@
 | 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Revisi palet #FFA600/#FFC65C (teks adaptif) + fix badge `hidden` & brand footer | ✅ Selesai |
 | 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Disetujui user, commit & push | ✅ Selesai |
 | 2026-10-07 | - | Update README.md (7 template) | ✅ Selesai |
+| 2026-10-10 | - | Rewrite author git → Tino Suratno (atribusi GitHub) + force-push | ✅ Selesai |
