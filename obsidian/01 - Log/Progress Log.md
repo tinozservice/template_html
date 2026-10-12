@@ -237,6 +237,19 @@
 
 ---
 
+### # 2026-10-12 - Sinkronisasi Clone Kantor & Config Git Lokal
+- **Tanggal**: 12 Oktober 2026
+- **Aktivitas**:
+  - [x] Set config git lokal (`user.name` = `Tino Suratno`, `user.email` = `tinozservice@users.noreply.github.com`) mengikuti config global terbaru — commit dari komputer kantor kini teratribusi ke akun sebenarnya
+  - [x] Cek status repo GitHub: history remote sudah hasil rewrite 10 Okt (semua 16 commit ber-author benar), HEAD `da1bc38`, push terakhir 10 Okt 2026 15:23 UTC
+  - [x] Temuan: clone kantor divergen — masih di history lama `59ed1ae` (ahead 15 / behind 16, tanpa common ancestor); isi file identik, beda hanya entri log rewrite 10 Okt di `Progress Log.md`
+  - [x] Backup history lama ke branch lokal `backup/pre-rewrite`
+  - [x] `git reset --hard origin/master` — `master` lokal kini sinkron di `da1bc38`, working tree bersih
+- **Template yang dikerjakan**: -
+- **Catatan**: Clone kantor kembali sinkron dengan history hasil rewrite; config email lokal dipin eksplisit (bisa di-unset bila ingin selalu ikut global). Branch `backup/pre-rewrite` hanya di lokal — hapus dengan `git branch -D backup/pre-rewrite` bila tidak diperlukan lagi.
+
+---
+
 ## 📝 Format Penulisan Log
 ```markdown
 ### # YYYY-MM-DD - Deskripsi singkat
@@ -273,3 +286,4 @@
 | 2026-10-07 | ecommerce-ez-fresh-orange-yellow | Disetujui user, commit & push | ✅ Selesai |
 | 2026-10-07 | - | Update README.md (7 template) | ✅ Selesai |
 | 2026-10-10 | - | Rewrite author git → Tino Suratno (atribusi GitHub) + force-push | ✅ Selesai |
+| 2026-10-12 | - | Sync clone kantor (reset ke history rewrite) + set config git lokal | ✅ Selesai |
